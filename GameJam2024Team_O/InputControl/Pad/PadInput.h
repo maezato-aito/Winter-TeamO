@@ -2,6 +2,7 @@
 #include"DxLib.h"
 
 #define BUTTON 16
+#define STICK_MAX 32767.f
 #define QUARTER 32767*0.25
 
 struct Stick
@@ -73,6 +74,30 @@ public:
 	static Stick GetLStick()
 	{
 		return l_stick;
+	}
+
+	//右スティックのxの割合
+	static float GetRStickRationX()
+	{
+		return r_stick.x / STICK_MAX;
+	}
+
+	//右スティックのyの割合
+	static float GetRStickRationY()
+	{
+		return r_stick.y / STICK_MAX;
+	}
+
+	//左スティックのxの割合
+	static float GetLStickRationX()
+	{
+		return l_stick.x / STICK_MAX;
+	}
+
+	//左スティックのyの割合
+	static float GetLStickRationY()
+	{
+		return l_stick.y / STICK_MAX;
 	}
 
 	static char GetOldKey(const int i)
