@@ -33,14 +33,22 @@
     <ClCompile Include="InputControl\Pad\PadInput.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Actor\Character\CharaBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor\Character\Player\Player1.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill\skill1.cpp">
+      <Filter>ソース ファイル</Filter>
     <ClCompile Include="UI\UI.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="bullet.cpp">
       <Filter>skill</Filter>
     </ClCompile>
-    <ClCompile Include="skill1.cpp">
-      <Filter>skill</Filter>
+    <ClCompile Include="Actor\bullet.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,14 +76,22 @@
     <ClInclude Include="Collision\BoxCollision.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Actor\Character\CharaBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor\Character\Player\Player1.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill\skill1.h">
+      <Filter>ヘッダー ファイル</Filter>
     <ClInclude Include="UI\UI.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="bullet.h">
       <Filter>skill</Filter>
     </ClInclude>
-    <ClInclude Include="skill1.h">
-      <Filter>skill</Filter>
+    <ClInclude Include="Actor\bullet.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
