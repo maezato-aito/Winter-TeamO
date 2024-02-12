@@ -13,6 +13,7 @@ skill1::~skill1()
 
 void skill1::UpDate()
 {
+	if(KeyInput::GetKeyDown(KEY_INPUT_SPACE))
 	b->Update();
 }
 
