@@ -1,5 +1,6 @@
 #pragma once
 #include "../SceneBase.h"
+#include"../../UI/UI.h"
 #include"../../Actor/Character/Player/Player1.h"
 
 class GameMainScene :
@@ -7,6 +8,7 @@ class GameMainScene :
 {
 private:
     Player1* player1;
+    UI* ui;
 public:
     //コンストラクタ
     GameMainScene();
