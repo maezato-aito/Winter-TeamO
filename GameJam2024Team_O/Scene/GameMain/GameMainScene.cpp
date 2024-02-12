@@ -23,6 +23,7 @@ SceneBase* GameMainScene::Update()
 
 void GameMainScene::Draw() const
 {
+	Ground();
 	ui->Draw();
 	player1->Draw();
 	Skill1->Draw();
@@ -30,5 +31,5 @@ void GameMainScene::Draw() const
 
 void GameMainScene::Ground() const
 {
-
+	DrawLine(0, STAGE_FLOOR, SCREEN_WIDTH, STAGE_FLOOR, 0xffffff);
 }
