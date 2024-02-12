@@ -1,11 +1,12 @@
 #pragma once
 #include "../SceneBase.h"
+#include"../../UI/UI.h"
 
 class GameMainScene :
     public SceneBase
 {
 private:
-
+    UI* ui;
 public:
     //コンストラクタ
     GameMainScene();

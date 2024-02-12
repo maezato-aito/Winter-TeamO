@@ -3,7 +3,7 @@
 
 GameMainScene::GameMainScene()
 {
-
+	ui = new UI();
 }
 
 GameMainScene::~GameMainScene()
@@ -13,12 +13,13 @@ GameMainScene::~GameMainScene()
 
 SceneBase* GameMainScene::Update()
 {
+	ui->Update();
 	return this;
 }
 
 void GameMainScene::Draw() const
 {
-
+	ui->Draw();
 }
 
 void GameMainScene::Ground() const
