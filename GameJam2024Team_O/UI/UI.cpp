@@ -14,7 +14,28 @@ UI::~UI()
 
 }
 
+//更新処理
 void UI::Update()
+{
+	Count_Timer();
+	Count_Change();
+}
+
+//描画処理
+void UI::Draw()
+{
+	DrawFormatString(0, 0, 0xffffff, "入力回数%d\n", Count); //入力回数カウント
+	DrawFormatString(100, 0, 0xffffff, "制限時間%f\n", Timer); //制限時間カウント
+}
+
+void UI::Count_Change()
+{
+	if (KeyInput::GetKey(KEY_INPUT_SPACE)){
+		Count++;
+	}
+}
+
+void UI::Count_Timer()
 {
 	if (TimerCount < 60)
 	{
@@ -23,20 +44,6 @@ void UI::Update()
 	else
 	{
 		TimerCount = 0;
-		Timer --;
-	}
-	   Count_Change();
-}
-
-void UI::Draw()
-{
-	DrawFormatString(0, 0, 0xffffff, "入力回数%d\n", Count);
-	DrawFormatString(100, 0, 0xffffff, "制限時間%f\n", Timer);
-}
-
-void UI::Count_Change()
-{
-	if (KeyInput::GetKey(KEY_INPUT_SPACE)){
-		Count++;
+		Timer--;
 	}
 }

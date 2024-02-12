@@ -42,6 +42,15 @@
     <ClCompile Include="skill1.cpp">
       <Filter>skill</Filter>
     </ClCompile>
+    <ClCompile Include="Actor\Character\CharaBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor\Character\Player\Player1.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor\Item\Item.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneManager\SceneManager.h">
@@ -76,6 +85,15 @@
     </ClInclude>
     <ClInclude Include="skill1.h">
       <Filter>skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor\Character\CharaBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor\Character\Player\Player1.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor\Item\Item.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

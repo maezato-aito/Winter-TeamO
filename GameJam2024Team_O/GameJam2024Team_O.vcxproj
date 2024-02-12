@@ -23,6 +23,7 @@
     <ClCompile Include="bullet.cpp" />
     <ClCompile Include="InputControl\Key\KeyInput.cpp" />
     <ClCompile Include="InputControl\Pad\PadInput.cpp" />
+    <ClCompile Include="Actor\Item\Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Actor\Character\Player\Player1.cpp" />
     <ClCompile Include="SceneManager\SceneManager.cpp" />
@@ -39,6 +40,7 @@
     <ClInclude Include="InputControl\Key\KeyInput.h" />
     <ClInclude Include="InputControl\Pad\PadInput.h" />
     <ClInclude Include="Actor\Character\Player\Player1.h" />
+    <ClInclude Include="Actor\Item\Item.h" />
     <ClInclude Include="SceneManager\SceneManager.h" />
     <ClInclude Include="Scene\GameMain\GameMainScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
