@@ -10,7 +10,9 @@ GameMainScene::GameMainScene()
 
 GameMainScene::~GameMainScene()
 {
-
+	delete ui;
+	delete player1;
+	delete player2;
 }
 
 SceneBase* GameMainScene::Update()
