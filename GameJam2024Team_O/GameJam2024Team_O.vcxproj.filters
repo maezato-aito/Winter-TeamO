@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="skill">
+      <UniqueIdentifier>{ec65f5f8-f63c-4a57-8dfc-7da8b8f1778f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -29,6 +32,12 @@
     </ClCompile>
     <ClCompile Include="InputControl\Pad\PadInput.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="bullet.cpp">
+      <Filter>skill</Filter>
+    </ClCompile>
+    <ClCompile Include="skill1.cpp">
+      <Filter>skill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +64,12 @@
     </ClInclude>
     <ClInclude Include="Collision\BoxCollision.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet.h">
+      <Filter>skill</Filter>
+    </ClInclude>
+    <ClInclude Include="skill1.h">
+      <Filter>skill</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
