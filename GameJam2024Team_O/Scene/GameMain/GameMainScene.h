@@ -1,21 +1,10 @@
 #pragma once
 #include "../SceneBase.h"
-#include"../../Actor/Player/Player.h"
-#include"../../Actor/Camera/Camera.h"
-
-// ラインを描く範囲
-#define LINE_AREA_SIZE 10000.0f
-
-// ラインの数
-#define LINE_NUM 50
-
 
 class GameMainScene :
     public SceneBase
 {
 private:
-    Player* player;
-    Camera* camera;
 
 public:
     //コンストラクタ
