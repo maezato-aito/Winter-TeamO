@@ -19,13 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bullet.cpp" />
     <ClCompile Include="InputControl\Key\KeyInput.cpp" />
     <ClCompile Include="InputControl\Pad\PadInput.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SceneManager\SceneManager.cpp" />
     <ClCompile Include="Scene\GameMain\GameMainScene.cpp" />
+    <ClCompile Include="skill1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bullet.h" />
     <ClInclude Include="Collider\BoxCollision.h" />
     <ClInclude Include="Collision\BoxCollision.h" />
     <ClInclude Include="common.h" />
@@ -34,6 +37,7 @@
     <ClInclude Include="SceneManager\SceneManager.h" />
     <ClInclude Include="Scene\GameMain\GameMainScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
+    <ClInclude Include="skill1.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
