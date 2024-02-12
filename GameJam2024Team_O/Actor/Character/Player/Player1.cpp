@@ -1,5 +1,7 @@
 #include "Player1.h"
-#include"../../common.h"
+#include "../../../InputControl/Key/KeyInput.h"
+#include "../../../InputControl/Pad/PadInput.h"
+#include "../../../common.h"
 
 Player1::Player1()
 {

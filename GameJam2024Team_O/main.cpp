@@ -1,6 +1,8 @@
 #include"SceneManager/SceneManager.h"
 #include"Scene/GameMain/GameMainScene.h"
 #include"common.h"
+#include "InputControl/key/KeyInput.h"
+#include "InputControl/Pad/PadInput.h"
 
 /************************************************
 * プログラムの開始

@@ -11,5 +11,3 @@
 #include<math.h>
 
 #include"DxLib.h"
-#include"../../InputControl/Key/KeyInput.h"
-#include"../../InputControl/Pad/PadInput.h"
