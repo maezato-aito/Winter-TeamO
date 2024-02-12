@@ -29,7 +29,7 @@ public:
 	~BoxCollision() {};
 
 	//BoxCollider‚Æ‚Ì“–‚½‚è”»’è
-	bool HitBox(const BoxCollision* box_collider)const
+	bool HitBox(const BoxCollision* collision)const
 	{
 		bool ret = false;		//•Ô‚è’l
 
@@ -48,10 +48,10 @@ public:
 		my_y[1] = my_y[0] + area.height;
 
 		//‘ŠŽè‚Ì“–‚½‚è”»’è‚Ì”ÍˆÍ‚ÌŒvŽZ
-		sub_x[0] = box_collider->GetLocation().x;
-		sub_y[0] = box_collider->GetLocation().y;
-		sub_x[1] = sub_x[0] + box_collider->GetArea().width;
-		sub_y[1] = sub_y[0] + box_collider->GetArea().height;
+		sub_x[0] = collision->GetLocation().x;
+		sub_y[0] = collision->GetLocation().y;
+		sub_x[1] = sub_x[0] + collision->GetArea().width;
+		sub_y[1] = sub_y[0] + collision->GetArea().height;
 
 		if ((my_x[0] <= sub_x[1]) &&
 			(sub_x[0] <= my_x[1]) &&

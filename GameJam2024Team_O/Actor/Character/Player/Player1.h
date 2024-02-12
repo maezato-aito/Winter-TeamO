@@ -1,6 +1,8 @@
 #pragma once
 #include "../CharaBase.h"
 
+class GameMainScene;
+
 class Player1 :
     public CharaBase
 {
@@ -15,9 +17,15 @@ public:
     ~Player1();
 
     //XV
-    void Update();
+    void Update(GameMainScene*);
 
     //•`‰æ
     void Draw()const;
+
+    //ˆÚ“®
+    void Movement();
+
+    //“–‚½‚è”»’è
+    void Collision(GameMainScene*);
 };
 

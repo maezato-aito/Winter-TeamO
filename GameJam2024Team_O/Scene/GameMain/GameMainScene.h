@@ -29,5 +29,11 @@ public:
 
     //地面の描画
     void Ground()const;
+
+    //プレイヤー1を取得する
+    Player1* GetPlayer1() { return player1; }
+
+    //プレイヤー2を取得する
+    Player2* GetPlayer2() { return player2; }
 };
 
