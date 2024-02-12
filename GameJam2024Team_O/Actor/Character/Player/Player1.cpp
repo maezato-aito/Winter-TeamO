@@ -8,8 +8,8 @@ Player1::Player1()
 	location.x = SCREEN_WIDTH / 2;
 	location.x = SCREEN_HEIGHT / 2;
 
-	area.height = 100.f;
-	area.width = 100.f;
+	area.height = 50.f;
+	area.width = 50.f;
 }
 
 Player1::~Player1()
@@ -21,14 +21,14 @@ void Player1::Update()
 {
 	if (KeyInput::GetKeyDown(KEY_INPUT_D) || PadInput::GetLStickRationX() > STICK_RATIO)
 	{
-		if (vec.x < MAX_ACC)
+		if (vec.x < MAX_SPEED)
 		{
 			vec.x += 2.f;
 		}
 	}
 	else if (KeyInput::GetKeyDown(KEY_INPUT_A) || PadInput::GetLStickRationX() < -STICK_RATIO)
 	{
-		if (vec.x > -MAX_ACC)
+		if (vec.x > -MAX_SPEED)
 		{
 			vec.x -= 2.f;
 		}
@@ -38,7 +38,13 @@ void Player1::Update()
 		vec.x = 0.f;
 	}
 
-	vec.y = GRAVITY;
+	if ((KeyInput::GetKeyDown(KEY_INPUT_SPACE) || PadInput::OnPressed(XINPUT_BUTTON_A)) && !isAir)
+	{
+		vec.y -= JUMP_POWER;
+		isAir = true;
+	}
+
+	vec.y += GRAVITY;
 
 	location.x += vec.x;
 	location.y += vec.y;
@@ -47,6 +53,7 @@ void Player1::Update()
 	{
 		location.y = STAGE_FLOOR - area.height;
 		vec.y = 0.f;
+		isAir = false;
 	}
 }
 

@@ -8,7 +8,6 @@ class Player1 :
 {
 private:
 
-
 public:
     //コンストラクタ
     Player1();

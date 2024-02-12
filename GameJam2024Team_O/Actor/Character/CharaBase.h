@@ -1,8 +1,9 @@
 #pragma once
 #include"../../Collision/BoxCollision.h"
 
-#define MAX_ACC		10.f
-#define GRAVITY		9.8f
+#define MAX_SPEED		10.f		//最高速度	
+#define GRAVITY			0.8f		//落下速度
+#define JUMP_POWER		10.f			//ジャンプ力
 
 struct Vector2D
 {
@@ -19,7 +20,15 @@ protected:
 	bool isAir;			//空中？
 public:
 	//コンストラクタ
-	CharaBase();
+	CharaBase()
+	{
+		vec = {};
+
+		isAir = false;
+	}
 	//デストラクタ
-	~CharaBase();
+	~CharaBase()
+	{
+
+	}
 };
