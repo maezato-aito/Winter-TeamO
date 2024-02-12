@@ -12,6 +12,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 {
 	double nextTime = GetNowCount();	//システム時間の取得
 
+	//Log.txtを出力しない
+	SetOutApplicationLogValidFlag(FALSE);
+
 	//タイトル
 	SetMainWindowText(GAME_NAME);
 
