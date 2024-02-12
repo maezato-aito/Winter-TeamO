@@ -13,14 +13,14 @@ bullet::~bullet()
 
 void bullet::Update()
 {
-	l.x += velocity;
-	h.x1 = l.x - 50;
-	h.x2 = l.x + 50;
-	h.y1 = l.y - 50;
-	h.y2 = l.y + 50;
+	LocationX += velocity;
+	HitBoxX1 = LocationX - 50;
+	HitBoxX2 = LocationX + 50;
+	HitBoxY1 = LocationY - 50;
+	HitBoxY2 = LocationY + 50;
 }
 
 void bullet::Draw()
 {
-	DrawBox(h.x1, h.y1, h.x2, h.y2, 0xffffff, TRUE);
+ 	DrawBox(HitBoxX1, HitBoxY1, HitBoxX2, HitBoxY2, 0xffffff, TRUE);
 }
