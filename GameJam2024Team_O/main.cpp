@@ -54,7 +54,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 			sceenManager->Draw();
 
-			nextTime += 1.0 / 60.0 * 1000.0;		//フレームレートの設定＋ミリ単位に合わせる
+			nextTime += 1.0 / FPS * 1000.0;		//フレームレートの設定＋ミリ単位に合わせる
 
 			if (nextTime > GetNowCount())
 			{

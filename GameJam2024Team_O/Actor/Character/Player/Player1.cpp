@@ -1,7 +1,6 @@
 #include "Player1.h"
 #include "../../../InputControl/Key/KeyInput.h"
 #include "../../../InputControl/Pad/PadInput.h"
-#include "../../../common.h"
 #include"../../Scene/GameMain/GameMainScene.h"
 
 Player1::Player1()
@@ -13,6 +12,10 @@ Player1::Player1()
 	area.width = 50.f;
 
 	jumpCount = 0;
+
+	stanCount = 0.f;
+
+	isStan = false;
 }
 
 Player1::~Player1()
@@ -22,23 +25,50 @@ Player1::~Player1()
 
 void Player1::Update(GameMainScene* game)
 {
+	if (isStan)
+	{
+		stanCount--;
+	}
+
 	Movement();
 
 	Collision(game);
+
+	if (KeyInput::GetKey(KEY_INPUT_1) || PadInput::OnButton1(PAD_INPUT_START))
+	{
+		isStan = true;
+		stanCount = MAX_STAN_TIME;
+	}
+
+	if (stanCount < 0)
+	{
+		isStan = false;
+	}
+
 }
 
 void Player1::Draw() const
 {
-	DrawBoxAA(location.x, location.y,
-		GetMax().x, GetMax().y,
-		0xffff00, FALSE, 1.2f);
-	DrawFormatStringF(GetCenter().x, GetCenter().y, 0xffff00, "1");
+	if (isStan)
+	{
+		DrawBoxAA(location.x, location.y,
+			GetMax().x, GetMax().y,
+			0xff0000, FALSE, 1.2f);
+		DrawFormatStringF(GetCenter().x, GetCenter().y, 0xff0000, "1");
+	}
+	else
+	{
+		DrawBoxAA(location.x, location.y,
+			GetMax().x, GetMax().y,
+			0xffff00, FALSE, 1.2f);
+		DrawFormatStringF(GetCenter().x, GetCenter().y, 0xffff00, "1");
+	}
 }
 
 void Player1::Movement()
 {
 	//‰E‚ÖˆÚ“®
-	if (KeyInput::GetKeyDown(KEY_INPUT_D) || PadInput::GetLStickRationX1() > STICK_RATIO)
+	if ((KeyInput::GetKeyDown(KEY_INPUT_D) || PadInput::GetLStickRationX1() > STICK_RATIO) && !isStan)
 	{
 		if (vec.x < MAX_SPEED)
 		{
@@ -46,7 +76,7 @@ void Player1::Movement()
 		}
 	}
 	//¶‚ÖˆÚ“®
-	else if (KeyInput::GetKeyDown(KEY_INPUT_A) || PadInput::GetLStickRationX1() < -STICK_RATIO)
+	else if ((KeyInput::GetKeyDown(KEY_INPUT_A) || PadInput::GetLStickRationX1() < -STICK_RATIO) && !isStan)
 	{
 		if (vec.x > -MAX_SPEED)
 		{
@@ -60,7 +90,7 @@ void Player1::Movement()
 	}
 
 	//ƒWƒƒƒ“ƒv
-	if ((KeyInput::GetKey(KEY_INPUT_SPACE) || KeyInput::GetKey(KEY_INPUT_W) || PadInput::OnButton1(XINPUT_BUTTON_A)) && jumpCount < 2)
+	if ((KeyInput::GetKey(KEY_INPUT_SPACE) || KeyInput::GetKey(KEY_INPUT_W) || PadInput::OnButton1(XINPUT_BUTTON_A)) && jumpCount < 2 && !isStan)
 	{
 		vec.y = -JUMP_POWER;
 		isAir = true;

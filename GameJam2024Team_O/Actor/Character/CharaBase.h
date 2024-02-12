@@ -1,7 +1,8 @@
 #pragma once
 #include"../../Collision/BoxCollision.h"
+#include"../../common.h"
 
-#define STICK_RATIO     0.2f
+#define STICK_RATIO     0.2f		//スティックの傾き割合
 #define MAX_SPEED		10.f		//最高速度	
 #define GRAVITY			0.8f		//落下速度
 #define JUMP_POWER		15.f		//ジャンプ力

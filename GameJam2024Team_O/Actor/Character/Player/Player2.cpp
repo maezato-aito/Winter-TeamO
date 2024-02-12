@@ -1,7 +1,6 @@
 #include "Player2.h"
 #include "../../../InputControl/Key/KeyInput.h"
 #include "../../../InputControl/Pad/PadInput.h"
-#include "../../../common.h"
 #include"../../Scene/GameMain/GameMainScene.h"
 
 Player2::Player2()
@@ -11,6 +10,12 @@ Player2::Player2()
 
 	area.height = 50.f;
 	area.width = 50.f;
+
+	skill1Count = 0.f;
+	skill2Count = 0.f;
+
+	isShotSkill1 = false;
+	isShotSkill2 = false;
 }
 
 Player2::~Player2()

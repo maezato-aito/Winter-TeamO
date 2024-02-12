@@ -1,13 +1,19 @@
 #pragma once
 #include "../CharaBase.h"
 
+#define MAX_STAN_TIME   FPS * 2.f   //スタン時間
+
 class GameMainScene;
 
 class Player1 :
     public CharaBase
 {
 private:
-    short jumpCount;
+    short jumpCount;            //ジャンプカウント
+
+    float stanCount;            //スタンカウント
+
+    bool isStan;                //スタン中？
 
 public:
     //コンストラクタ
