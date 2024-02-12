@@ -1,23 +1,23 @@
 #pragma once
 #include "../CharaBase.h"
 
-class Player1 :
+class Player2 :
     public CharaBase
 {
 private:
-    short jumpCount;
 
 public:
     //コンストラクタ
-    Player1();
+    Player2();
 
     //デストラクタ
-    ~Player1();
+    ~Player2();
 
     //更新
     void Update();
 
     //描画
     void Draw()const;
+
 };
 

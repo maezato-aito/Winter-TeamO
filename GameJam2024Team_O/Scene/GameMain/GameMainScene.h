@@ -2,6 +2,7 @@
 #include "../SceneBase.h"
 #include"../../UI/UI.h"
 #include"../../Actor/Character/Player/Player1.h"
+#include"../../Actor/Character/Player/Player2.h"
 #include "../../Skill/skill1.h"
 
 class GameMainScene :
@@ -9,6 +10,7 @@ class GameMainScene :
 {
 private:
     Player1* player1;
+    Player2* player2;
     UI* ui;
     skill1* Skill1;
 

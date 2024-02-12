@@ -1,9 +1,10 @@
 #pragma once
 #include"../../Collision/BoxCollision.h"
 
+#define STICK_RATIO     0.2f
 #define MAX_SPEED		10.f		//最高速度	
 #define GRAVITY			0.8f		//落下速度
-#define JUMP_POWER		10.f			//ジャンプ力
+#define JUMP_POWER		15.f		//ジャンプ力
 
 struct Vector2D
 {

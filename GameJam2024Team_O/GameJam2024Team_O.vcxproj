@@ -19,18 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Actor\bullet.cpp" />
     <ClCompile Include="InputControl\Key\KeyInput.cpp" />
     <ClCompile Include="InputControl\Pad\PadInput.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Actor\Character\Player\Player1.cpp" />
+    <ClCompile Include="Actor\Character\Player\Player2.cpp" />
     <ClCompile Include="SceneManager\SceneManager.cpp" />
     <ClCompile Include="Scene\GameMain\GameMainScene.cpp" />
-    <ClCompile Include="Skill\skill1.cpp" />
     <ClCompile Include="UI\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Actor\bullet.h" />
     <ClInclude Include="Actor\Character\CharaBase.h" />
     <ClInclude Include="Collider\BoxCollision.h" />
     <ClInclude Include="Collision\BoxCollision.h" />
@@ -38,10 +36,10 @@
     <ClInclude Include="InputControl\Key\KeyInput.h" />
     <ClInclude Include="InputControl\Pad\PadInput.h" />
     <ClInclude Include="Actor\Character\Player\Player1.h" />
+    <ClInclude Include="Actor\Character\Player\Player2.h" />
     <ClInclude Include="SceneManager\SceneManager.h" />
     <ClInclude Include="Scene\GameMain\GameMainScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
-    <ClInclude Include="Skill\skill1.h" />
     <ClInclude Include="UI\UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
