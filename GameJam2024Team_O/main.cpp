@@ -11,7 +11,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	double nextTime = GetNowCount();	//システム時間の取得
 
 	//タイトル
-	SetMainWindowText("3D");
+	SetMainWindowText(GAME_NAME);
+
+	//他の DxLib と競合しないようにウィンドウクラスを設定
+	SetMainWindowClassName(GAME_NAME);
 
 	//ウィンドウモードで起動
 	ChangeWindowMode(TRUE);
@@ -28,18 +31,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	//描画先を裏にする
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	// Zバッファを有効にする。
-	SetUseZBuffer3D(TRUE);
-
-	// Zバッファへの書き込みを有効にする。
-	SetWriteZBuffer3D(TRUE);
-
-	//背景の色を灰色にする
-	SetBackgroundColor(128, 128, 128);
-
 	try
 	{
-
 		SceenManager* sceenManager = new SceenManager(dynamic_cast<SceneBase*>(new GameMainScene()));
 
 		//ゲームループ
@@ -56,11 +49,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 			sceenManager->Draw();
 
-
 			nextTime += 1.0 / 60.0 * 1000.0;		//フレームレートの設定＋ミリ単位に合わせる
 
-			//現在の時間が現在のシステム時間をこえたら
-			//現在の時間を現在のシステム時間を引いた分だけ待たせる
 			if (nextTime > GetNowCount())
 			{
 				WaitTimer((int)nextTime - GetNowCount());
