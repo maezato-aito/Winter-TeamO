@@ -1,11 +1,12 @@
 #pragma once
 #include "../SceneBase.h"
+#include"../../Actor/Character/Player/Player1.h"
 
 class GameMainScene :
     public SceneBase
 {
 private:
-
+    Player1* player1;
 public:
     //コンストラクタ
     GameMainScene();

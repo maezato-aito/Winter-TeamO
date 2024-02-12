@@ -19,18 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Actor\Character\CharaBase.cpp" />
     <ClCompile Include="InputControl\Key\KeyInput.cpp" />
     <ClCompile Include="InputControl\Pad\PadInput.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Actor\Character\Player\Player1.cpp" />
     <ClCompile Include="SceneManager\SceneManager.cpp" />
     <ClCompile Include="Scene\GameMain\GameMainScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor\Character\CharaBase.h" />
     <ClInclude Include="Collider\BoxCollision.h" />
     <ClInclude Include="Collision\BoxCollision.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="InputControl\Key\KeyInput.h" />
     <ClInclude Include="InputControl\Pad\PadInput.h" />
+    <ClInclude Include="Actor\Character\Player\Player1.h" />
     <ClInclude Include="SceneManager\SceneManager.h" />
     <ClInclude Include="Scene\GameMain\GameMainScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
