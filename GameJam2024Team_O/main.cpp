@@ -1,6 +1,8 @@
 #include"SceneManager/SceneManager.h"
 #include"Scene/GameMain/GameMainScene.h"
 #include"common.h"
+#include "InputControl/key/KeyInput.h"
+#include "InputControl/Pad/PadInput.h"
 
 /************************************************
 * プログラムの開始
@@ -9,6 +11,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR lpCmdLine, int nCmdShow)
 {
 	double nextTime = GetNowCount();	//システム時間の取得
+
+	//Log.txtを出力しない
+	SetOutApplicationLogValidFlag(FALSE);
 
 	//タイトル
 	SetMainWindowText(GAME_NAME);

@@ -1,5 +1,8 @@
 #pragma once
-#include "bullet.h"
+#include "../Actor/bullet.h"
+#include "../InputControl/Key/KeyInput.h"
+#include"DxLib.h"
+
 class skill1
 {
 private:

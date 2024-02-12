@@ -1,34 +1,32 @@
-#include "Player1.h"
+#include "Player2.h"
 #include "../../../InputControl/Key/KeyInput.h"
 #include "../../../InputControl/Pad/PadInput.h"
 #include "../../../common.h"
 
-Player1::Player1()
+Player2::Player2()
 {
 	location.x = SCREEN_WIDTH / 2;
 	location.x = SCREEN_HEIGHT / 2;
 
 	area.height = 50.f;
 	area.width = 50.f;
-
-	jumpCount = 0;
 }
 
-Player1::~Player1()
+Player2::~Player2()
 {
 
 }
 
-void Player1::Update()
+void Player2::Update()
 {
-	if (KeyInput::GetKeyDown(KEY_INPUT_D) || PadInput::GetLStickRationX1() > STICK_RATIO)
+	if (KeyInput::GetKeyDown(KEY_INPUT_D) || PadInput::GetLStickRationX2() > STICK_RATIO)
 	{
 		if (vec.x < MAX_SPEED)
 		{
 			vec.x += 2.f;
 		}
 	}
-	else if (KeyInput::GetKeyDown(KEY_INPUT_A) || PadInput::GetLStickRationX1() < -STICK_RATIO)
+	else if (KeyInput::GetKeyDown(KEY_INPUT_A) || PadInput::GetLStickRationX2() < -STICK_RATIO)
 	{
 		if (vec.x > -MAX_SPEED)
 		{
@@ -40,11 +38,10 @@ void Player1::Update()
 		vec.x = 0.f;
 	}
 
-	if ((KeyInput::GetKey(KEY_INPUT_SPACE) || PadInput::OnButton1(XINPUT_BUTTON_A)) && jumpCount < 2)
+	if ((KeyInput::GetKey(KEY_INPUT_SPACE) || PadInput::OnButton2(XINPUT_BUTTON_A)) && !isAir)
 	{
 		vec.y = -JUMP_POWER;
 		isAir = true;
-		jumpCount++;
 	}
 
 	vec.y += GRAVITY;
@@ -57,13 +54,13 @@ void Player1::Update()
 		location.y = STAGE_FLOOR - area.height;
 		vec.y = 0.f;
 		isAir = false;
-		jumpCount = 0;
 	}
+
 }
 
-void Player1::Draw() const
+void Player2::Draw() const
 {
 	DrawBoxAA(location.x, location.y,
 		GetMax().x, GetMax().y,
-		0xffff00, FALSE, 1.2f);
+		0x00ffff, FALSE, 1.2f);
 }
