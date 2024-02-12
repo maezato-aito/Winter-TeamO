@@ -21,8 +21,11 @@ GameMainScene::~GameMainScene()
 SceneBase* GameMainScene::Update()
 {
 	ui->Update();
+
 	player1->Update(this);
+
 	player2->Update(this);
+
 	item->Update();
 
 	return this;
@@ -31,9 +34,13 @@ SceneBase* GameMainScene::Update()
 void GameMainScene::Draw() const
 {
 	Ground();
+
 	ui->Draw();
+
 	player1->Draw();
+
 	player2->Draw();
+
 	item->Draw();
 }
 
