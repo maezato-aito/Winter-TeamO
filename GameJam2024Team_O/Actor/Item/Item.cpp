@@ -25,7 +25,7 @@ void Item::Update()
 
 void Item::Draw()
 {
-	DrawBoxAA(x, 10, 60, 50, 0xfffff,TRUE);
+	DrawBoxAA(x, 30, 60, 70, 0xfffff,TRUE);
 }
 
 
