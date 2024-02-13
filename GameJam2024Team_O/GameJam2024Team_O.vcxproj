@@ -39,10 +39,14 @@
     <ClInclude Include="Actor\Character\Player\Player1.h" />
     <ClInclude Include="Actor\Item\Item.h" />
     <ClInclude Include="Actor\Character\Player\Player2.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SceneManager\SceneManager.h" />
     <ClInclude Include="Scene\GameMain\GameMainScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="UI\UI.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GameJam2024Team_O.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
