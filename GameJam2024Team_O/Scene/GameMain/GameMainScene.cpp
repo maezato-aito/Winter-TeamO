@@ -7,7 +7,8 @@ GameMainScene::GameMainScene()
 	ui = new UI();
 	player1 = new Player1();
 	player2 = new Player2();
-	item = new Item();
+	/*item = new Item();*/
+	bonusbox = new BonusBox();
 }
 
 GameMainScene::~GameMainScene()
@@ -15,18 +16,20 @@ GameMainScene::~GameMainScene()
 	delete ui;
 	delete player1;
 	delete player2;
-	delete item;
+	/*delete item;*/
+	delete bonusbox;
 }
 
 SceneBase* GameMainScene::Update()
 {
 	ui->Update();
+	player1->Update();
 
-	player1->Update(this);
+	player2->Update();
 
-	player2->Update(this);
+	/*item->Update();*/
 
-	item->Update();
+	bonusbox->Update();
 
 	return this;
 }
@@ -41,7 +44,10 @@ void GameMainScene::Draw() const
 
 	player2->Draw();
 
-	item->Draw();
+	/*item->Draw();*/
+
+	bonusbox->Draw();
+
 }
 
 void GameMainScene::Ground() const

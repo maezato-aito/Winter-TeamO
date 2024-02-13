@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Actor\Item\BonusBox.cpp" />
     <ClCompile Include="InputControl\Key\KeyInput.cpp" />
     <ClCompile Include="InputControl\Pad\PadInput.cpp" />
     <ClCompile Include="Actor\Item\Item.cpp" />
@@ -31,6 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Character\CharaBase.h" />
+    <ClInclude Include="Actor\Item\BonusBox.h" />
     <ClInclude Include="Collider\BoxCollision.h" />
     <ClInclude Include="Collision\BoxCollision.h" />
     <ClInclude Include="common.h" />

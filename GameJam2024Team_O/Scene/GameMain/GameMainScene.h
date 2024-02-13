@@ -5,6 +5,7 @@
 #include"../../Actor/Character/Player/Player2.h"
 #include "../../Skill/skill1.h"
 #include"../../Actor/Item/Item.h"
+#include"../../Actor/Item/BonusBox.h"
 
 class GameMainScene :
     public SceneBase
@@ -15,6 +16,7 @@ private:
     UI* ui;
     skill1* Skill1;
     Item* item;
+    BonusBox* bonusbox;
 
 public:
     //コンストラクタ
