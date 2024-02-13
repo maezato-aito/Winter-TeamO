@@ -34,9 +34,9 @@ void BonusBox::Count_Box()
 	{
 		CountFrame++;
 	}
-	else
+	/*else
 	{
 		CountFrame == 0;
 		if()
-	}
+	}*/
 }

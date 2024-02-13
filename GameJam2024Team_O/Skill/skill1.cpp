@@ -20,6 +20,7 @@ void skill1::UpDate(GameMainScene* game)
 	if (PadInput::OnButton2(XINPUT_BUTTON_B))
 	{
 		ShootFlg = 1;
+		BT->SetLocation({ P2x,P2y });
 	}
 
 	if(ShootFlg == 1)
