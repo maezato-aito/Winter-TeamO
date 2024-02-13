@@ -58,7 +58,7 @@ void UI::Count_Timer() //タイマーカウント処理
 	{
 		TimerCount = 0;
 
-		if (Timer >= 1)
+		if (Timer > 0)
 		{
 			Timer--;
 		}
