@@ -33,13 +33,13 @@ SceneBase* GameMainScene::Update()
 
 	bonusbox->Update();
 
-	for (int i = 0; i < 10; i++)
-	{
-		if (item[i] != nullptr)
-		{
-			item[i]->Update(player->GetSpeed());
-		}
-	}
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	if (item[i] != nullptr)
+	//	{
+	//		item[i]->Update(player->GetSpeed());
+	//	}
+	//}
 
 	return this;
 }
@@ -54,7 +54,7 @@ void GameMainScene::Draw() const
 
 	player2->Draw();
 
-	item->Draw();
+	/*item->Draw();*/
 
 	bonusbox->Draw();
 
