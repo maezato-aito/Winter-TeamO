@@ -44,6 +44,3 @@ public:
 	//ƒ{ƒ^ƒ“‚ð—£‚µ‚½‚Æ‚«‚ðŽæ“¾‚·‚é
 	static bool GetButtonUp(int key);
 };
-
-
-

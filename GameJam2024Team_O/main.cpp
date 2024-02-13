@@ -1,9 +1,9 @@
 #include"SceneManager/SceneManager.h"
 #include"Scene/GameMain/GameMainScene.h"
 #include"common.h"
-#include "InputControl/key/KeyInput.h"
-#include "InputControl/Pad/PadInput.h"
-
+#include "KeyInput.h"
+#include "PadInput.h"
+#include"SoundManager.h"
 /************************************************
 * プログラムの開始
 *************************************************/
@@ -39,7 +39,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	try
 	{
 		SceenManager* sceenManager = new SceenManager(dynamic_cast<SceneBase*>(new GameMainScene()));
-
+		SoundManager::CreateSoundManager();
 		//ゲームループ
 		while ((ProcessMessage() == 0) &&
 			sceenManager->Update() != nullptr &&

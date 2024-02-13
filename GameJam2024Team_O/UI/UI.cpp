@@ -1,7 +1,7 @@
 #include "UI.h"
 #include "DxLib.h"
-#include "../InputControl/Key/KeyInput.h"
-#include "../InputControl/Pad/PadInput.h"
+#include "KeyInput.h"
+#include "PadInput.h"
 #include "../common.h"
 
 UI::UI()

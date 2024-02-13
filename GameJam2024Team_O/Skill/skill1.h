@@ -1,6 +1,7 @@
 #pragma once
 #include "../Actor/bullet.h"
-#include "../InputControl/Key/KeyInput.h"
+#include "KeyInput.h"
+#include "PadInput.h"
 #include"DxLib.h"
 
 class skill1

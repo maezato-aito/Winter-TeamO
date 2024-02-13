@@ -1,7 +1,6 @@
 #include"../../common.h"
 #include "GameMainScene.h"
 
-
 GameMainScene::GameMainScene()
 {
 	ui = new UI();
@@ -23,9 +22,10 @@ GameMainScene::~GameMainScene()
 SceneBase* GameMainScene::Update()
 {
 	ui->Update();
-	player1->Update();
 
-	player2->Update();
+	player1->Update(this);
+
+	player2->Update(this);
 
 	/*item->Update();*/
 

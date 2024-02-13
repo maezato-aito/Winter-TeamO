@@ -1,6 +1,6 @@
 #include "Player1.h"
-#include "../../../InputControl/Key/KeyInput.h"
-#include "../../../InputControl/Pad/PadInput.h"
+#include "KeyInput.h"
+#include "PadInput.h"
 #include"../../Scene/GameMain/GameMainScene.h"
 
 Player1::Player1()
