@@ -35,5 +35,5 @@ void bullet::Update(GameMainScene* game)
 
 void bullet::Draw()
 {
- 	DrawBox(location.x, location.y, location.x+area.width, location.y + area.height, 0xff0000, TRUE);
+ 	DrawBoxAA(location.x, location.y, location.x+area.width, location.y + area.height, 0xff0000, TRUE);
 }

@@ -15,7 +15,7 @@ GameMainScene::GameMainScene()
 			bonusbox[i] = new BonusBox(i);
 			
 		}
-	}aa
+	}
 	Time = 0;
 
 }
@@ -34,8 +34,6 @@ GameMainScene::~GameMainScene()
 			delete bonusbox[i];
 		}
 	}
-	delete bonusbox;
-
 }
 
 
@@ -106,7 +104,7 @@ void GameMainScene::Draw() const
 		if (item[i] != nullptr)
 		{
 			item[i]->Draw();
-			DrawFormatString(item[i]->GetCenter().x, item[i]->GetCenter().y, 0xffffff, "%d", i);
+			DrawFormatStringF(item[i]->GetCenter().x, item[i]->GetCenter().y, 0xffffff, "%d", i);
 		}
 	}
 

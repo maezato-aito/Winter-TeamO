@@ -10,15 +10,13 @@ class BonusBox :public BoxCollision
 
 
 public:
-	BonusBox(int & i);
+	BonusBox(int& i);
 	~BonusBox();
 
 	void Update(GameMainScene*);
-	void Draw(int & i);
+	void Draw(int& i);
 
 private:
 	void Count_Box(GameMainScene*);
 
 };
-
-

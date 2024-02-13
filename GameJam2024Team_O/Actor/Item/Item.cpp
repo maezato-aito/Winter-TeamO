@@ -42,7 +42,7 @@ void Item::Update(GameMainScene*game)
 void Item::Draw()
 {
 	//‰æ‘œ‚Ì•`‰æ
-	DrawBox(location.x,location.y, location.x+area.width,location.y+area.height,0x00ffff,TRUE);
+	DrawBoxAA(location.x,location.y, location.x+area.width,location.y+area.height,0x00ffff,TRUE);
 }
 
 void Item::Finalize()
