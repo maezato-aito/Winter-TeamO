@@ -9,6 +9,8 @@
     <ClCompile Include="Actor\Item\BonusBox.cpp" />
     <ClCompile Include="Actor\Item\Item.cpp" />
     <ClCompile Include="Actor\Character\Player\Player2.cpp" />
+    <ClCompile Include="Actor\bullet.cpp" />
+    <ClCompile Include="Skill\skill1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -40,5 +42,11 @@
     <ClInclude Include="Scene\GameMain\GameMainScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="UI\UI.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GameJam2024Team_O.rc" />
+    <ClInclude Include="Actor\bullet.h" />
+    <ClInclude Include="Skill\skill1.h" />
   </ItemGroup>
 </Project>

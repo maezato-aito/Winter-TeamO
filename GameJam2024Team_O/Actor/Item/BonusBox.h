@@ -1,25 +1,23 @@
 #pragma once
 #pragma once
 #include"../../Collision/BoxCollision.h"
+#include"../../UI/UI.h"
+class GameMainScene;
 class BonusBox :public BoxCollision
 {
-	float x;
-	float Vector;
 	int count;
+	float CountFrame;
+
 
 public:
-	BonusBox();
+	BonusBox(int & i);
 	~BonusBox();
 
-	float Get_Box_x();
-
-	void Update();
-	void Draw();
+	void Update(GameMainScene*);
+	void Draw(int & i);
 
 private:
-	void Change_Vector();
-	void Move_Change();
-	void Count_Box();
+	void Count_Box(GameMainScene*);
 
 };
 

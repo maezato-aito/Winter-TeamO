@@ -7,6 +7,8 @@
 #include"../../Actor/Item/Item.h"
 #include"../../Actor/Item/BonusBox.h"
 
+#define MAX_ITEM    10
+
 class GameMainScene :
     public SceneBase
 {
@@ -15,8 +17,9 @@ private:
     Player2* player2;
     UI* ui;
     skill1* Skill1;
-    Item** item;
-    BonusBox* bonusbox;
+    Item* item[MAX_ITEM];
+    BonusBox* bonusbox[2];
+    int Time;
 
 public:
     //コンストラクタ
@@ -33,6 +36,9 @@ public:
 
     //地面の描画
     void Ground()const;
+
+    //初期化処理
+    void Initialize();
 
     //プレイヤー1を取得する
     Player1* GetPlayer1() { return player1; }

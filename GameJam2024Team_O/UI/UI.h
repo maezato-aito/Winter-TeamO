@@ -2,10 +2,9 @@
 class UI
 {
 private:
-	int Count;
 	int count;
-	float Timer;
-	float TimerCount;
+	int Timer;
+	int TimerCount;
 	float Score;
 	float x1;
 	float y1;
@@ -17,12 +16,10 @@ public:
 
 	void Update();
 	void Draw();
+	void Count_Score(int& item);
+	int Get_Timer();
 
 private:
-	void Count_Change();
 	void Count_Timer();
-	void Count_Score();
-	void Change_Box();
-	void Change_Vector();
 };
 
