@@ -25,9 +25,7 @@ void UI::Update()
 {
 	Count_Timer();
 	Count_Timer();
-	Count_Score();
-	Change_Box();
-	Change_Vector();
+
 }
 
 //描画処理
@@ -35,7 +33,6 @@ void UI::Draw()
 {
 	DrawFormatString(550, 0, 0xffffff, "制限時間%d\n", Timer); //制限時間カウント
 	DrawFormatString(1000, 0, 0xffffff, "SCORE%f\n",Score); //スコアの表示
-	DrawBoxAA(x1, y1, x1+100, y1+100, 0xfffffa, TRUE); //ボーナスボックス
 }
 
 
@@ -58,31 +55,12 @@ void UI::Count_Timer() //タイマーカウント処理
 	}
 }
 
-void UI::Count_Score() //スコアカウント処理
+void UI::Count_Score(int & item) //スコアカウント処理
 {
-	if (x1 >= 700)
-	{
-		if (count == 1)
-		{
-			Score++;
-		}
-		count = 0;
-	}
-	else
-	{
-		count = 1;
-	}
+	Score += item;
 }
 
-void UI::Change_Box() //ボックス移動処理
+int UI::Get_Timer()
 {
-	x1 += Move_Box;
-}
-
-void UI::Change_Vector()//ボックス移動方向変更処理
-{
-	if (x1 >= 1100 || x1 <= 100)
-	{
-		Move_Box *= -1;
-	}
+	return Timer;
 }

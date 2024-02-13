@@ -18,7 +18,7 @@ private:
     UI* ui;
     skill1* Skill1;
     Item* item[MAX_ITEM];
-    BonusBox* bonusbox;
+    BonusBox* bonusbox[2];
     int Time;
 
 public:

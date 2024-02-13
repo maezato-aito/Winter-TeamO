@@ -16,11 +16,10 @@ public:
 
 	void Update();
 	void Draw();
+	void Count_Score(int& item);
+	int Get_Timer();
 
 private:
 	void Count_Timer();
-	void Count_Score();
-	void Change_Box();
-	void Change_Vector();
 };
 

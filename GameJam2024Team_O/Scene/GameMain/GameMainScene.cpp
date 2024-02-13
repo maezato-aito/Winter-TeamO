@@ -6,12 +6,18 @@ GameMainScene::GameMainScene()
 	ui = new UI();
 	player1 = new Player1();
 	player2 = new Player2();
-	bonusbox = new BonusBox();
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
 		item[i] = new Item();
+
+		if (i < 2)
+		{
+			bonusbox[i] = new BonusBox(i);
+			
+		}
 	}
 	Time = 0;
+
 }
 
 GameMainScene::~GameMainScene()
@@ -22,6 +28,11 @@ GameMainScene::~GameMainScene()
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
 		delete item[i];
+
+		if (i < 2)
+		{
+			delete bonusbox[i];
+		}
 	}
 	delete bonusbox;
 
@@ -35,7 +46,18 @@ SceneBase* GameMainScene::Update()
 
 	player2->Update(this);
 
-	bonusbox->Update();
+	if (ui->Get_Timer() < 50)
+	{
+		for (int i = 0; i < 2; i++)
+		{
+			if (bonusbox[i] != nullptr)
+			{
+				bonusbox[i]->Update(this);
+
+			}
+
+		}
+	}
 
 	Time++;
 	
@@ -54,6 +76,7 @@ SceneBase* GameMainScene::Update()
 			//}
 			if (item[i]->HitBox(player1))
 			{
+				/*ui->Count_Score(item);*/
 				delete item[i];
 				item[i] = nullptr;
 				Initialize();
@@ -77,12 +100,7 @@ void GameMainScene::Draw() const
 {
 	Ground();
 
-	ui->Draw();
-
-	player1->Draw();
-
-	player2->Draw();
-
+	
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
 		if (item[i] != nullptr)
@@ -92,7 +110,24 @@ void GameMainScene::Draw() const
 		}
 	}
 
-	bonusbox->Draw();
+	if (ui->Get_Timer() < 50)
+	{
+		for (int i = 0; i < 2; i++)
+		{
+			if (bonusbox[i] != nullptr)
+			{
+				bonusbox[i]->Draw(i);
+
+			}
+
+		}
+	}
+
+	player1->Draw();
+
+	player2->Draw();
+
+	ui->Draw();
 
 }
 
