@@ -1,21 +1,25 @@
 #pragma once
 #include "../Collision/BoxCollision.h"
-#include "Character/Player/Player2.h"
-#include "Character/Player/Player1.h"
+
+class GameMainScene;
 
 class bullet :public BoxCollision
 {
 private:
 	float Speed;
-	/*Player2* P2;
-	Player1* P1;*/
+
+
+	float StartBulletx;
+	float StartBullety;
 
 public:
 
-	bullet(float Px, float Py);
+	bullet();
 	~bullet();
 
-	void Update();
+	void initialize();
+
+	void Update(GameMainScene* game);
 	void Draw();
 };
 

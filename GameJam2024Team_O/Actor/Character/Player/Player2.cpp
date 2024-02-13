@@ -17,6 +17,8 @@ Player2::Player2()
 
 	isShotSkill1 = false;
 	isShotSkill2 = false;
+
+	SK = new skill1();
 }
 
 Player2::~Player2()
@@ -27,7 +29,7 @@ Player2::~Player2()
 void Player2::Update(GameMainScene* game)
 {
 	Movement();
-
+	SK->UpDate(game);
 	Collision(game);
 }
 
@@ -37,6 +39,7 @@ void Player2::Draw() const
 		GetMax().x, GetMax().y,
 		0x00ffff, FALSE, 1.2f);
 	DrawFormatStringF(GetCenter().x, GetCenter().y, 0x00ffff, "2");
+	SK->Draw();
 }
 
 void Player2::Movement()
