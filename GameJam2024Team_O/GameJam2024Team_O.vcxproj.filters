@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Actor\bullet.cpp" />
-    <ClCompile Include="Actor\Character\CharaBase.cpp" />
     <ClCompile Include="InputControl\Key\KeyInput.cpp" />
     <ClCompile Include="InputControl\Pad\PadInput.cpp" />
     <ClCompile Include="main.cpp" />
@@ -10,7 +8,9 @@
     <ClCompile Include="SceneManager\SceneManager.cpp" />
     <ClCompile Include="Scene\GameMain\GameMainScene.cpp" />
     <ClCompile Include="UI\UI.cpp" />
-    <ClCompile Include="Skill\skill1.cpp" />
+    <ClCompile Include="Actor\Item\BonusBox.cpp" />
+    <ClCompile Include="Actor\Item\Item.cpp" />
+    <ClCompile Include="Actor\Character\Player\Player2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -31,64 +31,27 @@
     <ClCompile Include="UI\UI.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="bullet.cpp">
-      <Filter>skill</Filter>
-    </ClCompile>
-    <ClCompile Include="skill1.cpp">
-      <Filter>skill</Filter>
-    </ClCompile>
     <ClCompile Include="Actor\Character\CharaBase.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Actor\Character\Player\Player1.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Actor\Item\Item.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SceneManager\SceneManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\GameMain\GameMainScene.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\SceneBase.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="common.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="InputControl\Key\KeyInput.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="InputControl\Pad\PadInput.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Collider\BoxCollision.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Collision\BoxCollision.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\UI.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="bullet.h">
-      <Filter>skill</Filter>
-    </ClInclude>
-    <ClInclude Include="skill1.h">
-      <Filter>skill</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor\Character\CharaBase.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor\Character\Player\Player1.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor\Item\Item.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
+    <ClInclude Include="Actor\Character\CharaBase.h" />
+    <ClInclude Include="Actor\Item\BonusBox.h" />
+    <ClInclude Include="Collider\BoxCollision.h" />
+    <ClInclude Include="Collision\BoxCollision.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="InputControl\Key\KeyInput.h" />
+    <ClInclude Include="InputControl\Pad\PadInput.h" />
+    <ClInclude Include="Actor\Character\Player\Player1.h" />
+    <ClInclude Include="Actor\Item\Item.h" />
+    <ClInclude Include="Actor\Character\Player\Player2.h" />
+    <ClInclude Include="SceneManager\SceneManager.h" />
+    <ClInclude Include="Scene\GameMain\GameMainScene.h" />
+    <ClInclude Include="Scene\SceneBase.h" />
+    <ClInclude Include="UI\UI.h" />
   </ItemGroup>
 </Project>
