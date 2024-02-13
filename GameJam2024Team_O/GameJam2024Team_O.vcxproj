@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Actor\bullet.cpp" />
     <ClCompile Include="Actor\Item\BonusBox.cpp" />
     <ClCompile Include="Actor\Item\Item.cpp" />
     <ClCompile Include="main.cpp" />
@@ -29,6 +30,7 @@
     <ClCompile Include="UI\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor\bullet.h" />
     <ClInclude Include="Actor\Character\CharaBase.h" />
     <ClInclude Include="Actor\Item\BonusBox.h" />
     <ClInclude Include="Collider\BoxCollision.h" />

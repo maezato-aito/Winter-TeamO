@@ -1,7 +1,8 @@
 #include "Player2.h"
 #include "KeyInput.h"
 #include "PadInput.h"
-#include"../../Scene/GameMain/GameMainScene.h"
+#include"../Scene/GameMain/GameMainScene.h"
+
 
 Player2::Player2()
 {
