@@ -4,6 +4,8 @@
 #include "KeyInput.h"
 #include "PadInput.h"
 #include"SoundManager.h"
+#include"ImageManager.h"
+
 /************************************************
 * プログラムの開始
 *************************************************/
@@ -38,8 +40,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	try
 	{
-		SceenManager* sceenManager = new SceenManager(dynamic_cast<SceneBase*>(new GameMainScene()));
 		SoundManager::CreateSoundManager();
+
+		ImageManager::CreateImageManager();
+
+		SceenManager* sceenManager = new SceenManager(dynamic_cast<SceneBase*>(new GameMainScene()));
 		//ゲームループ
 		while ((ProcessMessage() == 0) &&
 			sceenManager->Update() != nullptr &&
@@ -47,7 +52,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 		{	//画面の初期化
 			ClearDrawScreen();
-
+			
 			KeyInput::Update();
 
 			PadInput::Update();
