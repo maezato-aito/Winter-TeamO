@@ -2,7 +2,7 @@
 #include "KeyInput.h"
 #include "PadInput.h"
 #include"../../Scene/GameMain/GameMainScene.h"
-kl
+
 Player1::Player1()
 {
 	location.x = SCREEN_WIDTH / 4;
