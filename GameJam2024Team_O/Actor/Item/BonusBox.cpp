@@ -1,15 +1,10 @@
 #include "BonusBox.h"
 #include"DxLib.h"
-#include"../../Scene/GameMain/GameMainScene.h"
 
-BonusBox::BonusBox(int & i)
+BonusBox::BonusBox()
 {
-	location.x = 300.0f * (i + 1);
-	location.y = 550.0f;
-
-	area.width = 100;
-	area.height = 100;
-
+	x = 300.0f;
+	y = 100.0f;
 	count = 0;
 	CountFrame = 0;
 }
@@ -19,32 +14,29 @@ BonusBox::~BonusBox()
 
 }
 
-void BonusBox::Update(GameMainScene*Game)
+void BonusBox::Update()
 {
-	Count_Box(Game);
+	Count_Box();
 }
 
-void BonusBox::Draw(int & i)
+void BonusBox::Draw()
 {
-	
-	DrawFormatString(750*(i + 1), 0, 0xffffff, "カウント%d%%\n", count);
-	DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0xffffff, TRUE);
+	DrawBoxAA(x, y, x + 100, y + 100, 0xfffff, TRUE);
+	DrawBoxAA(x + 300, y + 300, x + 400, y + 400, 0xfffff, TRUE);
+	DrawFormatString(750, 0, 0xffffff, "カウント%d\n", count);
 	
 }
 
 
-void BonusBox::Count_Box(GameMainScene*Game)
+void BonusBox::Count_Box()
 {
-	if (CountFrame < 30) 
+	if (CountFrame <= 60) 
 	{
 		CountFrame++;
 	}
-	else
+	/*else
 	{
-		CountFrame = 0;
-		if (HitBox(Game->GetPlayer1()))
-		{
-			count++;
-		}
-	}
+		CountFrame == 0;
+		if()
+	}*/
 }

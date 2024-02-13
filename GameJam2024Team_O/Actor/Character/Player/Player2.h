@@ -6,6 +6,7 @@
 #define MAX_SKILL_2_COOL_TIME   FPS * 20.f    //スキル2のクールタイム
 
 class GameMainScene;
+class skill1;
 
 class Player2 :
     public CharaBase
@@ -18,6 +19,9 @@ private:
     bool isShotSkill2;              //スキル2は撃てる？
 
 public:
+
+    skill1* SK;
+
     //コンストラクタ
     Player2();
 

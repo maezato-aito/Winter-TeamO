@@ -2,35 +2,35 @@
 #include"DxLib.h"
 #include "../Scene/GameMain/GameMainScene.h"
 
-bullet::bullet(float Px, float Py)
+bullet::bullet()
 {
-	/*P1 = new Player1();
-	P2 = new Player2();
-
-	location.x = P2->GetLocation().x ;
-	location.y = P2->GetLocation().y;*/
-
-	area.width = 50;
-	area.height = 50;
-
-	Speed = 10;
+	initialize();
 }
 
 bullet::~bullet()
 {
 
 }
-
-void bullet::Update()
+void bullet::initialize()
 {
-	/*if (P2->GetLocation().x < P1->GetLocation().x)
+	location.x = 0;
+	location.y = 0;
+	area.width = 10;
+	area.height = 10;
+
+	Speed = 10;
+}
+void bullet::Update(GameMainScene* game)
+{
+
+	if (game->GetPlayer2()->GetLocation().x < game->GetPlayer1()->GetLocation().x)
 	{
-		location.x += Speed;
+		location.x +=  Speed;
 	}
-	if (P2->GetLocation().x > P1->GetLocation().x)
+	if (game->GetPlayer2()->GetLocation().x > game->GetPlayer1()->GetLocation().x)
 	{
-		location.x -= Speed;
-	}*/
+		location.x -=  Speed;
+	}
 }
 
 void bullet::Draw()

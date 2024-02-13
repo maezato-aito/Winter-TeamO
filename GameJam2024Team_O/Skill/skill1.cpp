@@ -1,5 +1,5 @@
 #include "skill1.h"
-
+#include "../Scene/GameMain/GameMainScene.h"
 skill1::skill1()
 {
 	ShootFlg = 0;
@@ -11,18 +11,22 @@ skill1::~skill1()
 
 }
 
-void skill1::UpDate()
+void skill1::UpDate(GameMainScene* game)
 {
-	if (KeyInput::GetKeyDown(KEY_INPUT_SPACE))
+	P2x = game->GetPlayer2()->GetCenter().x;
+	P2y = game->GetPlayer2()->GetCenter().y;
+
+
+	if (PadInput::OnButton2(XINPUT_BUTTON_B))
 	{
 		ShootFlg = 1;
+		BT->SetLocation({ P2x,P2y });
 	}
 
 	if(ShootFlg == 1)
 	{
-		BT->Update();
+		BT->Update(game);
 	}
-	
 }
 
 void skill1::Draw()
