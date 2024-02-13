@@ -7,7 +7,9 @@
 class skill1
 {
 private:
-	bullet* b;
+	bool ShootFlg;
+	/*bullet* BT;*/
+
 public:
 	skill1();
 	~skill1();

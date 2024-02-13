@@ -9,6 +9,7 @@
     <ClCompile Include="Actor\Item\BonusBox.cpp" />
     <ClCompile Include="Actor\Item\Item.cpp" />
     <ClCompile Include="Actor\Character\Player\Player2.cpp" />
+    <ClCompile Include="Actor\bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -40,5 +41,6 @@
     <ClInclude Include="Scene\GameMain\GameMainScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="UI\UI.h" />
+    <ClInclude Include="Actor\bullet.h" />
   </ItemGroup>
 </Project>
