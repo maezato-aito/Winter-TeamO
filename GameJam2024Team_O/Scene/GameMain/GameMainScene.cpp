@@ -15,7 +15,7 @@ GameMainScene::GameMainScene()
 			bonusbox[i] = new BonusBox(i);
 			
 		}
-	}
+	}aa
 	Time = 0;
 
 }
