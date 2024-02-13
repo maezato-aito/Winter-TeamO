@@ -5,6 +5,7 @@ class BonusBox :public BoxCollision
 {
 	float x;
 	float Vector;
+	int count;
 
 public:
 	BonusBox();

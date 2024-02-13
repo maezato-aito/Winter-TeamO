@@ -15,7 +15,7 @@ private:
     Player2* player2;
     UI* ui;
     skill1* Skill1;
-    Item* item;
+    Item** item;
     BonusBox* bonusbox;
 
 public:
