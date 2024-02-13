@@ -7,8 +7,12 @@ GameMainScene::GameMainScene()
 	ui = new UI();
 	player1 = new Player1();
 	player2 = new Player2();
-	/*item = new Item();*/
+	item = new Item * [10];
 	bonusbox = new BonusBox();
+	for (int i = 0; i < 10; i++)
+	{
+		item[i] = nullptr;
+	}
 }
 
 GameMainScene::~GameMainScene()
@@ -16,21 +20,27 @@ GameMainScene::~GameMainScene()
 	delete ui;
 	delete player1;
 	delete player2;
-	/*delete item;*/
+	delete item;
 	delete bonusbox;
+
 }
 
 SceneBase* GameMainScene::Update()
 {
 	ui->Update();
-
 	player1->Update(this);
 
 	player2->Update(this);
 
-	/*item->Update();*/
-
 	bonusbox->Update();
+
+	for (int i = 0; i < 10; i++)
+	{
+		if (item[i] != nullptr)
+		{
+			item[i]->Update(player->GetSpeed());
+		}
+	}
 
 	return this;
 }
@@ -45,7 +55,7 @@ void GameMainScene::Draw() const
 
 	player2->Draw();
 
-	/*item->Draw();*/
+	item->Draw();
 
 	bonusbox->Draw();
 
