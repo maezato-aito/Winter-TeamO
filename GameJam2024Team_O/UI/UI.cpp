@@ -6,7 +6,6 @@
 
 UI::UI()
 {
-	Count = 0;
 	count = 0;
 	Timer = 60;
 	TimerCount = 0;
@@ -25,7 +24,6 @@ UI::~UI()
 void UI::Update()
 {
 	Count_Timer();
-	Count_Change();
 	Count_Timer();
 	Count_Score();
 	Change_Box();
@@ -35,22 +33,16 @@ void UI::Update()
 //描画処理
 void UI::Draw()
 {
-	DrawFormatString(0, 0, 0xffffff, "入力回数%d\n", Count); //入力回数カウント
-	DrawFormatString(100, 0, 0xffffff, "制限時間%f\n", Timer); //制限時間カウント
+	DrawFormatString(550, 0, 0xffffff, "制限時間%d\n", Timer); //制限時間カウント
 	DrawFormatString(1000, 0, 0xffffff, "SCORE%f\n",Score); //スコアの表示
 	DrawBoxAA(x1, y1, x1+100, y1+100, 0xfffffa, TRUE); //ボーナスボックス
 }
 
-void UI::Count_Change() //入力カウント処理（スペース）
-{
-	if (KeyInput::GetKey(KEY_INPUT_SPACE)){
-		Count++;
-	}
-}
+
 
 void UI::Count_Timer() //タイマーカウント処理
 {
-	if (TimerCount < 60)
+	if (TimerCount < 120)
 	{
 		TimerCount++;
 	}
@@ -58,7 +50,7 @@ void UI::Count_Timer() //タイマーカウント処理
 	{
 		TimerCount = 0;
 
-		if (Timer >= 1)
+		if (Timer > 0)
 		{
 			Timer--;
 		}

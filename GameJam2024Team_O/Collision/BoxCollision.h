@@ -84,4 +84,10 @@ public:
 
 	//area‚ÌŽæ“¾
 	Area GetArea()const { return area; }
+
+	//ƒƒP[ƒVƒ‡ƒ“Ý’è
+	void SetLocation(Location location)
+	{
+		this->location = location;
+	}
 };
