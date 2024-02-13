@@ -7,8 +7,8 @@ class bullet :public BoxCollision
 {
 private:
 	float Speed;
-	Player2* P2;
-	Player1* P1;
+	/*Player2* P2;
+	Player1* P1;*/
 
 public:
 
