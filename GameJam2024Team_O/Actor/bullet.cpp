@@ -41,3 +41,14 @@ void bullet::MoveBullet(GameMainScene* game)
 		Speed = -15;
 	}
 }
+
+bool bullet::OnFlg()
+{
+	isflg = true;
+	return isflg;
+}
+bool bullet::OffFlg()
+{
+	isflg = false;
+	return isflg;
+}
