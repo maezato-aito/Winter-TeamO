@@ -2,9 +2,8 @@
 #include"../Scene/GameMain/GameMainScene.h"
 #include"../Scene/End/EndScene.h"
 #include"../Scene/Help/HelpScene.h"
-#include"PadInput.h"
-#include"KeyInput.h"
 #include"../common.h"
+#include"../Utility/FontManager.h"
 
 TitleScene::TitleScene()
 {
@@ -79,20 +78,14 @@ SceneBase* TitleScene::Update()
 
 void TitleScene::Draw() const
 {
-
 	//カーソル
 	DrawTriangle(480, 400 + location.y, 450, 380 + location.y, 450, 420 + location.y, 0xffffff, TRUE);
 
-	SetFontSize(36);
+	DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 200, 180, 0xffffff, FontManager::GetHandle(64), "%s\n", GAME_NAME);
 
-	DrawFormatString(SCREEN_WIDTH / 2 - 100, 180, 0xffffff, "%s", GAME_NAME);
+	DrawStringToHandle(SCREEN_WIDTH / 2 - 100, 380, "スタート", 0xffffff, FontManager::GetHandle(32), 0x000000);
 
-	DrawString(SCREEN_WIDTH / 2 - 100, 380, "スタート", 0xffffff);
+	DrawStringToHandle(SCREEN_WIDTH / 2 - 100, 430, "ヘルプ", 0xffffff, FontManager::GetHandle(32), 0x000000);
 
-	DrawString(SCREEN_WIDTH / 2 - 100, 430, "ヘルプ", 0xffffff);
-
-	DrawString(SCREEN_WIDTH / 2 - 100, 480, "終了", 0xffffff);
-
-	SetFontSize(16);
-
+	DrawStringToHandle(SCREEN_WIDTH / 2 - 100, 480, "エンド", 0xffffff, FontManager::GetHandle(32), 0x000000);
 }

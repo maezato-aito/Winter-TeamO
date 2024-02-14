@@ -92,7 +92,7 @@ SceneBase* GameMainScene::Update()
 			item[i]->Update(this);
 			if (item[i]->HitBox(player1) && !player1->GetIsStan())
 			{
-				ui->Count_Score(item[i]->GetScoa());
+				ui->Count_Score(item[i]->GetScore());
 				delete item[i];
 				item[i] = nullptr;
 				Initialize();

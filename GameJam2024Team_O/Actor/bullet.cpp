@@ -38,7 +38,7 @@ void bullet::Draw()
 {
 	if (isflg)
 	{
-		DrawGraph(location.x - BULLET_IMAGE_SHIFT_X, location.y - BULLET_IMAGE_SHIFT_Y, ImageManager::GetHandle(BULLET), TRUE);
+		DrawGraphF(location.x - BULLET_IMAGE_SHIFT_X, location.y - BULLET_IMAGE_SHIFT_Y, ImageManager::GetHandle(BULLET), TRUE);
 	}
 }
 

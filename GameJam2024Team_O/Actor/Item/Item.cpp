@@ -30,7 +30,7 @@ void Item::Initialize()
 	}
 	if(type==common)
 		{
-			scoa=500;
+			score=500;
 
 		//お金の当たり判定の確認
 			area.width = 54;
@@ -38,7 +38,7 @@ void Item::Initialize()
 		}
 	else if (type == rare)
 	{
-		scoa = 1000;
+		score = 1000;
 
 		//金塊の当たり判定の確認
 		area.width = 54;
@@ -68,11 +68,11 @@ void Item::Draw()
 
 	if (type == common)
 	{
-		DrawRotaGraph(GetCenter().x ,GetCenter().y, 0.11f, 0.0f, ImageManager::GetHandle(Money), TRUE);
+		DrawRotaGraphF(GetCenter().x ,GetCenter().y, 0.11f, 0.0f, ImageManager::GetHandle(Money), TRUE);
 	}
 	else
 	{
-		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.11f, 0.0f, ImageManager::GetHandle(Ingot), TRUE);
+		DrawRotaGraphF(GetCenter().x, GetCenter().y, 0.11f, 0.0f, ImageManager::GetHandle(Ingot), TRUE);
 	}
 }
 

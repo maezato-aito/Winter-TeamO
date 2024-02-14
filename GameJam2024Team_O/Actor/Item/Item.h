@@ -13,10 +13,10 @@ enum
 class Item:public BoxCollision 
 {
 private:
-	int type;        //タイプ
-	int image;       //画像
-	float speed;     //速さ
-	float scoa;      //
+	int type;       //タイプ
+	int image;      //画像
+	int score;		//スコア
+	float speed;    //速さ
 
 public:
 	Item();
@@ -32,9 +32,9 @@ public:
 	{
 		this->type = type;
 	}
-	float GetScoa()
+	float GetScore()
 	{
-		return scoa;
+		return score;
 	}
 };
 

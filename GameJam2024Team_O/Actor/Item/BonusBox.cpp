@@ -96,12 +96,12 @@ void BonusBox::Draw(int& i)
 	{
 		if (isOpen)
 		{
-			DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Openbox), TRUE);
-			DrawRotaGraph(GetCenter().x - 10.f, GetCenter().y - 60.f, 0.05f, effectAngle, ImageManager::GetHandle(Effect), TRUE);
+			DrawRotaGraphF(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Openbox), TRUE);
+			DrawRotaGraphF(GetCenter().x - 10.f, GetCenter().y - 60.f, 0.05f, effectAngle, ImageManager::GetHandle(Effect), TRUE);
 		}
 		else
 		{
-			DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Bonusbox), TRUE);
+			DrawRotaGraphF(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Bonusbox), TRUE);
 		}
 	}
 }
