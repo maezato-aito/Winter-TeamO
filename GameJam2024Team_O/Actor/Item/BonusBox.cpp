@@ -43,7 +43,7 @@ void BonusBox::Update(GameMainScene* Game)
 
 void BonusBox::Draw(int& i)
 {
-	DrawFormatString(750 * (i + 1), 0, 0xffffff, "カウント%d%%\n", Count);
+	DrawFormatString(750 * (i + 1), 0, 0xffffff, "カウント%f%%\n", Count);
 	DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0xffffff, TRUE);
 	if (isOpen)
 	{
