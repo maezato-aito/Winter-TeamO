@@ -77,7 +77,7 @@ void Player2::Movement()
 	}
 
 	//ƒWƒƒƒ“ƒv
-	if ((KeyInput::GetKey(KEY_INPUT_UP) || PadInput::OnButton2(XINPUT_BUTTON_A)) && !isAir)
+	if ((KeyInput::GetKey(KEY_INPUT_UP) || PadInput::OnButton2(XINPUT_BUTTON_A)) && !isAir && jumpCoolTimeCount <= 0)
 	{
 		vec.y = -JUMP_POWER - (JUMP_POWER * GRAVITY) / 2.f;
 		isAir = true;
