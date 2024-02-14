@@ -66,6 +66,10 @@ SceneBase* GameMainScene::Update()
 
 		}
 	}
+	if (ui->Get_Timer() <= 55)
+	{
+		return new ResultScene();
+	}
 
 	Time++;
 	

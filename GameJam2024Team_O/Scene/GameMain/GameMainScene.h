@@ -7,6 +7,9 @@
 #include"../../Actor/Item/Item.h"
 #include"../../Actor/Item/BonusBox.h"
 #include"../../Actor/Skyfloor/Floor.h"
+
+#include "../Scene/Result/ResultScene.h"
+
 #define MAX_ITEM    10
 
 class GameMainScene :
