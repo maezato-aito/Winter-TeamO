@@ -6,10 +6,17 @@
 
 Player2::Player2()
 {
+
+	ImageManager::SetImage(IDLE_2);
+	ImageManager::SetImage(WALK1_2);
+	ImageManager::SetImage(WALK2_2);
+	ImageManager::SetImage(JUMP_2);
+	ImageManager::SetImage(STUN_2);
+
 	location.x = (SCREEN_WIDTH / 2) + (SCREEN_WIDTH / 4);
 	location.y = SCREEN_HEIGHT / 2;
 
-	area.height = 50.f;
+	area.height = 80.f;
 	area.width = 50.f;
 
 	skill1Count = MAX_SKILL_1_COOL_TIME;
@@ -30,7 +37,13 @@ Player2::~Player2()
 void Player2::Update(GameMainScene* game)
 {
 	skill1Count++;
+
 	Movement();
+
+	Animation();
+
+	AnimStateToAnimHandle();
+
 	if (IsShotSkill1() == true)
 	{
 		if (PadInput::OnButton2(XINPUT_BUTTON_B) || KeyInput::GetKey(KEY_INPUT_RSHIFT))
@@ -40,12 +53,23 @@ void Player2::Update(GameMainScene* game)
 			isShotSkill1 = false;
 		}
 	}
+
 	SK->UpDate(game);
+
 	Collision(game);
 }
 
 void Player2::Draw() const
 {
+	if (!isReverse)
+	{
+		DrawGraphF(location.x - area.width + IMAGE_SHIFT_X_2, location.y - area.height + IMAGE_SHIFT_Y_2, ImageManager::GetHandle(GetAnimHandle().c_str()), TRUE);
+	}
+	else
+	{
+		DrawTurnGraphF(location.x - area.width + IMAGE_SHIFT_X_2 - 5, location.y - area.height + IMAGE_SHIFT_Y_2, ImageManager::GetHandle(GetAnimHandle().c_str()), TRUE);
+	}
+
 	DrawBoxAA(location.x, location.y,
 		GetMax().x, GetMax().y,
 		0x00ffff, FALSE, 1.2f);
@@ -120,6 +144,72 @@ void Player2::Movement()
 	}
 }
 
+void Player2::Animation()
+{
+	if (animCnt < 60)
+	{
+		animCnt++;
+	}
+	else
+	{
+		animCnt = 0;
+	}
+
+	if (!isShotSkill1)
+	{
+		animState = Stun;
+	}
+
+	//âEÇ÷
+	if (KeyInput::GetKeyDown(KEY_INPUT_RIGHT) || PadInput::GetLStickRationX2() > STICK_RATIO)
+	{
+		isReverse = false;
+
+		if (!isAir)
+		{
+			if (animCnt % 10 == 0)
+			{
+				animState += 1;
+				if (animState > Walk2)
+				{
+					animState = Walk1;
+				}
+			}
+		}
+	}
+	//ç∂Ç÷
+	else if (KeyInput::GetKeyDown(KEY_INPUT_LEFT) || PadInput::GetLStickRationX2() < -STICK_RATIO)
+	{
+		isReverse = true;
+
+		if (!isAir)
+		{
+			if (animCnt % 10 == 0)
+			{
+				animState += 1;
+				if (animState > Walk2)
+				{
+					animState = Walk1;
+				}
+			}
+		}
+	}
+	//í‚é~
+	else
+	{
+		if (!isAir && isShotSkill1)
+		{
+			animState = Idle;
+		}
+	}
+
+	//ÉWÉÉÉìÉv
+	if (isAir)
+	{
+		animState = Jump;
+	}
+}
+
 void Player2::Collision(GameMainScene* game)
 {
 	if (HitBox(game->GetPlayer1()))
@@ -180,4 +270,28 @@ bool Player2::IsShotSkill1()
 	}
 
 	return isShotSkill1;
+}
+
+void Player2::AnimStateToAnimHandle()
+{
+	if (animState == 0)
+	{
+		animHandle = IDLE_2;
+	}
+	else if (animState == 1)
+	{
+		animHandle = WALK1_2;
+	}
+	else if (animState == 2)
+	{
+		animHandle = WALK2_2;
+	}
+	else if (animState == 3)
+	{
+		animHandle = JUMP_2;
+	}
+	else if (animState == 4)
+	{
+		animHandle = STUN_2;
+	}
 }

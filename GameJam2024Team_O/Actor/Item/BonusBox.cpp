@@ -44,15 +44,15 @@ void BonusBox::Update(GameMainScene* Game)
 void BonusBox::Draw(int& i)
 {
 	DrawFormatString(750 * (i + 1), 0, 0xffffff, "カウント%f%%\n", Count);
-	DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0xffffff, TRUE);
+	//DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0xffffff, TRUE);
 	if (isOpen)
 	{
-		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Openbox), FALSE);
-		DrawRotaGraph(GetCenter().x,-100.f, GetCenter().y-40.f, 1.f, 0.0f, ImageManager::GetHandle(Effect), FALSE);
+		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Openbox), TRUE);
+		DrawRotaGraph(GetCenter().x,-100.f, GetCenter().y-40.f, 1.f, 0.0f, ImageManager::GetHandle(Effect), TRUE);
 	}
 	else
 	{
-		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Bonusbox), FALSE);
+		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Bonusbox), TRUE);
 	}
 }
 

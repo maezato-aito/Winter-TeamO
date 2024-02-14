@@ -64,14 +64,16 @@ void Item::Update(GameMainScene*game)
 void Item::Draw()
 {
 	//‰æ‘œ‚Ì•`‰æ
-	DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0x00ffff, TRUE);
+	//DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0x00ffff, TRUE);
 
 	if (type == common)
 	{
-		DrawRotaGraph(GetCenter().x ,GetCenter().y, 0.11f, 0.0f, ImageManager::GetHandle(Money), FALSE);
+		DrawRotaGraph(GetCenter().x ,GetCenter().y, 0.11f, 0.0f, ImageManager::GetHandle(Money), TRUE);
 	}
 	else
-		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.11f, 0.0f, ImageManager::GetHandle(Ingot), FALSE);
+	{
+		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.11f, 0.0f, ImageManager::GetHandle(Ingot), TRUE);
+	}
 }
 
 void Item::Finalize()

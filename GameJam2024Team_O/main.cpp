@@ -39,6 +39,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	//•`‰ææ‚ğ— ‚É‚·‚é
 	SetDrawScreen(DX_SCREEN_BACK);
 
+	SetBackgroundColor(128, 128, 128);
+
 	try
 	{
 		SoundManager::CreateSoundManager();

@@ -42,6 +42,7 @@ GameMainScene::~GameMainScene()
 SceneBase* GameMainScene::Update()
 {
 	ui->Update();
+
 	player1->Update(this);
 
 	player2->Update(this);

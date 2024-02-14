@@ -6,11 +6,11 @@
 
 Player1::Player1()
 {
-	ImageManager::SetImage(IDLE);
-	ImageManager::SetImage(WALK1);
-	ImageManager::SetImage(WALK2);
-	ImageManager::SetImage(JUMP);
-	ImageManager::SetImage(STUN);
+	ImageManager::SetImage(IDLE_1);
+	ImageManager::SetImage(WALK1_1);
+	ImageManager::SetImage(WALK2_1);
+	ImageManager::SetImage(JUMP_1);
+	ImageManager::SetImage(STUN_1);
 
 	location.x = SCREEN_WIDTH / 4;
 	location.y = SCREEN_HEIGHT / 2;
@@ -20,13 +20,9 @@ Player1::Player1()
 
 	jumpCount = 0;
 
-	animState = 0;
-	animCnt = 0;
-
 	stanCount = 0.f;
 
 	isStan = false;
-	isReverse = false;
 }
 
 Player1::~Player1()
@@ -60,11 +56,11 @@ void Player1::Draw() const
 {
 	if (!isReverse)
 	{
-		DrawGraphF(location.x - area.width + IMAGE_SHIFT_X, location.y - area.height + IMAGE_SHIFT_Y, ImageManager::GetHandle(GetAnimHandle().c_str()), TRUE);
+		DrawGraphF(location.x - area.width + IMAGE_SHIFT_X_1, location.y - area.height + IMAGE_SHIFT_Y_1, ImageManager::GetHandle(GetAnimHandle().c_str()), TRUE);
 	}
 	else
 	{
-		DrawTurnGraphF(location.x - area.width + IMAGE_SHIFT_X-10, location.y - area.height + IMAGE_SHIFT_Y, ImageManager::GetHandle(GetAnimHandle().c_str()), TRUE);
+		DrawTurnGraphF(location.x - area.width + IMAGE_SHIFT_X_1 - 10, location.y - area.height + IMAGE_SHIFT_Y_1, ImageManager::GetHandle(GetAnimHandle().c_str()), TRUE);
 	}
 
 	if (isStan)
@@ -189,7 +185,7 @@ void Player1::Animation()
 
 		if (!isAir)
 		{
-			if (animCnt % 5 == 0)
+			if (animCnt % 10 == 0)
 			{
 				animState += 1;
 				if (animState > Walk2)
@@ -206,7 +202,7 @@ void Player1::Animation()
 
 		if (!isAir)
 		{
-			if (animCnt % 5 == 0)
+			if (animCnt % 10 == 0)
 			{
 				animState += 1;
 				if (animState > Walk2)
@@ -262,7 +258,7 @@ void Player1::Collision(GameMainScene* game)
 				vec.y = -10.f;
 			}
 		}
-
+		
 		if (GetMin().y<enemyMaxY - 5 && GetMax().y>enemyMinY + 5)
 		{
 			//ëäéËÇÊÇËç∂Ç÷çsÇØÇ»Ç¢
@@ -281,5 +277,38 @@ void Player1::Collision(GameMainScene* game)
 				vec.x = -10.f;
 			}
 		}
+	}
+}
+
+void Player1::SetIsStan(const bool flg)
+{
+	isStan = flg;
+	if (isStan)
+	{
+		stanCount = MAX_STAN_TIME;
+	}
+}
+
+void Player1::AnimStateToAnimHandle()
+{
+	if (animState == 0)
+	{
+		animHandle = IDLE_1;
+	}
+	else if (animState == 1)
+	{
+		animHandle = WALK1_1;
+	}
+	else if (animState == 2)
+	{
+		animHandle = WALK2_1;
+	}
+	else if (animState == 3)
+	{
+		animHandle = JUMP_1;
+	}
+	else if (animState == 4)
+	{
+		animHandle = STUN_1;
 	}
 }

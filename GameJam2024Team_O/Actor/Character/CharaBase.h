@@ -28,23 +28,43 @@ private:
 
 protected:
 	Vector2D vec;		//移動量
+	std::string animHandle;     //アニメーションハンドル
+
+	int animState;              //アニメーション状態
+	int animCnt;                //アニメーションカウント
 
 	float jumpCoolTimeCount;    //ジャンプクールタイムのカウント
 
 	bool isAir;			//空中？
+	bool isReverse;     //反転する？
 public:
 	//コンストラクタ
 	CharaBase()
 	{
 		vec = {};
 
+		animState = 0;
+		animCnt = 0;
+
 		jumpCoolTimeCount = 0.f;
 
 		isAir = false;
+		isReverse = false;
 	}
+
 	//デストラクタ
 	~CharaBase()
 	{
 
+	}
+
+	std::string GetAnimHandle() const
+	{
+		return animHandle;
+	}
+
+	void SetIsReverse(const bool flg)
+	{
+		isReverse = flg;
 	}
 };

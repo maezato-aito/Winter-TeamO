@@ -48,6 +48,7 @@ void bullet::MoveBullet(GameMainScene* game)
 	}
 	if (game->GetPlayer2()->GetLocation().x > game->GetPlayer1()->GetLocation().x)
 	{
+		game->GetPlayer2()->SetIsReverse(true);
 		Speed = -15;
 	}
 }
