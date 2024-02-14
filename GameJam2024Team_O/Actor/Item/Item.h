@@ -28,11 +28,13 @@ public:
 	void Finalize();         //終了時処理
 
 	int GetType() const;     //タイプ取得
+
 	void SetType(int type)
 	{
 		this->type = type;
 	}
-	float GetScore()
+
+	int GetScore()
 	{
 		return score;
 	}
