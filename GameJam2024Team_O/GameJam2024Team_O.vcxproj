@@ -44,7 +44,6 @@
     <ClInclude Include="Actor\Item\Item.h" />
     <ClInclude Include="Actor\Character\Player\Player2.h" />
     <ClInclude Include="Scene\End\EndScene.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="Scene\Result\ResultScene.h" />
     <ClInclude Include="SceneManager\SceneManager.h" />
     <ClInclude Include="Scene\GameMain\GameMainScene.h" />
@@ -52,9 +51,6 @@
     <ClInclude Include="Skill\skill1.h" />
     <ClInclude Include="Scene\Title\TitleScene.h" />
     <ClInclude Include="UI\UI.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="GameJam2024Team_O.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

@@ -45,13 +45,11 @@
     <ClInclude Include="Scene\GameMain\GameMainScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="UI\UI.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="Scene\Title\TitleScene.h" />
     <ClInclude Include="Scene\Result\ResultScene.h" />
     <ClInclude Include="Scene\End\EndScene.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="GameJam2024Team_O.rc" />
     <ClInclude Include="Actor\bullet.h" />
     <ClInclude Include="Skill\skill1.h" />
   </ItemGroup>

@@ -1,11 +1,18 @@
 #pragma once
 #include "../SceneBase.h"
 
+struct Cursor
+{
+    int x, y;
+};
+
 class TitleScene :
     public SceneBase
 {
 private:
+    int cursorNum;
 
+    Cursor location;
 public:
     //コンストラクタ
     TitleScene();

@@ -2,7 +2,9 @@
 
 TitleScene::TitleScene()
 {
+	cursorNum = 0;
 
+	location = {};
 }
 
 TitleScene::~TitleScene()
@@ -12,6 +14,14 @@ TitleScene::~TitleScene()
 
 SceneBase* TitleScene::Update()
 {
+	location.x = cursorNum * 200;
+
+	//if (cursorNum < 3)
+	//{
+	//	cursorNum++;
+	//	if(cursorNum)
+	//}
+
 	return this;
 }
 
