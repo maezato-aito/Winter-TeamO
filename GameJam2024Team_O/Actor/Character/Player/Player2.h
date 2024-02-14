@@ -2,7 +2,7 @@
 #include "../CharaBase.h"
 #include "../Skill/skill1.h"
 
-#define MAX_SKILL_1_COOL_TIME   FPS * 3.f     //スキル1のクールタイム
+#define MAX_SKILL_1_COOL_TIME   FPS * 1.5f    //スキル1のクールタイム
 #define MAX_SKILL_2_COOL_TIME   FPS * 20.f    //スキル2のクールタイム
 
 class GameMainScene;

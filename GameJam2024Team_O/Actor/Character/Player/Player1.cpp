@@ -2,20 +2,31 @@
 #include "KeyInput.h"
 #include "PadInput.h"
 #include"../Scene/GameMain/GameMainScene.h"
+#include"../common.h"
 
 Player1::Player1()
 {
+	ImageManager::SetImage(IDLE);
+	ImageManager::SetImage(WALK1);
+	ImageManager::SetImage(WALK2);
+	ImageManager::SetImage(JUMP);
+	ImageManager::SetImage(STUN);
+
 	location.x = SCREEN_WIDTH / 4;
 	location.y = SCREEN_HEIGHT / 2;
 
-	area.height = 50.f;
+	area.height = 80.f;
 	area.width = 50.f;
 
 	jumpCount = 0;
 
+	animState = 0;
+	animCnt = 0;
+
 	stanCount = 0.f;
 
 	isStan = false;
+	isReverse = false;
 }
 
 Player1::~Player1()
@@ -32,13 +43,11 @@ void Player1::Update(GameMainScene* game)
 
 	Movement();
 
-	Collision(game);
+	Animation();
 
-	if (KeyInput::GetKey(KEY_INPUT_1) || PadInput::OnButton1(PAD_INPUT_START))
-	{
-		isStan = true;
-		stanCount = MAX_STAN_TIME;
-	}
+ 	AnimStateToAnimHandle();
+
+	Collision(game);
 
 	if (stanCount < 0)
 	{
@@ -49,19 +58,26 @@ void Player1::Update(GameMainScene* game)
 
 void Player1::Draw() const
 {
+	if (!isReverse)
+	{
+		DrawGraphF(location.x - area.width + IMAGE_SHIFT_X, location.y - area.height + IMAGE_SHIFT_Y, ImageManager::GetHandle(GetAnimHandle().c_str()), TRUE);
+	}
+	else
+	{
+		DrawTurnGraphF(location.x - area.width + IMAGE_SHIFT_X-10, location.y - area.height + IMAGE_SHIFT_Y, ImageManager::GetHandle(GetAnimHandle().c_str()), TRUE);
+	}
+
 	if (isStan)
 	{
 		DrawBoxAA(location.x, location.y,
 			GetMax().x, GetMax().y,
 			0xff0000, FALSE, 1.2f);
-		DrawFormatStringF(GetCenter().x, GetCenter().y, 0xff0000, "1");
 	}
 	else
 	{
 		DrawBoxAA(location.x, location.y,
 			GetMax().x, GetMax().y,
 			0xffff00, FALSE, 1.2f);
-		DrawFormatStringF(GetCenter().x, GetCenter().y, 0xffff00, "1");
 	}
 }
 
@@ -145,6 +161,77 @@ void Player1::Movement()
 	}
 }
 
+void Player1::Animation()
+{
+	if (animCnt < 60)
+	{
+		animCnt++;
+	}
+	else
+	{
+		animCnt = 0;
+	}
+
+	if (isStan)
+	{
+		animState = Stun;
+	}
+
+	if (stanCount < 0)
+	{
+		animState = Idle;
+	}
+
+	//右へ
+	if ((KeyInput::GetKeyDown(KEY_INPUT_D) || PadInput::GetLStickRationX1() > STICK_RATIO) && !isStan)
+	{
+		isReverse = false;
+
+		if (!isAir)
+		{
+			if (animCnt % 5 == 0)
+			{
+				animState += 1;
+				if (animState > Walk2)
+				{
+					animState = Walk1;
+				}
+			}
+		}
+	}
+	//左へ
+	else if ((KeyInput::GetKeyDown(KEY_INPUT_A) || PadInput::GetLStickRationX1() < -STICK_RATIO) && !isStan)
+	{
+		isReverse = true;
+
+		if (!isAir)
+		{
+			if (animCnt % 5 == 0)
+			{
+				animState += 1;
+				if (animState > Walk2)
+				{
+					animState = Walk1;
+				}
+			}
+		}
+	}
+	//停止
+	else
+	{
+		if (!isAir && !isStan)
+		{
+			animState = Idle;
+		}
+	}
+
+	//ジャンプ
+	if ((KeyInput::GetKey(KEY_INPUT_SPACE) || KeyInput::GetKey(KEY_INPUT_W) || PadInput::OnButton1(XINPUT_BUTTON_A)) && jumpCount < 2 && !isStan && jumpCoolTimeCount <= 0)
+	{
+		animState = Jump;
+	}
+}
+
 void Player1::Collision(GameMainScene* game)
 {
 	if (HitBox(game->GetPlayer2()))
@@ -164,7 +251,7 @@ void Player1::Collision(GameMainScene* game)
 				GetMax().y>enemyMaxY)
 			{
 				location.y = enemyMaxY;
-				vec.y = 0.f;
+				vec.y = 10.f;
 			}
 
 			//相手より下へ行けない
@@ -172,7 +259,7 @@ void Player1::Collision(GameMainScene* game)
 				GetMin().y < enemyMinY)
 			{
 				location.y = enemyMinY - enemyHeigh;
-				vec.y = 0.f;
+				vec.y = -10.f;
 			}
 		}
 
@@ -183,7 +270,7 @@ void Player1::Collision(GameMainScene* game)
 				GetMax().x>enemyMaxX)
 			{
 				location.x = enemyMaxX;
-				vec.x = 0.f;
+				vec.x = 10.f;
 			}
 
 			//相手より右へ行けない
@@ -191,7 +278,7 @@ void Player1::Collision(GameMainScene* game)
 				GetMin().x < enemyMinX)
 			{
 				location.x = enemyMinX - enemyWidth;
-				vec.x = 0.f;
+				vec.x = -10.f;
 			}
 		}
 	}

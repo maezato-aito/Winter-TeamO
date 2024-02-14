@@ -8,6 +8,15 @@
 #define JUMP_POWER		15.f		//ジャンプ力
 #define JUMP_COOL_TIME  FPS * 0.8f  //ジャンプのクールタイム
 
+enum Animation
+{
+	Idle = 0,
+	Walk1,
+	Walk2,
+	Jump,
+	Stun
+};
+
 struct Vector2D
 {
 	float x, y;

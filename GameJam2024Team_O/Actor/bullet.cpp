@@ -19,6 +19,7 @@ void bullet::initialize()
 	area.height = 10;
 
 	Speed = 10;
+	isflg = false;
 }
 void bullet::Update(GameMainScene* game)
 {
@@ -27,12 +28,16 @@ void bullet::Update(GameMainScene* game)
 	if (HitBox(game->GetPlayer1()))
 	{
 		OffFlg();
+		game->GetPlayer1()->SetIsStan(true);
 	}
 }
 
 void bullet::Draw()
 {
- 	DrawBoxAA(location.x, location.y, location.x+area.width, location.y + area.height, 0xff0000, TRUE);
+	if (isflg)
+	{
+ 		DrawBoxAA(location.x, location.y, location.x+area.width, location.y + area.height, 0xff0000, TRUE);
+	}
 }
 
 void bullet::MoveBullet(GameMainScene* game)

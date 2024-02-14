@@ -12,7 +12,7 @@ Player2::Player2()
 	area.height = 50.f;
 	area.width = 50.f;
 
-	skill1Count = 0.f;
+	skill1Count = MAX_SKILL_1_COOL_TIME;
 	skill2Count = 0.f;
 
 	isShotSkill1 = false;
@@ -139,7 +139,7 @@ void Player2::Collision(GameMainScene* game)
 				GetMax().y>enemyMaxY)
 			{
 				location.y = enemyMaxY;
-				vec.y = 0.f;
+				vec.y = 10.f;
 			}
 
 			//‘Šè‚æ‚è‰º‚Ös‚¯‚È‚¢
@@ -147,7 +147,7 @@ void Player2::Collision(GameMainScene* game)
 				GetMin().y < enemyMinY)
 			{
 				location.y = enemyMinY - enemyHeigh;
-				vec.y = 0.f;
+				vec.y = -10.f;
 			}
 		}
 
@@ -158,7 +158,7 @@ void Player2::Collision(GameMainScene* game)
 				GetMax().x>enemyMaxX)
 			{
 				location.x = enemyMaxX;
-				vec.x = 0.f;
+				vec.x = 10.f;
 			}
 
 			//‘Šè‚æ‚è‰E‚Ös‚¯‚È‚¢
@@ -166,7 +166,7 @@ void Player2::Collision(GameMainScene* game)
 				GetMin().x < enemyMinX)
 			{
 				location.x = enemyMinX - enemyWidth;
-				vec.x = 0.f;
+				vec.x = -10.f;
 			}
 		}
 	}
@@ -174,7 +174,7 @@ void Player2::Collision(GameMainScene* game)
 
 bool Player2::IsShotSkill1()
 {
-	if (90 <= skill1Count)
+	if (MAX_SKILL_1_COOL_TIME <= skill1Count)
 	{
 		isShotSkill1 = true;
 	}
