@@ -22,12 +22,15 @@
     <ClCompile Include="Actor\bullet.cpp" />
     <ClCompile Include="Actor\Item\BonusBox.cpp" />
     <ClCompile Include="Actor\Item\Item.cpp" />
+    <ClCompile Include="Scene\End\EndScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Actor\Character\Player\Player1.cpp" />
     <ClCompile Include="Actor\Character\Player\Player2.cpp" />
+    <ClCompile Include="Scene\Result\ResultScene.cpp" />
     <ClCompile Include="SceneManager\SceneManager.cpp" />
     <ClCompile Include="Scene\GameMain\GameMainScene.cpp" />
     <ClCompile Include="Skill\skill1.cpp" />
+    <ClCompile Include="Scene\Title\TitleScene.cpp" />
     <ClCompile Include="UI\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -40,11 +43,14 @@
     <ClInclude Include="Actor\Character\Player\Player1.h" />
     <ClInclude Include="Actor\Item\Item.h" />
     <ClInclude Include="Actor\Character\Player\Player2.h" />
+    <ClInclude Include="Scene\End\EndScene.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Scene\Result\ResultScene.h" />
     <ClInclude Include="SceneManager\SceneManager.h" />
     <ClInclude Include="Scene\GameMain\GameMainScene.h" />
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Skill\skill1.h" />
+    <ClInclude Include="Scene\Title\TitleScene.h" />
     <ClInclude Include="UI\UI.h" />
   </ItemGroup>
   <ItemGroup>
