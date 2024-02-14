@@ -33,5 +33,8 @@ public:
 
     //“–‚½‚è”»’è
     void Collision(GameMainScene*);
+
+    //ƒXƒ^ƒ“’†‚©‚Ç‚¤‚©Žæ“¾‚·‚é
+    bool GetIsStan() { return isStan; }
 };
 
