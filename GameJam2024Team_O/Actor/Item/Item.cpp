@@ -16,8 +16,10 @@ Item::~Item()
 //初期化処理
 void Item::Initialize()
 {
+	//画像の読み込む
 	ImageManager::SetImage("Item/Gold Ingot.png");
 	ImageManager::SetImage("Item/money.png");
+
 	if (GetRand(100) < 80)
 	{
 		SetType(common);
@@ -29,10 +31,16 @@ void Item::Initialize()
 	if(type==common)
 		{
 			scoa=500;
+		//お金の当たり判定の確認
+			area.width = 54;
+			area.height = 62;
 		}
 	else if (type == rare)
 	{
 		scoa = 1000;
+		//金塊の当たり判定の確認
+		area.width = 54;
+		area.height = 60;
 	}
 	//出現させるX座標パターンを取得
 	float random_x = (float)(GetRand(10) * 105 + 40);
@@ -41,9 +49,6 @@ void Item::Initialize()
 	//生成位置の設定
 	location.x= random_x;
 	location.y=-random_y;
-	//当たり判定の 
-	area.width = 100;
-	area.height = 100;
 	//速さの設定
 	speed = random_speed;
 }
@@ -57,7 +62,14 @@ void Item::Update(GameMainScene*game)
 void Item::Draw()
 {
 	//画像の描画
-	DrawBoxAA(location.x,location.y, location.x+area.width,location.y+area.height,0x00ffff,TRUE);
+	DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0x00ffff, TRUE);
+
+	if (type == common)
+	{
+		DrawRotaGraph(GetCenter().x ,GetCenter().y, 0.11f, 0.0f, ImageManager::Getandle(Money), FALSE);
+	}
+	else
+		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.11f, 0.0f, ImageManager::Getandle(Ingot), FALSE);
 }
 
 void Item::Finalize()

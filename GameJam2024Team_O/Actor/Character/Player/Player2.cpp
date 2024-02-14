@@ -30,6 +30,15 @@ void Player2::Update(GameMainScene* game)
 {
 	skill1Count++;
 	Movement();
+	if (IsShotSkill1() == true)
+	{
+		if (PadInput::OnButton2(XINPUT_BUTTON_B))
+		{
+			SK->SKshoot(game);
+			skill1Count = 0;
+			isShotSkill1 = false;
+		}
+	}
 	SK->UpDate(game);
 	Collision(game);
 }
@@ -164,7 +173,7 @@ void Player2::Collision(GameMainScene* game)
 
 bool Player2::IsShotSkill1()
 {
-	if (60 <= skill1Count)
+	if (90 <= skill1Count)
 	{
 		isShotSkill1 = true;
 	}

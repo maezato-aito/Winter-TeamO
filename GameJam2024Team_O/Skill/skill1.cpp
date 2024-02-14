@@ -17,12 +17,7 @@ void skill1::UpDate(GameMainScene* game)
 	P2y = game->GetPlayer2()->GetCenter().y;
 
 
-	if (PadInput::OnButton2(XINPUT_BUTTON_B))
-	{
-		flg();
-		BT->SetLocation({ P2x,P2y });
-		BT->MoveBullet(game);
-	}
+	
 
 	if(flg() == true)
 	{
@@ -35,6 +30,12 @@ void skill1::Draw()
 	BT->Draw();
 }
 
+void skill1::SKshoot(GameMainScene* game)
+{
+	flg();
+	BT->SetLocation({ P2x,P2y });
+	BT->MoveBullet(game);
+}
 bool skill1::flg()
 {
 	return true;
