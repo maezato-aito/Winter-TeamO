@@ -21,13 +21,11 @@ private:
     Player1* player1;
     Player2* player2;
     UI* ui;
-    skill1* Skill1;
     Item* item[MAX_ITEM];
     BonusBox* bonusbox[2];
     Floor* floor[4];
 
     int Time;
-    int floorCount;
 
     bool isObstacle;            //‚¨×–‚‰æ‘œ‚ğ•\¦‚·‚éH
 

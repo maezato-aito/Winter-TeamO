@@ -60,13 +60,6 @@ SceneBase* GameMainScene::Update()
 
 	player2->Update(this);
 
-	floorCount++;
-
-	if (5 <= floorCount)
-	{
-		floorCount = 1;
-	}
-
 	for (int i = 0; i < 4; i++)
 	{
 		floor[i]->Update(i);
