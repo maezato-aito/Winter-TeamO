@@ -32,7 +32,7 @@ void Player2::Update(GameMainScene* game)
 	Movement();
 	if (IsShotSkill1() == true)
 	{
-		if (PadInput::OnButton2(XINPUT_BUTTON_B))
+		if (PadInput::OnButton2(XINPUT_BUTTON_B) || KeyInput::GetKey(KEY_INPUT_RSHIFT))
 		{
 			SK->SKshoot(game);
 			skill1Count = 0;
