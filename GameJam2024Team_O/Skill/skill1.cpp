@@ -21,6 +21,15 @@ void skill1::UpDate(GameMainScene* game)
 	{
 		ShootFlg = 1;
 		BT->SetLocation({ P2x,P2y });
+
+		if (P2x < game->GetPlayer1()->GetLocation().x)
+		{
+			BT->Speed = 15;
+		}
+		if (P2x > game->GetPlayer1()->GetLocation().x)
+		{
+			BT->Speed = -15;
+		}
 	}
 
 	if(ShootFlg == 1)
