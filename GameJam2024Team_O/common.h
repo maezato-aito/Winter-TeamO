@@ -13,3 +13,6 @@
 #include<math.h>
 
 #include"DxLib.h"
+
+#include "ImageManager.h"
+#include "SoundManager.h"
