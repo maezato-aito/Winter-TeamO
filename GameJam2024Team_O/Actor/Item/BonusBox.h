@@ -2,12 +2,17 @@
 #pragma once
 #include"../../Collision/BoxCollision.h"
 #include"../../UI/UI.h"
+
+#define Bonusbox "Item/bonusbox.png"
+#define Openbox "Item/openbox.png"
+#define Effect "Item/effect.png"
+
 class GameMainScene;
 class BonusBox :public BoxCollision
 {
 	float Count;
 	float CountFrame;
-
+	bool isopen;
 
 public:
 	BonusBox(int& i);

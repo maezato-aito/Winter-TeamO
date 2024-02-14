@@ -31,6 +31,7 @@ void Item::Initialize()
 	if(type==common)
 		{
 			scoa=500;
+
 		//お金の当たり判定の確認
 			area.width = 54;
 			area.height = 62;
@@ -38,6 +39,7 @@ void Item::Initialize()
 	else if (type == rare)
 	{
 		scoa = 1000;
+
 		//金塊の当たり判定の確認
 		area.width = 54;
 		area.height = 60;
