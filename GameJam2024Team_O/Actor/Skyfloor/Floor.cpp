@@ -1,7 +1,8 @@
 #include "Floor.h"
-#define FLOOR 1; 
-#define SKYFLOOR1 2; 
-#define SKYFLOOR2 3; 
+#define FLOOR 1
+#define SKYFLOOR1 2
+#define SKYFLOOR2 3 
+#define SKYFLOOR3 4 
 Floor::Floor()
 {
 
@@ -12,28 +13,34 @@ Floor::~Floor()
 
 }
 
-void Floor::Update()
+void Floor::Update(int type)
 {
 	switch (type)
 	{
-	FlOOR:
+	case FLOOR:
 		location.x = 0;
 		location.y = 650;
 		area.width = SCREEN_WIDTH;
-		area.height = location.y + 50;
+		area.height = SCREEN_HEIGHT;
 		break;
 
-	SKYFlOOR1:
+	case SKYFLOOR1:
 		location.x = 0;
-		location.y = 550;
+		location.y = 450;
 		area.width = location.x + (SCREEN_WIDTH / 4);
 		area.height = location.y + 50;
 		break;
 
-	SKYFlOOR2:
+	case SKYFLOOR2:
 		location.x = SCREEN_WIDTH - (SCREEN_WIDTH / 4);
-		location.y = 550;
+		location.y = 450;
 		area.width = SCREEN_WIDTH;
+		area.height = location.y + 50;
+		break;
+	case SKYFLOOR3:
+		location.x = SCREEN_WIDTH / 4;
+		location.y = 250;
+		area.width = SCREEN_WIDTH - (SCREEN_WIDTH / 4);
 		area.height = location.y + 50;
 		break;
 	}
@@ -41,5 +48,5 @@ void Floor::Update()
 
 void Floor::Draw()
 {
-	
+	DrawBox(location.x, location.y, area.width, area.height, 0xffffff, false);
 }

@@ -6,6 +6,7 @@ GameMainScene::GameMainScene()
 	ui = new UI();
 	player1 = new Player1();
 	player2 = new Player2();
+	floor = new Floor();
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
 		item[i] = new Item();
@@ -24,6 +25,8 @@ GameMainScene::~GameMainScene()
 	delete ui;
 	delete player1;
 	delete player2;
+	delete floor;
+
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
 		delete item[i];
@@ -42,6 +45,14 @@ SceneBase* GameMainScene::Update()
 	player1->Update(this);
 
 	player2->Update(this);
+
+	floorCount++;
+	if (5 <= floorCount)
+	{
+		floorCount = 1;
+	}
+	floor->Update(floorCount);
+	
 
 	if (ui->Get_Timer() < 50)
 	{
@@ -118,11 +129,15 @@ void GameMainScene::Draw() const
 
 	ui->Draw();
 
+	floor->Draw();
+
 }
 
 void GameMainScene::Ground() const
 {
 	DrawLine(0, STAGE_FLOOR, SCREEN_WIDTH, STAGE_FLOOR, 0xffffff);
+
+		
 }
 
 void GameMainScene::Initialize()
