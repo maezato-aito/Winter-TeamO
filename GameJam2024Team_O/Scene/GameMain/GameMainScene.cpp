@@ -3,10 +3,11 @@
 
 GameMainScene::GameMainScene()
 {
+	ImageManager::SetImage(STAGE);
+
 	ui = new UI();
 	player1 = new Player1();
 	player2 = new Player2();
-	floor = new Floor();
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
 		item[i] = new Item();
@@ -14,6 +15,10 @@ GameMainScene::GameMainScene()
 		{
 			bonusbox[i] = new BonusBox(i);
 
+		}
+		if (i < 4)
+		{
+			floor[i] = new Floor();
 		}
 	}
 	Time = 0;
@@ -35,6 +40,10 @@ GameMainScene::~GameMainScene()
 		{
 			delete bonusbox[i];
 		}
+		if (i < 4)
+		{
+			delete floor[i];
+		}
 	}
 }
 
@@ -48,12 +57,17 @@ SceneBase* GameMainScene::Update()
 	player2->Update(this);
 
 	floorCount++;
+
 	if (5 <= floorCount)
 	{
 		floorCount = 1;
 	}
-	floor->Update(floorCount);
-	
+
+	for (int i = 0; i < 4; i++)
+	{
+		floor[i]->Update(i);
+	}
+
 
 	if (ui->Get_Timer() < 50)
 	{
@@ -67,6 +81,7 @@ SceneBase* GameMainScene::Update()
 
 		}
 	}
+
 	if (ui->Get_Timer() <= 50)
 	{
 		/*return new ResultScene(ui->Count_Score(), );*/
@@ -103,15 +118,15 @@ SceneBase* GameMainScene::Update()
 
 void GameMainScene::Draw() const
 {
+	DrawGraph(0, 0, ImageManager::GetHandle(STAGE), TRUE);
+
 	Ground();
 
-	
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
 		if (item[i] != nullptr)
 		{
 			item[i]->Draw();
-			DrawFormatStringF(item[i]->GetCenter().x, item[i]->GetCenter().y, 0xffffff, "%d", i);
 		}
 	}
 
@@ -132,17 +147,17 @@ void GameMainScene::Draw() const
 
 	player2->Draw();
 
+	for (int i = 0; i < 4; i++)
+	{
+		floor[i]->Draw();
+	}
+
 	ui->Draw();
-
-	floor->Draw();
-
 }
 
 void GameMainScene::Ground() const
 {
 	DrawLine(0, STAGE_FLOOR, SCREEN_WIDTH, STAGE_FLOOR, 0xffffff);
-
-		
 }
 
 void GameMainScene::Initialize()

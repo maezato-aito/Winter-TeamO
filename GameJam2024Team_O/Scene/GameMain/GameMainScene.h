@@ -10,6 +10,8 @@
 
 #include "../Scene/Result/ResultScene.h"
 
+#define STAGE "Stage/Main Stage.png"
+
 #define MAX_ITEM    10
 
 class GameMainScene :
@@ -22,7 +24,8 @@ private:
     skill1* Skill1;
     Item* item[MAX_ITEM];
     BonusBox* bonusbox[2];
-    Floor* floor;
+    Floor* floor[4];
+
     int Time;
     int floorCount;
 

@@ -1,8 +1,10 @@
 #include "Floor.h"
-#define FLOOR 1
-#define SKYFLOOR1 2
-#define SKYFLOOR2 3 
-#define SKYFLOOR3 4 
+
+#define FLOOR		0
+#define SKYFLOOR1	1
+#define SKYFLOOR2	2 
+#define SKYFLOOR3	3 
+
 Floor::Floor()
 {
 
@@ -19,7 +21,7 @@ void Floor::Update(int type)
 	{
 	case FLOOR:
 		location.x = 0;
-		location.y = 650;
+		location.y = STAGE_FLOOR;
 		area.width = SCREEN_WIDTH;
 		area.height = SCREEN_HEIGHT;
 		break;
@@ -37,6 +39,7 @@ void Floor::Update(int type)
 		area.width = SCREEN_WIDTH;
 		area.height = location.y + 50;
 		break;
+
 	case SKYFLOOR3:
 		location.x = SCREEN_WIDTH / 4;
 		location.y = 250;

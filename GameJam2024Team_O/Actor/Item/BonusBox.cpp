@@ -12,7 +12,7 @@ BonusBox::BonusBox(int& i)
 	ImageManager::SetImage("Item/openbox.png");
 	ImageManager::SetImage("Item/effect.png");
 	location.x = 300.0f * (i + 1);
-	location.y = 550.0f;
+	location.y = STAGE_FLOOR - 100;
 
 	area.width = 100;
 	area.height = 100;

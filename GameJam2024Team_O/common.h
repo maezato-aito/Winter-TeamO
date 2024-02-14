@@ -7,7 +7,7 @@
 
 #define FPS	60.f
 
-#define STAGE_FLOOR	650
+#define STAGE_FLOOR	691
 
 #define _USE_MATH_DEFINES
 #include<math.h>
