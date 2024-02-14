@@ -10,9 +10,6 @@ UI::UI()
 	Timer = 60;
 	TimerCount = 0;
 	Score = 0;
-	x1 = 630.0f;
-	y1 = 310.0f;
-	Move_Box = 30.0f;
 }
 
 UI::~UI()
@@ -64,3 +61,11 @@ int UI::Get_Timer()
 {
 	return Timer;
 }
+
+float UI::Get_Score()
+{
+	return Score;
+}
+
+
+

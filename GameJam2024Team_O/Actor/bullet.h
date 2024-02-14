@@ -6,11 +6,6 @@ class GameMainScene;
 class bullet :public BoxCollision
 {
 private:
-	float Speed;
-
-
-	float StartBulletx;
-	float StartBullety;
 
 public:
 
@@ -21,5 +16,7 @@ public:
 
 	void Update(GameMainScene* game);
 	void Draw();
+	
+	float Speed;
 };
 
