@@ -1,5 +1,6 @@
 #include"SceneManager/SceneManager.h"
 #include"Scene/GameMain/GameMainScene.h"
+#include"Scene/Title/TitleScene.h"
 #include"common.h"
 #include "KeyInput.h"
 #include "PadInput.h"
@@ -44,7 +45,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 		ImageManager::CreateImageManager();
 
-		SceenManager* sceenManager = new SceenManager(dynamic_cast<SceneBase*>(new GameMainScene()));
+		SceenManager* sceenManager = new SceenManager(dynamic_cast<SceneBase*>(new TitleScene()));
 		//ƒQ[ƒ€ƒ‹[ƒv
 		while ((ProcessMessage() == 0) &&
 			sceenManager->Update() != nullptr &&

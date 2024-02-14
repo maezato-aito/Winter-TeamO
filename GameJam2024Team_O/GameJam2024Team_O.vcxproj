@@ -22,6 +22,7 @@
     <ClCompile Include="Actor\bullet.cpp" />
     <ClCompile Include="Actor\Item\BonusBox.cpp" />
     <ClCompile Include="Actor\Item\Item.cpp" />
+    <ClCompile Include="Scene\Help\HelpScene.cpp" />
     <ClCompile Include="Scene\End\EndScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Actor\Character\Player\Player1.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="Actor\Character\Player\Player1.h" />
     <ClInclude Include="Actor\Item\Item.h" />
     <ClInclude Include="Actor\Character\Player\Player2.h" />
+    <ClInclude Include="Scene\Help\HelpScene.h" />
     <ClInclude Include="Scene\End\EndScene.h" />
     <ClInclude Include="Scene\Result\ResultScene.h" />
     <ClInclude Include="SceneManager\SceneManager.h" />
