@@ -19,20 +19,12 @@ void skill1::UpDate(GameMainScene* game)
 
 	if (PadInput::OnButton2(XINPUT_BUTTON_B))
 	{
-		ShootFlg = 1;
+		flg();
 		BT->SetLocation({ P2x,P2y });
-
-		if (P2x < game->GetPlayer1()->GetLocation().x)
-		{
-			BT->Speed = 15;
-		}
-		if (P2x > game->GetPlayer1()->GetLocation().x)
-		{
-			BT->Speed = -15;
-		}
+		BT->MoveBullet(game);
 	}
 
-	if(ShootFlg == 1)
+	if(flg() == true)
 	{
 		BT->Update(game);
 	}
@@ -41,4 +33,9 @@ void skill1::UpDate(GameMainScene* game)
 void skill1::Draw()
 {
 	BT->Draw();
+}
+
+bool skill1::flg()
+{
+	return true;
 }

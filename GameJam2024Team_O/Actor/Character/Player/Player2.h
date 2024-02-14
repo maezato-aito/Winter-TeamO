@@ -40,6 +40,7 @@ public:
     //当たり判定
     void Collision(GameMainScene*);
 
-
+    //スキル確認
+    bool IsShotSkill1();
 };
 
