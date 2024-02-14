@@ -3,7 +3,7 @@
 ResultScene::ResultScene()
 {
 	ui = new UI();
-	BCount = new BonusBox() ;
+	/*BCount = new BonusBox() ;*/
 }
 
 ResultScene::~ResultScene()
