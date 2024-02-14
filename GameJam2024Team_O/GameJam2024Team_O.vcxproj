@@ -31,6 +31,7 @@
     <ClCompile Include="Scene\GameMain\GameMainScene.cpp" />
     <ClCompile Include="Skill\skill1.cpp" />
     <ClCompile Include="Scene\Title\TitleScene.cpp" />
+    <ClCompile Include="Actor\Skyfloor\Floor.cpp" />
     <ClCompile Include="UI\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +51,7 @@
     <ClInclude Include="Scene\SceneBase.h" />
     <ClInclude Include="Skill\skill1.h" />
     <ClInclude Include="Scene\Title\TitleScene.h" />
+    <ClInclude Include="Actor\Skyfloor\Floor.h" />
     <ClInclude Include="UI\UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
