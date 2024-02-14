@@ -22,5 +22,7 @@ public:
 
 	void UpDate(GameMainScene* game);
 	void Draw();
+
+	bool flg();
 };
 
