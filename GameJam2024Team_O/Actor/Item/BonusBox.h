@@ -5,7 +5,7 @@
 class GameMainScene;
 class BonusBox :public BoxCollision
 {
-	int count;
+	float Count;
 	float CountFrame;
 
 
@@ -15,6 +15,8 @@ public:
 
 	void Update(GameMainScene*);
 	void Draw(int& i);
+
+	float Get_Count();
 
 private:
 	void Count_Box(GameMainScene*);
