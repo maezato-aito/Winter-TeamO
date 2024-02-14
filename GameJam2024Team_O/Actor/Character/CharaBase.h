@@ -29,7 +29,7 @@ class CharaBase :public BoxCollision
 private:
 
 protected:
-	Vector2D vec;		//移動量
+	Vector2D vec;				//移動量
 	std::string animHandle;     //アニメーションハンドル
 
 	int animState;              //アニメーション状態
@@ -37,9 +37,9 @@ protected:
 
 	float jumpCoolTimeCount;    //ジャンプクールタイムのカウント
 
-	bool isLanding;		//着地している？
-	bool isAir;			//空中？
-	bool isReverse;     //反転する？
+	bool isLanding;				//着地している？
+	bool isAir;					//空中？
+	bool isReverse;				//反転する？
 public:
 	//コンストラクタ
 	CharaBase();

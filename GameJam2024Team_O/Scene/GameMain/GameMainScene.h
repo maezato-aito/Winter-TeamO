@@ -29,6 +29,8 @@ private:
     int Time;
     int floorCount;
 
+    bool isObstacle;            //お邪魔画像を表示する？
+
 public:
     //コンストラクタ
     GameMainScene();
@@ -54,6 +56,16 @@ public:
     //プレイヤー2を取得する
     Player2* GetPlayer2() { return player2; }
 
+    //フロアを取得
     Floor* GetFloor(int arrayNum) { return floor[arrayNum]; }
+
+    //UIを取得
+    UI* GetUI() { return ui; }
+
+    //isObstacleを設定
+    void SetIsObstacle(const bool flg)
+    {
+        isObstacle = flg;
+    }
 };
 

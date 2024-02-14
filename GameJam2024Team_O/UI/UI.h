@@ -1,4 +1,5 @@
 #pragma once
+
 class UI
 {
 private:
@@ -6,8 +7,6 @@ private:
 	int Timer;
 	int TimerCount;
 	float Score;
-	float x1;
-	float y1;
 
 public:
 	UI();

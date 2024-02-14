@@ -2,6 +2,7 @@
 #include"DxLib.h"
 #include"../../Scene/GameMain/GameMainScene.h"
 #include"../common.h"
+#include"../Utility/FontManager.h"
 
 
 
@@ -40,10 +41,13 @@ BonusBox::BonusBox(int& i, int patern)
 	area.width = 100;
 	area.height = 100;
 
+	fpsCnt = 0;
 	Count = 0.0f;
 	CountFrame = 0;
+	effectAngle = 0.f;
 
 	isOpen = false;
+	isShow = false;
 }
 
 BonusBox::~BonusBox()
@@ -52,30 +56,53 @@ BonusBox::~BonusBox()
 }
 
 void BonusBox::Update(GameMainScene* Game)
-{
-	Count_Box(Game);
-	if (HitBox(Game->GetPlayer1()))
+{		
+	fpsCnt++;
+
+	if (fpsCnt % 10 == 0)
 	{
-		isOpen = true;
+		if (effectAngle < 360)
+		{
+			effectAngle += 1;
+		}
+		else
+		{
+			effectAngle = 0;
+		}
 	}
-	else
+
+	if (Game->GetUI()->Get_Timer() <= BONUS_TIME)
 	{
-		isOpen = false;
+		isShow = true;
+	}
+
+	if (isShow)
+	{
+		Count_Box(Game);
+		if (HitBox(Game->GetPlayer1()))
+		{
+			isOpen = true;
+		}
+		else
+		{
+			isOpen = false;
+		}
 	}
 }
 
 void BonusBox::Draw(int& i)
 {
-	DrawFormatString(750 * (i + 1), 0, 0xffffff, "カウント%f%%\n", Count);
-	//DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0xffffff, TRUE);
-	if (isOpen)
+	if (isShow)
 	{
-		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Openbox), TRUE);
-		DrawRotaGraph(GetCenter().x,-100.f, GetCenter().y-40.f, 1.f, 0.0f, ImageManager::GetHandle(Effect), TRUE);
-	}
-	else
-	{
-		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Bonusbox), TRUE);
+		if (isOpen)
+		{
+			DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Openbox), TRUE);
+			DrawRotaGraph(GetCenter().x - 10.f, GetCenter().y - 60.f, 0.05f, effectAngle, ImageManager::GetHandle(Effect), TRUE);
+		}
+		else
+		{
+			DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Bonusbox), TRUE);
+		}
 	}
 }
 

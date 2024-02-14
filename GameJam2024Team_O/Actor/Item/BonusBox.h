@@ -10,10 +10,14 @@
 class GameMainScene;
 class BonusBox :public BoxCollision
 {
+	int fpsCnt;
+
 	float Count;
 	float CountFrame;
+	float effectAngle;
 
 	bool isOpen;
+	bool isShow;
 
 public:
 	BonusBox(int& i, int);

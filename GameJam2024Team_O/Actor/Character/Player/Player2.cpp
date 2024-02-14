@@ -1,8 +1,5 @@
 #include "Player2.h"
-#include "KeyInput.h"
-#include "PadInput.h"
 #include"../Scene/GameMain/GameMainScene.h"
-
 
 Player2::Player2()
 {
@@ -14,10 +11,10 @@ Player2::Player2()
 	ImageManager::SetImage(STUN_2);
 
 	location.x = (SCREEN_WIDTH / 2) + (SCREEN_WIDTH / 4);
-	location.y = SCREEN_HEIGHT / 2;
+	location.y = SCREEN_HEIGHT / 2 + 10.f;
 
 	area.height = 80.f;
-	area.width = 50.f;
+	area.width = 70.f;
 
 	skill1Count = MAX_SKILL_1_COOL_TIME;
 	skill2Count = 0.f;
@@ -38,25 +35,13 @@ Player2::~Player2()
 
 void Player2::Update(GameMainScene* game)
 {
-	skill1Count++;
-
 	Movement();
 
 	Animation();
 
 	AnimStateToAnimHandle();
 
-	if (IsShotSkill1() == true)
-	{
-		if (PadInput::OnButton2(XINPUT_BUTTON_B) || KeyInput::GetKey(KEY_INPUT_RSHIFT))
-		{
-			SK->SKshoot(game);
-			skill1Count = 0;
-			isShotSkill1 = false;
-		}
-	}
-
-	SK->UpDate(game);
+	Skill(game);
 
 	Collision(game);
 }
@@ -72,10 +57,6 @@ void Player2::Draw() const
 		DrawTurnGraphF(location.x - area.width + IMAGE_SHIFT_X_2 - 5, location.y - area.height + IMAGE_SHIFT_Y_2, ImageManager::GetHandle(GetAnimHandle().c_str()), TRUE);
 	}
 
-	DrawBoxAA(location.x, location.y,
-		GetMax().x, GetMax().y,
-		0x00ffff, FALSE, 1.2f);
-	DrawFormatStringF(GetCenter().x, GetCenter().y, 0x00ffff, "2");
 	SK->Draw();
 }
 
@@ -264,7 +245,7 @@ void Player2::Collision(GameMainScene* game)
 	}
 }
 
-bool Player2::IsShotSkill1()
+bool Player2::GetIsShotSkill1()
 {
 	if (MAX_SKILL_1_COOL_TIME <= skill1Count)
 	{
@@ -272,6 +253,16 @@ bool Player2::IsShotSkill1()
 	}
 
 	return isShotSkill1;
+}
+
+bool Player2::GetIsShotSkill2()
+{
+	if (MAX_SKILL_2_COOL_TIME <= skill2Count)
+	{
+		isShotSkill2 = true;
+	}
+
+	return isShotSkill2;
 }
 
 void Player2::AnimStateToAnimHandle()
@@ -296,4 +287,33 @@ void Player2::AnimStateToAnimHandle()
 	{
 		animHandle = STUN_2;
 	}
+}
+
+void Player2::Skill(GameMainScene* game)
+{
+	skill1Count++;
+	skill2Count++;
+
+	if (GetIsShotSkill1() == true)
+	{
+		if (PadInput::OnButton2(XINPUT_BUTTON_B) || KeyInput::GetKey(KEY_INPUT_RSHIFT))
+		{
+			SK->SKshoot(game);
+			skill1Count = 0;
+			isShotSkill1 = false;
+		}
+	}
+
+	SK->UpDate(game);
+
+	if (GetIsShotSkill2())
+	{
+		if (PadInput::OnButton2(XINPUT_BUTTON_Y) || KeyInput::GetKey(KEY_INPUT_END))
+		{
+			skill2Count = 0;
+			isShotSkill2 = false;
+			game->SetIsObstacle(true);
+		}
+	}
+
 }

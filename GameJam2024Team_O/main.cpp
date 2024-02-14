@@ -4,8 +4,7 @@
 #include"common.h"
 #include "KeyInput.h"
 #include "PadInput.h"
-#include"SoundManager.h"
-#include"ImageManager.h"
+#include"../Utility/FontManager.h"
 
 /************************************************
 * プログラムの開始
@@ -47,6 +46,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 		ImageManager::CreateImageManager();
 
+		FontManager::CreateFontManagerr();
+
 		SceenManager* sceenManager = new SceenManager(dynamic_cast<SceneBase*>(new TitleScene()));
 		//ゲームループ
 		while ((ProcessMessage() == 0) &&
@@ -85,6 +86,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 		return -1;
 	}
+
+	SoundManager::DeleteSoundManager();
+
+	ImageManager::DeleteImageManager();
+
+	FontManager::DeleteFontManagerr();
 
 	//DXライブラリ使用の終了処理
 	DxLib_End();

@@ -1,8 +1,7 @@
 #include "UI.h"
 #include "DxLib.h"
-#include "KeyInput.h"
-#include "PadInput.h"
 #include "../common.h"
+#include"../Utility/FontManager.h"
 
 UI::UI()
 {
@@ -28,8 +27,15 @@ void UI::Update()
 //描画処理
 void UI::Draw()
 {
-	DrawFormatString(550, 0, 0xffffff, "制限時間%d\n", Timer); //制限時間カウント
-	DrawFormatString(1000, 0, 0xffffff, "SCORE%f\n",Score); //スコアの表示
+	if (Timer >= BONUS_TIME)
+	{
+		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 32, 0, 0xffffff, FontManager::GetHandle(64), "%d\n", Timer);
+	}
+	else
+	{
+		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 10, 0, 0xff0000, FontManager::GetHandle(64), "%d\n", Timer);
+	}
+	DrawFormatStringToHandle(1010, 0, 0xffffff, FontManager::GetHandle(32), "スコア:%0.f", Score);
 }
 
 

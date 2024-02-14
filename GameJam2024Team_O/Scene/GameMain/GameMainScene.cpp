@@ -1,5 +1,6 @@
 #include"../../common.h"
 #include "GameMainScene.h"
+#include"../Utility/FontManager.h"
 
 GameMainScene::GameMainScene()
 {
@@ -26,6 +27,7 @@ GameMainScene::GameMainScene()
 	}
 	Time = 0;
 
+	isObstacle = false;
 }
 
 GameMainScene::~GameMainScene()
@@ -69,24 +71,16 @@ SceneBase* GameMainScene::Update()
 	{
 		floor[i]->Update(i);
 		player1->GroundCollision(this, i);
+		player2->GroundCollision(this, i);
 	}
 
-
-	if (ui->Get_Timer() < 50)
+	for (int i = 0; i < 2; i++)
 	{
-		for (int i = 0; i < 2; i++)
+		if (bonusbox[i] != nullptr)
 		{
-			if (bonusbox[i] != nullptr)
-			{
-				bonusbox[i]->Update(this);
-			}
-
+			bonusbox[i]->Update(this);
 		}
-	}
 
-	if (ui->Get_Timer() <= 50)
-	{
-		/*return new ResultScene(ui->Count_Score(), );*/
 	}
 
 	Time++;
@@ -115,6 +109,11 @@ SceneBase* GameMainScene::Update()
 			
 	}
 
+	if (ui->Get_Timer() <= BONUS_TIME)
+	{
+		/*return new ResultScene(ui->Count_Score(), );*/
+	}
+
 	return this;
 }
 
@@ -132,17 +131,17 @@ void GameMainScene::Draw() const
 		}
 	}
 
-	if (ui->Get_Timer() < 50)
+	for (int i = 0; i < 2; i++)
 	{
-		for (int i = 0; i < 2; i++)
+		if (bonusbox[i] != nullptr)
 		{
-			if (bonusbox[i] != nullptr)
-			{
-				bonusbox[i]->Draw(i);
-
-			}
-
+			bonusbox[i]->Draw(i);
 		}
+	}
+
+	if (isObstacle)
+	{
+
 	}
 
 	player1->Draw();
@@ -155,6 +154,8 @@ void GameMainScene::Draw() const
 	}
 
 	ui->Draw();
+
+	DrawFormatStringToHandle(900, 40, 0xffffff, FontManager::GetHandle(32), "ボーナス倍率:%0.f\n", bonusbox[0]->Get_Count() + bonusbox[1]->Get_Count());
 }
 
 void GameMainScene::Ground() const

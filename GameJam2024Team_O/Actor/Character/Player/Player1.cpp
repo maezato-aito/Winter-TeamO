@@ -1,8 +1,5 @@
 #include "Player1.h"
-#include "KeyInput.h"
-#include "PadInput.h"
 #include"../Scene/GameMain/GameMainScene.h"
-#include"../common.h"
 
 Player1::Player1()
 {
@@ -13,7 +10,7 @@ Player1::Player1()
 	ImageManager::SetImage(STUN_1);
 
 	location.x = SCREEN_WIDTH / 4;
-	location.y = SCREEN_HEIGHT / 2;
+	location.y = STAGE_FLOOR - 80.f;
 
 	area.height = 80.f;
 	area.width = 50.f;
@@ -61,19 +58,6 @@ void Player1::Draw() const
 	else
 	{
 		DrawTurnGraphF(location.x - area.width + IMAGE_SHIFT_X_1 - 10, location.y - area.height + IMAGE_SHIFT_Y_1, ImageManager::GetHandle(GetAnimHandle().c_str()), TRUE);
-	}
-
-	if (isStan)
-	{
-		DrawBoxAA(location.x, location.y,
-			GetMax().x, GetMax().y,
-			0xff0000, FALSE, 1.2f);
-	}
-	else
-	{
-		DrawBoxAA(location.x, location.y,
-			GetMax().x, GetMax().y,
-			0xffff00, FALSE, 1.2f);
 	}
 }
 
