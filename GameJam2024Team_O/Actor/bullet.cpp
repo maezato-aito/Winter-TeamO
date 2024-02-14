@@ -1,5 +1,5 @@
 #include "bullet.h"
-#include"DxLib.h"
+#include"../../common.h"
 #include "../Scene/GameMain/GameMainScene.h"
 
 bullet::bullet()
@@ -13,10 +13,12 @@ bullet::~bullet()
 }
 void bullet::initialize()
 {
+	ImageManager::SetImage(BULLET);
+
 	location.x = 0;
 	location.y = 0;
-	area.width = 10;
-	area.height = 10;
+	area.width = 35;
+	area.height = 30;
 
 	Speed = 10;
 	isflg = false;
@@ -37,6 +39,7 @@ void bullet::Draw()
 	if (isflg)
 	{
  		DrawBoxAA(location.x, location.y, location.x+area.width, location.y + area.height, 0xff0000, TRUE);
+		DrawGraph(location.x - BULLET_IMAGE_SHIFT_X, location.y - BULLET_IMAGE_SHIFT_Y, ImageManager::GetHandle(BULLET), TRUE);
 	}
 }
 

@@ -12,10 +12,11 @@ class BonusBox :public BoxCollision
 {
 	float Count;
 	float CountFrame;
+
 	bool isOpen;
 
 public:
-	BonusBox(int& i);
+	BonusBox(int& i, int);
 	~BonusBox();
 
 	void Update(GameMainScene*);

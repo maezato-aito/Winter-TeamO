@@ -23,33 +23,33 @@ void Floor::Update(int type)
 		location.x = 0;
 		location.y = STAGE_FLOOR;
 		area.width = SCREEN_WIDTH;
-		area.height = SCREEN_HEIGHT;
+		area.height = SCREEN_HEIGHT - STAGE_FLOOR;
 		break;
 
 	case SKYFLOOR1:
 		location.x = 0;
 		location.y = 450;
-		area.width = location.x + (SCREEN_WIDTH / 4);
-		area.height = location.y + 50;
+		area.width = (SCREEN_WIDTH / 4);
+		area.height = 50;
 		break;
 
 	case SKYFLOOR2:
 		location.x = SCREEN_WIDTH - (SCREEN_WIDTH / 4);
 		location.y = 450;
-		area.width = SCREEN_WIDTH;
-		area.height = location.y + 50;
+		area.width = SCREEN_WIDTH / 4;
+		area.height = 50;
 		break;
 
 	case SKYFLOOR3:
 		location.x = SCREEN_WIDTH / 4;
 		location.y = 250;
-		area.width = SCREEN_WIDTH - (SCREEN_WIDTH / 4);
-		area.height = location.y + 50;
+		area.width = SCREEN_WIDTH / 2;
+		area.height = 50;
 		break;
 	}
 }
 
 void Floor::Draw()
 {
-	DrawBox((int)location.x, (int)location.y, (int)area.width, (int)area.height, 0xffffff, false);
+	DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0xffffff, FALSE);
 }

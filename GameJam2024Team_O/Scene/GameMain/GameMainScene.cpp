@@ -8,12 +8,15 @@ GameMainScene::GameMainScene()
 	ui = new UI();
 	player1 = new Player1();
 	player2 = new Player2();
+
+	int patern = GetRand(2);
+
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
 		item[i] = new Item();
 		if (i < 2)
 		{
-			bonusbox[i] = new BonusBox(i);
+			bonusbox[i] = new BonusBox(i, patern);
 
 		}
 		if (i < 4)
@@ -30,7 +33,6 @@ GameMainScene::~GameMainScene()
 	delete ui;
 	delete player1;
 	delete player2;
-	delete floor;
 
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
@@ -66,6 +68,7 @@ SceneBase* GameMainScene::Update()
 	for (int i = 0; i < 4; i++)
 	{
 		floor[i]->Update(i);
+		player1->GroundCollision(this, i);
 	}
 
 
@@ -76,7 +79,6 @@ SceneBase* GameMainScene::Update()
 			if (bonusbox[i] != nullptr)
 			{
 				bonusbox[i]->Update(this);
-
 			}
 
 		}

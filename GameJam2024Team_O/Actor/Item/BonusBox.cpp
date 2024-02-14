@@ -5,14 +5,37 @@
 
 
 
-BonusBox::BonusBox(int& i)
+BonusBox::BonusBox(int& i, int patern)
 {
 	//画像の読み込む
 	ImageManager::SetImage("Item/bonusbox.png");
 	ImageManager::SetImage("Item/openbox.png");
 	ImageManager::SetImage("Item/effect.png");
-	location.x = 300.0f * (i + 1);
-	location.y = STAGE_FLOOR - 100;
+
+	int random = patern;
+
+	if (random == 0)
+	{
+		location.x = 100.0f * (i * 10 + 1);
+		location.y = STAGE_FLOOR - 100;
+	}
+	else if (random == 1)
+	{
+		location.x = 300.0f * (i * 2 + 1);
+		location.y = STAGE_FLOOR - 100;
+	}
+	else if (random == 2)
+	{
+		location.x = SCREEN_WIDTH / 2 - 50;
+		if (i == 0)
+		{
+			location.y = 150.0f;
+		}
+		else
+		{
+			location.y = STAGE_FLOOR - 100;
+		}
+	}
 
 	area.width = 100;
 	area.height = 100;

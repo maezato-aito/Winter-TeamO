@@ -15,6 +15,8 @@
     <ClCompile Include="Scene\Result\ResultScene.cpp" />
     <ClCompile Include="Scene\End\EndScene.cpp" />
     <ClCompile Include="Actor\Skyfloor\Floor.cpp" />
+    <ClCompile Include="Scene\Help\HelpScene.cpp" />
+    <ClCompile Include="Actor\Character\CharaBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -50,6 +52,7 @@
     <ClInclude Include="Scene\Result\ResultScene.h" />
     <ClInclude Include="Scene\End\EndScene.h" />
     <ClInclude Include="Actor\Skyfloor\Floor.h" />
+    <ClInclude Include="Scene\Help\HelpScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\bullet.h" />

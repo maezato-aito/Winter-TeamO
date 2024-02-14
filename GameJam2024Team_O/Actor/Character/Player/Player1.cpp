@@ -106,6 +106,7 @@ void Player1::Movement()
 	{
 		vec.y = -JUMP_POWER;
 		isAir = true;
+		isLanding = false;
 		jumpCount++;
 		//ジャンプのクールタイム必要なら入れる
 		//if (jumpCount >= 2)
@@ -153,6 +154,12 @@ void Player1::Movement()
 		location.y = STAGE_FLOOR - area.height;
 		vec.y = 0.f;
 		isAir = false;
+		isLanding = true;
+		jumpCount = 0;
+	}
+
+	if (isLanding)
+	{
 		jumpCount = 0;
 	}
 }
@@ -215,14 +222,14 @@ void Player1::Animation()
 	//停止
 	else
 	{
-		if (!isAir && !isStan)
+		if (!isAir && !isStan && isLanding)
 		{
 			animState = Idle;
 		}
 	}
 
 	//ジャンプ
-	if ((KeyInput::GetKey(KEY_INPUT_SPACE) || KeyInput::GetKey(KEY_INPUT_W) || PadInput::OnButton1(XINPUT_BUTTON_A)) && jumpCount < 2 && !isStan && jumpCoolTimeCount <= 0)
+	if (!isLanding)
 	{
 		animState = Jump;
 	}

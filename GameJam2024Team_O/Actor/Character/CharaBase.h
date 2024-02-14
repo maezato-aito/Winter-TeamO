@@ -8,6 +8,8 @@
 #define JUMP_POWER		15.f		//ジャンプ力
 #define JUMP_COOL_TIME  FPS * 0.8f  //ジャンプのクールタイム
 
+class GameMainScene;
+
 enum Animation
 {
 	Idle = 0,
@@ -35,28 +37,18 @@ protected:
 
 	float jumpCoolTimeCount;    //ジャンプクールタイムのカウント
 
+	bool isLanding;		//着地している？
 	bool isAir;			//空中？
 	bool isReverse;     //反転する？
 public:
 	//コンストラクタ
-	CharaBase()
-	{
-		vec = {};
-
-		animState = 0;
-		animCnt = 0;
-
-		jumpCoolTimeCount = 0.f;
-
-		isAir = false;
-		isReverse = false;
-	}
+	CharaBase();
 
 	//デストラクタ
-	~CharaBase()
-	{
+	~CharaBase();
 
-	}
+	//地面との当たり判定
+	void GroundCollision(GameMainScene* game, int arrayNum);
 
 	std::string GetAnimHandle() const
 	{

@@ -53,5 +53,7 @@ public:
 
     //ƒvƒŒƒCƒ„[2‚ğæ“¾‚·‚é
     Player2* GetPlayer2() { return player2; }
+
+    Floor* GetFloor(int arrayNum) { return floor[arrayNum]; }
 };
 
