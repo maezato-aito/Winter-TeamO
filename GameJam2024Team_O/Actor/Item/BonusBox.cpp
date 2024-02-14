@@ -19,7 +19,7 @@ BonusBox::BonusBox(int& i)
 	Count = 0.0f;
 	CountFrame = 0;
 
-	isopen = false;
+	isOpen = false;
 }
 
 BonusBox::~BonusBox()
@@ -32,11 +32,11 @@ void BonusBox::Update(GameMainScene* Game)
 	Count_Box(Game);
 	if (HitBox(Game->GetPlayer1()))
 	{
-		isopen = true;
+		isOpen = true;
 	}
 	else
 	{
-		isopen = false;
+		isOpen = false;
 	}
 }
 
@@ -44,13 +44,13 @@ void BonusBox::Draw(int& i)
 {
 	DrawFormatString(750 * (i + 1), 0, 0xffffff, "カウント%d%%\n", Count);
 	DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0xffffff, TRUE);
-	if (isopen)
+	if (isOpen)
 	{
-		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::Getandle(Openbox), FALSE);
+		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Openbox), FALSE);
 	}
 	else
 	{
-		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::Getandle(Bonusbox), FALSE);
+		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Bonusbox), FALSE);
 	}
 }
 
