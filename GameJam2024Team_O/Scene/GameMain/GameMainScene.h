@@ -6,7 +6,7 @@
 #include "../../Skill/skill1.h"
 #include"../../Actor/Item/Item.h"
 #include"../../Actor/Item/BonusBox.h"
-
+#include"../../Actor/Skyfloor/Floor.h"
 #define MAX_ITEM    10
 
 class GameMainScene :
@@ -19,7 +19,9 @@ private:
     skill1* Skill1;
     Item* item[MAX_ITEM];
     BonusBox* bonusbox[2];
+    Floor* floor;
     int Time;
+    int floorCount;
 
 public:
     //コンストラクタ
