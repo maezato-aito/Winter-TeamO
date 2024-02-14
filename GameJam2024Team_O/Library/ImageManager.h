@@ -22,7 +22,7 @@ public:
 	static void DeleteImageManager();
 
 	//連想配列に格納されたImageのサウンドハンドルを取得する
-	static int Getandle(const char* fileName) { return manager->image[fileName]; }
+	static int GetHandle(const char* fileName) { return manager->image[fileName]; }
 
 	//サウンドハンドルにImageを設定する
 	static void SetImage(const char* fileName);
