@@ -28,6 +28,7 @@ Player2::~Player2()
 
 void Player2::Update(GameMainScene* game)
 {
+	skill1Count++;
 	Movement();
 	SK->UpDate(game);
 	Collision(game);
@@ -159,4 +160,14 @@ void Player2::Collision(GameMainScene* game)
 			}
 		}
 	}
+}
+
+bool Player2::IsShotSkill1()
+{
+	if (60 <= skill1Count)
+	{
+		isShotSkill1 = true;
+	}
+
+	return isShotSkill1;
 }

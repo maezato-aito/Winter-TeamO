@@ -22,10 +22,22 @@ void bullet::initialize()
 }
 void bullet::Update(GameMainScene* game)
 {
-	location.x += Speed;
+		location.x += Speed;
 }
 
 void bullet::Draw()
 {
  	DrawBoxAA(location.x, location.y, location.x+area.width, location.y + area.height, 0xff0000, TRUE);
+}
+
+void bullet::MoveBullet(GameMainScene* game)
+{
+	if (game->GetPlayer2()->GetLocation().x < game->GetPlayer1()->GetLocation().x)
+	{
+		Speed = 15;
+	}
+	if (game->GetPlayer2()->GetLocation().x > game->GetPlayer1()->GetLocation().x)
+	{
+		Speed = -15;
+	}
 }

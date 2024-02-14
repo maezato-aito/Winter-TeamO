@@ -1,6 +1,8 @@
 #include "Item.h"
 #include"DxLib.h"
 #include"../../Scene/GameMain/GameMainScene.h"
+#include"../common.h"
+
 Item::Item()
 {
 	Initialize();
@@ -14,6 +16,8 @@ Item::~Item()
 //‰Šú‰»ˆ—
 void Item::Initialize()
 {
+	ImageManager::SetImage("Item/Gold Ingot.png");
+	ImageManager::SetImage("Item/money.png");
 	if (GetRand(100) < 80)
 	{
 		SetType(common);
