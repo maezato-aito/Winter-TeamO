@@ -14,6 +14,22 @@ Item::~Item()
 //初期化処理
 void Item::Initialize()
 {
+	if (GetRand(100) < 80)
+	{
+		SetType(common);
+	}
+	else
+	{
+		SetType(rare);
+	}
+	if(type==common)
+		{
+			scoa=500;
+		}
+	else if (type == rare)
+	{
+		scoa = 1000;
+	}
 	//出現させるX座標パターンを取得
 	float random_x = (float)(GetRand(10) * 105 + 40);
 	float random_y = (float)(GetRand(20) * 20);
@@ -32,11 +48,6 @@ void Item::Update(GameMainScene*game)
 {
 	//位置情報に移動量を加算する
 	location.y += speed;
-	//if (HitBox(game->GetPlayer1()))
-	//{
-	//	delete this;
-	//}
-	
 }
 
 void Item::Draw()

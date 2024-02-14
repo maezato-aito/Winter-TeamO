@@ -22,15 +22,7 @@ void bullet::initialize()
 }
 void bullet::Update(GameMainScene* game)
 {
-
-	if (game->GetPlayer2()->GetLocation().x < game->GetPlayer1()->GetLocation().x)
-	{
-		location.x +=  Speed;
-	}
-	if (game->GetPlayer2()->GetLocation().x > game->GetPlayer1()->GetLocation().x)
-	{
-		location.x -=  Speed;
-	}
+	location.x += Speed;
 }
 
 void bullet::Draw()

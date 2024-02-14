@@ -10,7 +10,7 @@ BonusBox::BonusBox(int& i)
 	area.width = 100;
 	area.height = 100;
 
-	count = 0;
+	Count = 0.0f;
 	CountFrame = 0;
 }
 
@@ -27,7 +27,7 @@ void BonusBox::Update(GameMainScene* Game)
 void BonusBox::Draw(int& i)
 {
 
-	DrawFormatString(750 * (i + 1), 0, 0xffffff, "カウント%d%%\n", count);
+	DrawFormatString(750 * (i + 1), 0, 0xffffff, "カウント%d%%\n", Count);
 	DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0xffffff, TRUE);
 
 }
@@ -44,7 +44,12 @@ void BonusBox::Count_Box(GameMainScene* Game)
 		CountFrame = 0;
 		if (HitBox(Game->GetPlayer1()))
 		{
-			count++;
+			Count++;
 		}
 	}
+}
+
+float BonusBox::Get_Count()
+{
+	return Count;
 }

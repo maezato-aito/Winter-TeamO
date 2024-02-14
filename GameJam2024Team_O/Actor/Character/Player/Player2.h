@@ -39,5 +39,7 @@ public:
 
     //“–‚½‚è”»’è
     void Collision(GameMainScene*);
+
+
 };
 
