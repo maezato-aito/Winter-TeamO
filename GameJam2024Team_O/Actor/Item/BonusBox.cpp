@@ -10,6 +10,7 @@ BonusBox::BonusBox(int& i)
 	//画像の読み込む
 	ImageManager::SetImage("Item/bonusbox.png");
 	ImageManager::SetImage("Item/openbox.png");
+	ImageManager::SetImage("Item/effect.png");
 	location.x = 300.0f * (i + 1);
 	location.y = 550.0f;
 
@@ -47,6 +48,7 @@ void BonusBox::Draw(int& i)
 	if (isOpen)
 	{
 		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.07f, 0.0f, ImageManager::GetHandle(Openbox), FALSE);
+		DrawRotaGraph(GetCenter().x,-100.f, GetCenter().y-40.f, 1.f, 0.0f, ImageManager::GetHandle(Effect), FALSE);
 	}
 	else
 	{
