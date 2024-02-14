@@ -8,7 +8,6 @@ class BonusBox :public BoxCollision
 	float Count;
 	float CountFrame;
 
-
 public:
 	BonusBox(int& i);
 	~BonusBox();
