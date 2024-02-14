@@ -68,10 +68,10 @@ void Item::Draw()
 
 	if (type == common)
 	{
-		DrawRotaGraph(GetCenter().x ,GetCenter().y, 0.11f, 0.0f, ImageManager::Getandle(Money), FALSE);
+		DrawRotaGraph(GetCenter().x ,GetCenter().y, 0.11f, 0.0f, ImageManager::GetHandle(Money), FALSE);
 	}
 	else
-		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.11f, 0.0f, ImageManager::Getandle(Ingot), FALSE);
+		DrawRotaGraph(GetCenter().x, GetCenter().y, 0.11f, 0.0f, ImageManager::GetHandle(Ingot), FALSE);
 }
 
 void Item::Finalize()

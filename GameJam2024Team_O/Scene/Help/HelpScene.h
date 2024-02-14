@@ -1,25 +1,17 @@
 #pragma once
 #include "../SceneBase.h"
 
-struct Cursor
-{
-    int x, y;
-};
-
-class TitleScene :
+class HelpScene :
     public SceneBase
 {
 private:
-    int cursorNum;
-    int interval;
 
-    Cursor location;
 public:
     //コンストラクタ
-    TitleScene();
+    HelpScene();
 
     //デストラクタ
-    ~TitleScene();
+    ~HelpScene();
 
     //描画に関すること以外の更新を実装する
     SceneBase* Update()override;

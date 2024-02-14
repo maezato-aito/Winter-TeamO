@@ -90,12 +90,23 @@ void Player1::Movement()
 	}
 
 	//ジャンプ
-	if ((KeyInput::GetKey(KEY_INPUT_SPACE) || KeyInput::GetKey(KEY_INPUT_W) || PadInput::OnButton1(XINPUT_BUTTON_A)) && jumpCount < 2 && !isStan)
+	if ((KeyInput::GetKey(KEY_INPUT_SPACE) || KeyInput::GetKey(KEY_INPUT_W) || PadInput::OnButton1(XINPUT_BUTTON_A)) && jumpCount < 2 && !isStan && jumpCoolTimeCount <= 0)
 	{
 		vec.y = -JUMP_POWER;
 		isAir = true;
 		jumpCount++;
+		//ジャンプのクールタイム必要なら入れる
+		//if (jumpCount >= 2)
+		//{
+		//	jumpCoolTimeCount = JUMP_COOL_TIME;
+		//}
 	}
+
+	//ジャンプのクールタイム必要なら入れる
+	//if (jumpCoolTimeCount > 0)
+	//{
+	//	jumpCoolTimeCount--;
+	//}
 
 	//重力を加算
 	vec.y += GRAVITY;

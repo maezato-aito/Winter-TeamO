@@ -1,10 +1,18 @@
 #pragma once
 #include "../SceneBase.h"
+#include "../common.h"
+#include "../UI/UI.h"
+#include "../Actor/Item/BonusBox.h"
 
 class ResultScene :
     public SceneBase
 {
 private:
+    UI* ui;
+    BonusBox* BCount;
+
+    float DrawScore;
+    float DrawBoxCount;
 
 public:
     //コンストラクタ

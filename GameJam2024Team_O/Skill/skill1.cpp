@@ -15,10 +15,6 @@ void skill1::UpDate(GameMainScene* game)
 {
 	P2x = game->GetPlayer2()->GetCenter().x;
 	P2y = game->GetPlayer2()->GetCenter().y;
-
-
-	
-
 	if(flg() == true)
 	{
 		BT->Update(game);
@@ -35,6 +31,7 @@ void skill1::SKshoot(GameMainScene* game)
 	flg();
 	BT->SetLocation({ P2x,P2y });
 	BT->MoveBullet(game);
+	BT->OnFlg();
 }
 bool skill1::flg()
 {

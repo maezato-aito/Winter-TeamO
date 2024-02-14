@@ -13,16 +13,20 @@ bullet::~bullet()
 }
 void bullet::initialize()
 {
-	location.x = 0;
+	/*location.x = 0;
 	location.y = 0;
 	area.width = 10;
 	area.height = 10;
 
-	Speed = 10;
+	Speed = 10;*/
 }
 void bullet::Update(GameMainScene* game)
 {
-		location.x += Speed;
+	location.x += Speed;
+	if (HitBox(game->GetPlayer1()))
+	{
+		OffFlg();
+	}
 }
 
 void bullet::Draw()
@@ -40,4 +44,15 @@ void bullet::MoveBullet(GameMainScene* game)
 	{
 		Speed = -15;
 	}
+}
+
+bool bullet::OnFlg()
+{
+	isflg = true;
+	return isflg;
+}
+bool bullet::OffFlg()
+{
+	isflg = false;
+	return isflg;
 }

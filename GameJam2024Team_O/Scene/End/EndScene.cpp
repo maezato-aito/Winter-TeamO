@@ -12,7 +12,7 @@ EndScene::~EndScene()
 
 SceneBase* EndScene::Update()
 {
-	return this;
+	return nullptr;
 }
 
 void EndScene::Draw() const
