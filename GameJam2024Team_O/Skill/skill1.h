@@ -5,7 +5,6 @@
 #include"DxLib.h"
 
 class GameMainScene;
-
 class bullet;
 
 class skill1
@@ -23,6 +22,7 @@ public:
 	void UpDate(GameMainScene* game);
 	void Draw();
 
+	void SKshoot(GameMainScene*);
 	bool flg();
 };
 

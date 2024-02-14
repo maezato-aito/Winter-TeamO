@@ -3,7 +3,7 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
-#define GAME_NAME	"1"
+#define GAME_NAME	"”šÎƒhƒƒP["
 
 #define FPS	60.f
 
