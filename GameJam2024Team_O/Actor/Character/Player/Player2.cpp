@@ -18,6 +18,7 @@ Player2::Player2()
 	isShotSkill1 = false;
 	isShotSkill2 = false;
 
+
 	SK = new skill1();
 }
 
