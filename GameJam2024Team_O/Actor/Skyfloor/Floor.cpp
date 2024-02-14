@@ -48,5 +48,5 @@ void Floor::Update(int type)
 
 void Floor::Draw()
 {
-	DrawBox(location.x, location.y, area.width, area.height, 0xffffff, false);
+	DrawBox((int)location.x, (int)location.y, (int)area.width, (int)area.height, 0xffffff, false);
 }

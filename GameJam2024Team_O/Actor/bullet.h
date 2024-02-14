@@ -8,6 +8,7 @@ class bullet :public BoxCollision
 {
 private:
 	float Speed;
+	bool isflg;
 
 public:
 
@@ -20,5 +21,7 @@ public:
 	void Draw();
 
 	void MoveBullet(GameMainScene* game);
+	bool OnFlg();
+	bool OffFlg();
 };
 
