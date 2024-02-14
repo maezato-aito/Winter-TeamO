@@ -9,11 +9,10 @@ GameMainScene::GameMainScene()
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
 		item[i] = new Item();
-
 		if (i < 2)
 		{
 			bonusbox[i] = new BonusBox(i);
-			
+
 		}
 	}
 	Time = 0;
@@ -64,17 +63,9 @@ SceneBase* GameMainScene::Update()
 		if (item[i] != nullptr)
 		{
 			item[i]->Update(this);
-			//if (item[i]->GetLocation().y < 0)
-			//{
-			//	if (itemflg[i] == 0)
-			//	{
-			//		item[i]->Initialize();
-			//		itemflg[i] = 1;
-			//	}
-			//}
 			if (item[i]->HitBox(player1))
 			{
-				/*ui->Count_Score(item);*/
+				ui->Count_Score(item[i]->GetScoa());
 				delete item[i];
 				item[i] = nullptr;
 				Initialize();

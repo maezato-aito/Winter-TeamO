@@ -16,7 +16,7 @@ public:
 
 	void Update();
 	void Draw();
-	void Count_Score(int& item);
+	void Count_Score(int item);
 	int Get_Timer();
 
 private:

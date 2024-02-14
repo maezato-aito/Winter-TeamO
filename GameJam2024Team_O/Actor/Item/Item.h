@@ -1,12 +1,18 @@
 #pragma once
 #include"../../Collision/BoxCollision.h"
 class GameMainScene;
+enum
+{
+	common,
+	rare
+};
 class Item:public BoxCollision 
 {
 private:
 	int type;        //タイプ
 	int image;       //画像
 	float speed;     //速さ
+	float scoa;      //
 
 public:
 	Item();
@@ -18,5 +24,13 @@ public:
 	void Finalize();         //終了時処理
 
 	int GetType() const;     //タイプ取得
+	void SetType(int type)
+	{
+		this->type = type;
+	}
+	float GetScoa()
+	{
+		return scoa;
+	}
 };
 

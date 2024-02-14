@@ -55,7 +55,7 @@ void UI::Count_Timer() //タイマーカウント処理
 	}
 }
 
-void UI::Count_Score(int & item) //スコアカウント処理
+void UI::Count_Score(int item) //スコアカウント処理
 {
 	Score += item;
 }
