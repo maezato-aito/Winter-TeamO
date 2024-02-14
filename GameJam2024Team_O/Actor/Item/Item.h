@@ -1,5 +1,9 @@
 #pragma once
 #include"../../Collision/BoxCollision.h"
+
+#define Ingot "Item/Gold Ingot.png"
+#define Money "Item/money.png"
+
 class GameMainScene;
 enum
 {
