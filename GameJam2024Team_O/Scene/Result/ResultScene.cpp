@@ -4,6 +4,7 @@
 
 ResultScene::ResultScene(float score, float count)
 {
+	SoundManager::SetBGM("Result.mp3");
 	num = 0;
 
 	fpsCnt = 0.f;
@@ -18,6 +19,11 @@ ResultScene::~ResultScene()
 
 SceneBase* ResultScene::Update()
 {
+	SoundManager::PlaySoundBGM(Result);
+	if (num == 4)
+	{
+		SoundManager::PlaySoundBGM(Player,false);
+	}
 	if (fpsCnt < FPS * 1.5)
 	{
 		fpsCnt++;
@@ -35,6 +41,7 @@ SceneBase* ResultScene::Update()
 	{
 		if (PadInput::OnButton1(XINPUT_BUTTON_A) || PadInput::OnButton2(XINPUT_BUTTON_A) || KeyInput::GetKey(KEY_INPUT_SPACE))
 		{
+			SoundManager::StopSoundBGMs();
 			return new TitleScene();
 		}
 	}

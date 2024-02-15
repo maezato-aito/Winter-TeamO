@@ -6,6 +6,7 @@ GameMainScene::GameMainScene()
 {
 	ImageManager::SetImage(STAGE);
 	ImageManager::SetImage("Stage/Main Stage1.png");
+	SoundManager::SetBGM("GameMain.mp3");
 
 	ui = new UI();
 	player1 = new Player1();
@@ -56,6 +57,8 @@ GameMainScene::~GameMainScene()
 
 SceneBase* GameMainScene::Update()
 {
+	SoundManager::PlaySoundBGM(Gamemain);
+
 	ui->Update();
 
 	player1->Update(this);
@@ -113,6 +116,7 @@ SceneBase* GameMainScene::Update()
 
 	if (overTime > FPS * 3)
 	{
+		SoundManager::StopSoundBGMs();
 		return new ResultScene(ui->Get_Score(), bonusbox[0]->Get_Count() + bonusbox[1]->Get_Count());
 	}
 

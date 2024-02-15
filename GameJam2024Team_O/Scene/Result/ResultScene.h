@@ -4,6 +4,9 @@
 
 #include "../Scene/Title/TitleScene.h"
 
+#define Result "Result.mp3"
+#define Player "Player1.mp3"
+
 class ResultScene :
     public SceneBase
 {

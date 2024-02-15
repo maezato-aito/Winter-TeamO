@@ -56,6 +56,7 @@ SceneBase* TitleScene::Update()
 		//ゲームメインへ
 		if (PadInput::OnButton1(XINPUT_BUTTON_A) || KeyInput::GetKey(KEY_INPUT_SPACE))
 		{
+			SoundManager::StopSoundBGMs();
 			return new GameMainScene();
 		}
 	}
@@ -64,6 +65,7 @@ SceneBase* TitleScene::Update()
 		//ヘルプへ
 		if (PadInput::OnButton1(XINPUT_BUTTON_A) || KeyInput::GetKey(KEY_INPUT_SPACE))
 		{
+			
 			return new HelpScene();
 		}
 	}
@@ -72,6 +74,7 @@ SceneBase* TitleScene::Update()
 		//エンド画面へ
 		if (PadInput::OnButton1(XINPUT_BUTTON_A) || KeyInput::GetKey(KEY_INPUT_SPACE))
 		{
+			SoundManager::StopSoundBGMs();
 			return new EndScene();
 		}
 	}

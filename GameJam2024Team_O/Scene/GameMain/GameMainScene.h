@@ -11,6 +11,7 @@
 #include "../Scene/Result/ResultScene.h"
 
 #define STAGE "Stage/Main Stage.png"
+#define Gamemain "GameMain.mp3"
 
 #define MAX_ITEM    10
 
