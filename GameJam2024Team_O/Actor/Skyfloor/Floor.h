@@ -4,7 +4,7 @@
 class Floor:public BoxCollision
 {
 private:
-
+	int type;
 public:
 	Floor();
 	~Floor();

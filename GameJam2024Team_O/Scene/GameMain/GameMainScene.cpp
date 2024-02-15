@@ -129,6 +129,11 @@ void GameMainScene::Draw() const
 
 	Ground();
 
+	for (int i = 0; i < 4; i++)
+	{
+		floor[i]->Draw();
+	}
+
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
 		if (item[i] != nullptr)
@@ -153,11 +158,6 @@ void GameMainScene::Draw() const
 	player1->Draw();
 
 	player2->Draw();
-
-	for (int i = 0; i < 4; i++)
-	{
-		floor[i]->Draw();
-	}
 
 	ui->Draw();
 

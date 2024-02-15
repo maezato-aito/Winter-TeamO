@@ -8,10 +8,19 @@
 TitleScene::TitleScene()
 {
 	SoundManager::SetBGM("Title.mp3");
+	ImageManager::SetImage("Stage/Start Stage.png");
+	ImageManager::SetImage("Stage/Start Stage1.png");
+	ImageManager::SetImage("Stage/Start Stage2.png");
+	ImageManager::SetImage("UI/Pin.png");
+
+	fpsCnt = 0;
+	imageCnt = 0;
 	cursorNum = 0;
 	interval = 0;
 
 	location = {};
+
+	isSelect = false;
 }
 
 TitleScene::~TitleScene()
@@ -28,6 +37,19 @@ SceneBase* TitleScene::Update()
 	if (interval < 15)
 	{
 		interval++;
+	}
+
+	if (isSelect)
+	{
+		if (fpsCnt < 30)
+		{
+			fpsCnt++;
+		}
+		else
+		{
+			fpsCnt = 0;
+			imageCnt++;
+		}
 	}
 
 	if ((KeyInput::GetKey(KEY_INPUT_W) || PadInput::GetLStickRationY1() > 0.2) && interval >= 15)
@@ -56,6 +78,10 @@ SceneBase* TitleScene::Update()
 		//ゲームメインへ
 		if (PadInput::OnButton1(XINPUT_BUTTON_A) || KeyInput::GetKey(KEY_INPUT_SPACE))
 		{
+			isSelect = true;
+		}
+		if (imageCnt > 2)
+		{
 			return new GameMainScene();
 		}
 	}
@@ -64,6 +90,10 @@ SceneBase* TitleScene::Update()
 		//ヘルプへ
 		if (PadInput::OnButton1(XINPUT_BUTTON_A) || KeyInput::GetKey(KEY_INPUT_SPACE))
 		{
+			isSelect = true;
+		}
+		if (imageCnt > 2)
+		{
 			return new HelpScene();
 		}
 	}
@@ -71,6 +101,10 @@ SceneBase* TitleScene::Update()
 	{
 		//エンド画面へ
 		if (PadInput::OnButton1(XINPUT_BUTTON_A) || KeyInput::GetKey(KEY_INPUT_SPACE))
+		{
+			isSelect = true;
+		}
+		if (imageCnt > 2)
 		{
 			return new EndScene();
 		}
@@ -81,10 +115,20 @@ SceneBase* TitleScene::Update()
 
 void TitleScene::Draw() const
 {
+	if (imageCnt == 0)
+	{
+		DrawGraph(0, 0, ImageManager::GetHandle("Stage/Start Stage.png"), TRUE);
+	}
+	else if (imageCnt == 1)
+	{
+		DrawGraph(0, 0, ImageManager::GetHandle("Stage/Start Stage1.png"), TRUE);
+	}
+	else if (imageCnt == 2)
+	{
+		DrawGraph(0, 0, ImageManager::GetHandle("Stage/Start Stage2.png"), TRUE);
+	}
 	//カーソル
 	DrawTriangle(480, 400 + location.y, 450, 380 + location.y, 450, 420 + location.y, 0xffffff, TRUE);
-
-	DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 200, 180, 0xffffff, FontManager::GetHandle(64), "%s\n", GAME_NAME);
 
 	DrawStringToHandle(SCREEN_WIDTH / 2 - 100, 380, "スタート", 0xffffff, FontManager::GetHandle(32), 0x000000);
 

@@ -45,6 +45,10 @@ SceneBase* ResultScene::Update()
 void ResultScene::Draw() const
 {
 	DrawGraph(0, 0, ImageManager::GetHandle("Stage/Main Stage.png"), TRUE);
+	DrawGraph(0, STAGE_FLOOR, ImageManager::GetHandle("Stage/Main Stage1.png"), TRUE);
+	DrawGraph(363, STAGE_FLOOR, ImageManager::GetHandle("Stage/Main Stage1.png"), TRUE);
+	DrawGraph(726, STAGE_FLOOR, ImageManager::GetHandle("Stage/Main Stage1.png"), TRUE);
+	DrawGraph(1089, STAGE_FLOOR, ImageManager::GetHandle("Stage/Main Stage1.png"), TRUE);
 
 	DrawBox(100, 100,1180, 620, 0x888888, TRUE);
 	DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 128, 100, 0xffffff, FontManager::GetHandle(64), "ƒŠƒUƒ‹ƒg");

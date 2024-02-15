@@ -1,4 +1,5 @@
 #include "Floor.h"
+#include"../common.h"
 
 #define FLOOR		0
 #define SKYFLOOR1	1
@@ -7,7 +8,9 @@
 
 Floor::Floor()
 {
-
+	ImageManager::SetImage("Stage/Main Floor1.png");
+	ImageManager::SetImage("Stage/Main Floor2.png");
+	type = 0;
 }
 
 Floor::~Floor()
@@ -17,6 +20,7 @@ Floor::~Floor()
 
 void Floor::Update(int type)
 {
+	this->type = type;
 	switch (type)
 	{
 	case FLOOR:
@@ -44,12 +48,29 @@ void Floor::Update(int type)
 		location.x = SCREEN_WIDTH / 4;
 		location.y = 250;
 		area.width = SCREEN_WIDTH / 2;
-		area.height = 50;
+		area.height = 51;
 		break;
 	}
 }
 
 void Floor::Draw()
 {
-	DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0xffffff, FALSE);
+	switch (type)
+	{
+	case FLOOR:
+		break;
+
+	case SKYFLOOR1:
+		DrawGraphF(-306, location.y, ImageManager::GetHandle("Stage/Main Floor1.png"), TRUE);
+		break;
+
+	case SKYFLOOR2:
+		DrawGraphF(location.x, location.y, ImageManager::GetHandle("Stage/Main Floor1.png"), TRUE);
+		break;
+
+	case SKYFLOOR3:
+		DrawGraphF(location.x, location.y, ImageManager::GetHandle("Stage/Main Floor2.png"), TRUE);
+		break;
+	}
+	//DrawBoxAA(location.x, location.y, location.x + area.width, location.y + area.height, 0xffffff, FALSE);
 }

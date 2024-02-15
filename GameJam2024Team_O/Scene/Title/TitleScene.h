@@ -12,8 +12,12 @@ class TitleScene :
     public SceneBase
 {
 private:
+    int fpsCnt;
+    int imageCnt;
     int cursorNum;
     int interval;
+
+    bool isSelect;
 
     Cursor location;
 public:
