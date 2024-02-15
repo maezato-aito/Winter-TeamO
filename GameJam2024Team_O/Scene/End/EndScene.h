@@ -5,6 +5,8 @@ class EndScene :
     public SceneBase
 {
 private:
+    int Timer;
+    int TimerCount;
 
 public:
     //コンストラクタ
