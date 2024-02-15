@@ -7,6 +7,7 @@
 
 TitleScene::TitleScene()
 {
+
 	cursorNum = 0;
 	interval = 0;
 
