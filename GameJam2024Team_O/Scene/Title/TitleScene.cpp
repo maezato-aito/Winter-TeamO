@@ -12,6 +12,8 @@ TitleScene::TitleScene()
 	ImageManager::SetImage("Stage/Start Stage1.png");
 	ImageManager::SetImage("Stage/Start Stage2.png");
 	ImageManager::SetImage("UI/Pin.png");
+	SoundManager::SetSE("CursorMove.mp3");
+	SoundManager::SetSE("Botton.mp3");
 
 	fpsCnt = 0;
 	imageCnt = 0;
@@ -54,6 +56,8 @@ SceneBase* TitleScene::Update()
 
 	if ((KeyInput::GetKey(KEY_INPUT_W) || PadInput::GetLStickRationY1() > 0.2) && interval >= 15)
 	{
+		SoundManager::PlaySoundSE(Cursormove);
+
 		cursorNum--;
 		interval = 0;
 
