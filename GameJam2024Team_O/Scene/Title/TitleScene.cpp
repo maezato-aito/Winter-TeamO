@@ -12,6 +12,8 @@ TitleScene::TitleScene()
 	ImageManager::SetImage("Stage/Start Stage1.png");
 	ImageManager::SetImage("Stage/Start Stage2.png");
 	ImageManager::SetImage("UI/Pin.png");
+	SoundManager::SetSE("CursorMove.mp3");
+	SoundManager::SetSE("Botton.mp3");
 
 	fpsCnt = 0;
 	imageCnt = 0;
@@ -54,6 +56,8 @@ SceneBase* TitleScene::Update()
 
 	if ((KeyInput::GetKey(KEY_INPUT_W) || PadInput::GetLStickRationY1() > 0.2) && interval >= 15)
 	{
+		SoundManager::PlaySoundSE(Cursormove);
+
 		cursorNum--;
 		interval = 0;
 
@@ -130,6 +134,8 @@ void TitleScene::Draw() const
 		DrawGraph(0, 0, ImageManager::GetHandle("Stage/Start Stage2.png"), TRUE);
 	}
 	//カーソル
+	
+
 	DrawRotaGraph(480, 400 + location.y, 0.2, 0.78, ImageManager::GetHandle("UI/Pin.png"), TRUE);
 
 	DrawStringToHandle(SCREEN_WIDTH / 2 - 100, 380, "スタート", 0xffffff, FontManager::GetHandle(32), 0x000000);
