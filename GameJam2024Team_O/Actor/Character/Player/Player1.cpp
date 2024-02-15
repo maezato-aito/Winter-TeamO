@@ -8,6 +8,11 @@ Player1::Player1()
 	ImageManager::SetImage(WALK2_1);
 	ImageManager::SetImage(JUMP_1);
 	ImageManager::SetImage(STUN_1);
+	SoundManager::SetSE("Damage.mp3");
+	SoundManager::SetSE("Jump.mp3");
+
+	SoundManager::SetVolumeSE(Damage, 255);
+	SoundManager::SetVolumeSE(Jump, 255);
 
 	location.x = SCREEN_WIDTH / 4;
 	location.y = STAGE_FLOOR - 80.f;
@@ -88,6 +93,7 @@ void Player1::Movement()
 	//ジャンプ
 	if ((KeyInput::GetKey(KEY_INPUT_SPACE) || KeyInput::GetKey(KEY_INPUT_W) || PadInput::OnButton1(XINPUT_BUTTON_A)) && jumpCount < 2 && !isStan && jumpCoolTimeCount <= 0)
 	{
+		SoundManager::PlaySoundSE(Jump,false);
 		vec.y = -JUMP_POWER;
 		isAir = true;
 		isLanding = false;
@@ -160,12 +166,12 @@ void Player1::Animation()
 
 	if (isStan)
 	{
-		animState = Stun;
+		animState = PlayerAnim::Stun;
 	}
 
 	if (stanCount < 0)
 	{
-		animState = Idle;
+		animState = PlayerAnim::Idle;
 	}
 
 	//右へ
@@ -178,9 +184,9 @@ void Player1::Animation()
 			if (animCnt % 10 == 0)
 			{
 				animState += 1;
-				if (animState > Walk2)
+				if (animState > PlayerAnim::Walk2)
 				{
-					animState = Walk1;
+					animState = PlayerAnim::Walk1;
 				}
 			}
 		}
@@ -195,9 +201,9 @@ void Player1::Animation()
 			if (animCnt % 10 == 0)
 			{
 				animState += 1;
-				if (animState > Walk2)
+				if (animState > PlayerAnim::Walk2)
 				{
-					animState = Walk1;
+					animState = PlayerAnim::Walk1;
 				}
 			}
 		}
@@ -207,14 +213,14 @@ void Player1::Animation()
 	{
 		if (!isAir && !isStan && isLanding)
 		{
-			animState = Idle;
+			animState = PlayerAnim::Idle;
 		}
 	}
 
 	//ジャンプ
 	if (!isLanding && !isStan)
 	{
-		animState = Jump;
+		animState = 3;
 	}
 }
 
@@ -277,6 +283,7 @@ void Player1::SetIsStan(const bool flg)
 	isStan = flg;
 	if (isStan)
 	{
+		SoundManager::PlaySoundSE(Damage);
 		stanCount = MAX_STAN_TIME;
 	}
 }

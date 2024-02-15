@@ -3,7 +3,7 @@
 
 #define Title "Title.mp3"
 #define Cursormove "CursorMove.mp3"
-#define Botton "Botton.mp3"
+#define Button "Button.mp3"
 
 struct Cursor
 {

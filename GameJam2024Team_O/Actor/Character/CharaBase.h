@@ -10,14 +10,17 @@
 
 class GameMainScene;
 
-enum Animation
+namespace PlayerAnim
 {
-	Idle = 0,
-	Walk1,
-	Walk2,
-	Jump,
-	Stun
-};
+	enum Animation
+	{
+		Idle = 0,
+		Walk1,
+		Walk2,
+		Jump,
+		Stun
+	};
+}
 
 struct Vector2D
 {

@@ -10,6 +10,11 @@ Player2::Player2()
 	ImageManager::SetImage(JUMP_2);
 	ImageManager::SetImage(STUN_2);
 
+	SoundManager::SetSE(Skill1_SE);
+	SoundManager::SetSE(Skill2_SE);
+
+	SoundManager::SetVolumeSE(Skill1_SE, 240);
+
 	location.x = (SCREEN_WIDTH / 2) + (SCREEN_WIDTH / 4);
 	location.y = SCREEN_HEIGHT / 2 + 10.f;
 
@@ -87,6 +92,7 @@ void Player2::Movement()
 	//ジャンプ
 	if ((KeyInput::GetKey(KEY_INPUT_UP) || PadInput::OnButton2(XINPUT_BUTTON_A)) && !isAir && jumpCoolTimeCount <= 0)
 	{
+		SoundManager::PlaySoundSE(Jump, false);
 		vec.y = -JUMP_POWER - (JUMP_POWER * GRAVITY) / 2.f;
 		isAir = true;
 	}
@@ -140,7 +146,7 @@ void Player2::Animation()
 
 	if (!isShotSkill1)
 	{
-		animState = Stun;
+		animState = PlayerAnim::Stun;
 	}
 
 	//右へ
@@ -153,9 +159,9 @@ void Player2::Animation()
 			if (animCnt % 10 == 0)
 			{
 				animState += 1;
-				if (animState > Walk2)
+				if (animState > PlayerAnim::Walk2)
 				{
-					animState = Walk1;
+					animState = PlayerAnim::Walk1;
 				}
 			}
 		}
@@ -170,9 +176,9 @@ void Player2::Animation()
 			if (animCnt % 10 == 0)
 			{
 				animState += 1;
-				if (animState > Walk2)
+				if (animState > PlayerAnim::Walk2)
 				{
-					animState = Walk1;
+					animState = PlayerAnim::Walk1;
 				}
 			}
 		}
@@ -182,14 +188,14 @@ void Player2::Animation()
 	{
 		if (!isAir && isShotSkill1)
 		{
-			animState = Idle;
+			animState = PlayerAnim::Idle;
 		}
 	}
 
 	//ジャンプ
 	if (isAir)
 	{
-		animState = Jump;
+		animState = 3;
 	}
 }
 
@@ -300,6 +306,7 @@ void Player2::Skill(GameMainScene* game)
 	{
 		if (PadInput::OnButton2(XINPUT_BUTTON_B) || KeyInput::GetKey(KEY_INPUT_RSHIFT))
 		{
+			SoundManager::PlaySoundSE(Skill1_SE);
 			SK->SKshoot(game);
 			skill1Count = 0;
 			isShotSkill1 = false;

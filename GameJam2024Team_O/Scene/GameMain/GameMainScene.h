@@ -12,6 +12,8 @@
 
 #define STAGE "Stage/Main Stage.png"
 #define Gamemain "GameMain.mp3"
+#define Coin "Coin.mp3"
+#define Gemamain_end "GameMain_End.mp3"
 
 #define MAX_ITEM    10
 
