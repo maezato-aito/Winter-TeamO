@@ -212,7 +212,7 @@ void Player2::Collision(GameMainScene* game)
 				GetMax().y>enemyMaxY)
 			{
 				location.y = enemyMaxY;
-				vec.y = 10.f;
+				vec.y = 0.f;
 			}
 
 			//‘Šè‚æ‚è‰º‚Ös‚¯‚È‚¢
@@ -220,7 +220,7 @@ void Player2::Collision(GameMainScene* game)
 				GetMin().y < enemyMinY)
 			{
 				location.y = enemyMinY - enemyHeigh;
-				vec.y = -10.f;
+				vec.y = 0.f;
 			}
 		}
 

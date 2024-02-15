@@ -42,7 +42,7 @@ BonusBox::BonusBox(int& i, int patern)
 	area.height = 100;
 
 	fpsCnt = 0;
-	Count = 0.0f;
+	Count = 1.0f;
 	CountFrame = 0;
 	effectAngle = 0.f;
 

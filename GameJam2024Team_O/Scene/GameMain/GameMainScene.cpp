@@ -5,6 +5,7 @@
 GameMainScene::GameMainScene()
 {
 	ImageManager::SetImage(STAGE);
+	ImageManager::SetImage("Stage/Main Stage1.png");
 
 	ui = new UI();
 	player1 = new Player1();
@@ -92,7 +93,6 @@ SceneBase* GameMainScene::Update()
 
 			if (item[i]->GetLocation().y > SCREEN_HEIGHT)
 			{
-				//item[i]->SetLocation({ item[i]->GetLocation().x, -3 });
 				delete item[i];
 				item[i] = nullptr;
 				Initialize();
@@ -122,6 +122,10 @@ SceneBase* GameMainScene::Update()
 void GameMainScene::Draw() const
 {
 	DrawGraph(0, 0, ImageManager::GetHandle(STAGE), TRUE);
+	DrawGraph(0, STAGE_FLOOR, ImageManager::GetHandle("Stage/Main Stage1.png"), TRUE);
+	DrawGraph(363, STAGE_FLOOR, ImageManager::GetHandle("Stage/Main Stage1.png"), TRUE);
+	DrawGraph(726, STAGE_FLOOR, ImageManager::GetHandle("Stage/Main Stage1.png"), TRUE);
+	DrawGraph(1089, STAGE_FLOOR, ImageManager::GetHandle("Stage/Main Stage1.png"), TRUE);
 
 	Ground();
 
