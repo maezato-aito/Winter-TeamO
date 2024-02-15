@@ -214,8 +214,8 @@ void Player2::Collision(GameMainScene* game)
 		if (GetMin().x<enemyMaxX - 10 && GetMax().x>enemyMinX + 10)
 		{
 			//‘Šè‚æ‚èã‚Ös‚¯‚È‚¢
-			if (GetMin().y < enemyMaxY &&
-				GetMax().y>enemyMaxY)
+			if (GetMin().y < enemyMaxY - 10 &&
+				GetMax().y>enemyMaxY + 10)
 			{
 				location.y = enemyMaxY;
 				vec.y = 10.f;
