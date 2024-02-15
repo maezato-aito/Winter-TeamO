@@ -7,6 +7,8 @@ GameMainScene::GameMainScene()
 	ImageManager::SetImage(STAGE);
 	ImageManager::SetImage("Stage/Main Stage1.png");
 	SoundManager::SetBGM("GameMain.mp3");
+	SoundManager::SetSE("Coin.mp3");
+	SoundManager::SetSE("GameMain_End.mp3");
 
 	ui = new UI();
 	player1 = new Player1();
@@ -94,6 +96,7 @@ SceneBase* GameMainScene::Update()
 				item[i]->Update(this);
 				if (item[i]->HitBox(player1) && !player1->GetIsStan())
 				{
+					SoundManager::PlaySoundSE(Coin,false);
 					ui->Count_Score(item[i]->GetScore());
 					delete item[i];
 					item[i] = nullptr;
@@ -112,6 +115,11 @@ SceneBase* GameMainScene::Update()
 
 	if (ui->Get_Timer() <= 0)
 	{
+		SoundManager::StopSoundBGM(Gamemain);
+		if (isOver != true)
+		{
+			SoundManager::PlaySoundSE(Gemamain_end);
+		}
 		isOver = true;
 	}
 

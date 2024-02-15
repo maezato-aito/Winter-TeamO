@@ -13,6 +13,9 @@
 
 #define MAX_STAN_TIME   FPS * 1.f   //ƒXƒ^ƒ“ŽžŠÔ
 
+#define Damage "Damage.mp3"
+#define Jump "Jump.mp3"
+
 class GameMainScene;
 
 class Player1 :

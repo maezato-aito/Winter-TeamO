@@ -5,6 +5,12 @@
 ResultScene::ResultScene(float score, float count)
 {
 	SoundManager::SetBGM("Result.mp3");
+	SoundManager::SetSE("Result1.mp3");
+	SoundManager::SetSE("Result2.mp3");
+
+	SoundManager::SetVolumeSE(Result1, 255);
+	SoundManager::SetVolumeSE(Result2, 255);
+
 	num = 0;
 
 	fpsCnt = 0.f;
@@ -30,11 +36,19 @@ SceneBase* ResultScene::Update()
 	}
 	else
 	{
+		if (num <= 2)
+		{
+			SoundManager::PlaySoundSE(Result1);
+		}
 		fpsCnt = 0.f;
 		if (num < 4)
 		{
 			num++;
 		}
+	}
+	if (num == 3)
+	{
+		SoundManager::PlaySoundSE(Result2);
 	}
 
 	if (num >= 4)

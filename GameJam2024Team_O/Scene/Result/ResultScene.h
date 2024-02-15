@@ -7,6 +7,9 @@
 #define Result "Result.mp3"
 #define Player "Player1.mp3"
 
+#define Result1 "Result1.mp3"
+#define Result2 "Result2.mp3"
+
 class ResultScene :
     public SceneBase
 {

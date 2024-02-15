@@ -13,7 +13,7 @@ TitleScene::TitleScene()
 	ImageManager::SetImage("Stage/Start Stage2.png");
 	ImageManager::SetImage("UI/Pin.png");
 	SoundManager::SetSE("CursorMove.mp3");
-	SoundManager::SetSE("Botton.mp3");
+	SoundManager::SetSE("Button.mp3");
 
 	fpsCnt = 0;
 	imageCnt = 0;
@@ -62,15 +62,16 @@ SceneBase* TitleScene::Update()
 			cursorNum--;
 			interval = 0;
 
-			if (cursorNum < 0)
-			{
-				cursorNum = 2;
-			}
-		}
-		else if ((KeyInput::GetKeyDown(KEY_INPUT_S) || PadInput::GetLStickRationY1() < -0.2) && interval >= 15)
+		if (cursorNum < 0)
 		{
-			cursorNum++;
-			interval = 0;
+			cursorNum = 2;
+		}
+	}
+	else if ((KeyInput::GetKeyDown(KEY_INPUT_S) || PadInput::GetLStickRationY1() < -0.2) && interval >= 15)
+	{
+		SoundManager::PlaySoundSE(Cursormove);
+		cursorNum++;
+		interval = 0;
 
 			if (cursorNum > 2)
 			{
@@ -86,6 +87,7 @@ SceneBase* TitleScene::Update()
 		{
 			isSelect = true;
 			SoundManager::StopSoundBGMs();
+			SoundManager::PlaySoundSE(Button);
 		}
 		if (imageCnt > 2)
 		{
@@ -98,6 +100,7 @@ SceneBase* TitleScene::Update()
 		if (PadInput::OnButton1(XINPUT_BUTTON_A) || KeyInput::GetKey(KEY_INPUT_SPACE))
 		{
 			isSelect = true;
+			SoundManager::PlaySoundSE(Button);
 		}
 		if (imageCnt > 2)
 		{
@@ -111,6 +114,7 @@ SceneBase* TitleScene::Update()
 		{
 			isSelect = true;
 			SoundManager::StopSoundBGMs();
+			SoundManager::PlaySoundSE(Button);
 		}
 		if (imageCnt > 2)
 		{

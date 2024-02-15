@@ -14,6 +14,9 @@
 #define MAX_SKILL_1_COOL_TIME   FPS * 1.7f      //スキル1のクールタイム
 #define MAX_SKILL_2_COOL_TIME   FPS * 20.f      //スキル2のクールタイム
 
+#define Skill1_SE "Shot.mp3"
+#define Skill2_SE "Skill2.mp3"
+
 class GameMainScene;
 class skill1;
 
