@@ -109,7 +109,7 @@ void BonusBox::Draw(int& i)
 
 void BonusBox::Count_Box(GameMainScene* Game)
 {
-	if (CountFrame < 100)
+	if (CountFrame < 80)
 	{
 		CountFrame++;
 	}
