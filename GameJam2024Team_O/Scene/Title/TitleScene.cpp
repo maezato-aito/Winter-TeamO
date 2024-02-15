@@ -7,7 +7,7 @@
 
 TitleScene::TitleScene()
 {
-
+	SoundManager::SetBGM("Title.mp3");
 	cursorNum = 0;
 	interval = 0;
 
@@ -21,6 +21,8 @@ TitleScene::~TitleScene()
 
 SceneBase* TitleScene::Update()
 {
+	SoundManager::PlaySoundBGM(Title);
+
 	location.y = cursorNum * 50;
 
 	if (interval < 15)
