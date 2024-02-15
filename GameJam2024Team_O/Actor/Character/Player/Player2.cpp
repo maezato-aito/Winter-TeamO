@@ -226,7 +226,7 @@ void Player2::Collision(GameMainScene* game)
 				GetMin().y < enemyMinY)
 			{
 				location.y = enemyMinY - enemyHeigh;
-				vec.y = 0.f;
+				vec.y = -10.f;
 				isLanding = true;
 				isAir = false;
 			}

@@ -113,7 +113,7 @@ SceneBase* GameMainScene::Update()
 		}
 	}
 
-	if (ui->Get_Timer() <= 40)
+	if (ui->Get_Timer() <= 0)
 	{
 		SoundManager::StopSoundBGM(Gamemain);
 		if (isOver != true)
@@ -141,11 +141,6 @@ void GameMainScene::Draw() const
 	DrawGraph(1089, STAGE_FLOOR, ImageManager::GetHandle("Stage/Main Stage1.png"), TRUE);
 
 	Ground();
-
-	for (int i = 0; i < 4; i++)
-	{
-		floor[i]->Draw();
-	}
 
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
@@ -187,7 +182,12 @@ void GameMainScene::Draw() const
 
 void GameMainScene::Ground() const
 {
-	DrawLine(0, STAGE_FLOOR, SCREEN_WIDTH, STAGE_FLOOR, 0xffffff);
+	//DrawLine(0, STAGE_FLOOR, SCREEN_WIDTH, STAGE_FLOOR, 0xffffff);
+
+	for (int i = 0; i < 4; i++)
+	{
+		floor[i]->Draw();
+	}
 }
 
 void GameMainScene::Initialize()

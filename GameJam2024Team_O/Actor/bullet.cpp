@@ -46,6 +46,7 @@ void bullet::MoveBullet(GameMainScene* game)
 {
 	if (game->GetPlayer2()->GetLocation().x < game->GetPlayer1()->GetLocation().x)
 	{
+		game->GetPlayer2()->SetIsReverse(false);
 		Speed = 15;
 	}
 	if (game->GetPlayer2()->GetLocation().x > game->GetPlayer1()->GetLocation().x)

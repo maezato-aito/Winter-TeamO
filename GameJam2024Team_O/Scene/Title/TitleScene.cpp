@@ -53,13 +53,14 @@ SceneBase* TitleScene::Update()
 			imageCnt++;
 		}
 	}
-
-	if ((KeyInput::GetKey(KEY_INPUT_W) || PadInput::GetLStickRationY1() > 0.2) && interval >= 15)
+	else
 	{
-		SoundManager::PlaySoundSE(Cursormove);
+		if ((KeyInput::GetKey(KEY_INPUT_W) || PadInput::GetLStickRationY1() > 0.2) && interval >= 15)
+		{
+			SoundManager::PlaySoundSE(Cursormove);
 
-		cursorNum--;
-		interval = 0;
+			cursorNum--;
+			interval = 0;
 
 		if (cursorNum < 0)
 		{
@@ -72,9 +73,10 @@ SceneBase* TitleScene::Update()
 		cursorNum++;
 		interval = 0;
 
-		if (cursorNum > 2)
-		{
-			cursorNum = 0;
+			if (cursorNum > 2)
+			{
+				cursorNum = 0;
+			}
 		}
 	}
 
