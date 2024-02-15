@@ -1,7 +1,7 @@
 #pragma once
 #include "../SceneBase.h"
 
-#define Title "BGM/Title.mp3"
+#define Title "Title.mp3"
 
 struct Cursor
 {
