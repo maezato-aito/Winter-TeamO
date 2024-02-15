@@ -128,7 +128,7 @@ void TitleScene::Draw() const
 		DrawGraph(0, 0, ImageManager::GetHandle("Stage/Start Stage2.png"), TRUE);
 	}
 	//カーソル
-	DrawTriangle(480, 400 + location.y, 450, 380 + location.y, 450, 420 + location.y, 0xffffff, TRUE);
+	DrawRotaGraph(480, 400 + location.y, 0.2, 0.78, ImageManager::GetHandle("UI/Pin.png"), TRUE);
 
 	DrawStringToHandle(SCREEN_WIDTH / 2 - 100, 380, "スタート", 0xffffff, FontManager::GetHandle(32), 0x000000);
 
