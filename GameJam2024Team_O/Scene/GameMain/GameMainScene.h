@@ -25,9 +25,10 @@ private:
     BonusBox* bonusbox[2];
     Floor* floor[4];
 
-    int Time;
+    int overTime;
 
     bool isObstacle;            //お邪魔画像を表示する？
+    bool isOver;                //終了する？
 
 public:
     //コンストラクタ

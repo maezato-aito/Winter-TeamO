@@ -25,9 +25,10 @@ GameMainScene::GameMainScene()
 			floor[i] = new Floor();
 		}
 	}
-	Time = 0;
+	overTime = 0;
 
 	isObstacle = false;
+	isOver = false;
 }
 
 GameMainScene::~GameMainScene()
@@ -75,8 +76,6 @@ SceneBase* GameMainScene::Update()
 		}
 
 	}
-
-	Time++;
 	
 	for (int i = 0; i < MAX_ITEM; i++)
 	{
@@ -102,9 +101,19 @@ SceneBase* GameMainScene::Update()
 			
 	}
 
-	if (ui->Get_Timer() <= BONUS_TIME)
+	if (ui->Get_Timer() <= 40)
 	{
-		/*return new ResultScene(ui->Count_Score(), );*/
+		isOver = true;
+	}
+
+	if (isOver)
+	{
+		overTime++;
+	}
+
+	if (overTime > FPS * 3)
+	{
+		return new ResultScene(ui->Get_Score(), bonusbox[0]->Get_Count() + bonusbox[1]->Get_Count());
 	}
 
 	return this;
@@ -148,7 +157,15 @@ void GameMainScene::Draw() const
 
 	ui->Draw();
 
-	DrawFormatStringToHandle(900, 40, 0xffffff, FontManager::GetHandle(32), "ボーナス倍率:%0.f\n", bonusbox[0]->Get_Count() + bonusbox[1]->Get_Count());
+	DrawFormatStringToHandle(864, 40, 0xffffff, FontManager::GetHandle(32), "ボーナス倍率:%0.f\n", bonusbox[0]->Get_Count() + bonusbox[1]->Get_Count());
+	DrawFormatStringToHandle(900, 80, 0xffffff, FontManager::GetHandle(32), "目標スコア:%0.f\n", QUOTA_SCORE);
+	if (isOver)
+	{
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
+		DrawBox(0, SCREEN_HEIGHT / 4, SCREEN_WIDTH, (SCREEN_HEIGHT / 2) + (SCREEN_HEIGHT / 4), 0x000000, TRUE);
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 128, SCREEN_HEIGHT / 2 - 64, 0xffffff, FontManager::GetHandle(128), "終了！\n");
+	}
 }
 
 void GameMainScene::Ground() const

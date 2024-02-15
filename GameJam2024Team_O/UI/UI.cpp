@@ -35,7 +35,7 @@ void UI::Draw()
 	{
 		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 10, 0, 0xff0000, FontManager::GetHandle(64), "%d\n", Timer);
 	}
-	DrawFormatStringToHandle(1010, 0, 0xffffff, FontManager::GetHandle(32), "スコア:%0.f", Score);
+	DrawFormatStringToHandle(974, 0, 0xffffff, FontManager::GetHandle(32), "スコア:%0.f", Score);
 }
 
 

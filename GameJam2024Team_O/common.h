@@ -11,6 +11,8 @@
 
 #define BONUS_TIME	50
 
+#define QUOTA_SCORE	100000.f
+
 #define _USE_MATH_DEFINES
 #include<math.h>
 

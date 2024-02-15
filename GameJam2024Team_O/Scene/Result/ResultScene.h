@@ -1,10 +1,6 @@
 #pragma once
 #include "../SceneBase.h"
 #include "../common.h"
-#include "PadInput.h"
-
-#include "../UI/UI.h"
-#include "../Actor/Item/BonusBox.h"
 
 #include "../Scene/Title/TitleScene.h"
 
@@ -12,15 +8,15 @@ class ResultScene :
     public SceneBase
 {
 private:
-    UI* ui;
-    BonusBox* BCount;
+    int num;
 
-    float DrawScore;
-    float DrawBoxCount;
+    float fpsCnt;
+    float score;
+    float bonusCount;
 
 public:
     //コンストラクタ
-    ResultScene();
+    ResultScene(float score, float bonusCnt);
 
     //デストラクタ
     ~ResultScene();
