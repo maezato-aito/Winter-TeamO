@@ -161,7 +161,7 @@ void GameMainScene::Draw() const
 
 	ui->Draw();
 
-	DrawFormatStringToHandle(864, 40, 0xffffff, FontManager::GetHandle(32), "ボーナス倍率:%0.f\n", bonusbox[0]->Get_Count() + bonusbox[1]->Get_Count());
+	DrawFormatStringToHandle(864, 40, 0xffffff, FontManager::GetHandle(32), "ボーナス倍率:%0.1f\n", bonusbox[0]->Get_Count() + bonusbox[1]->Get_Count());
 	DrawFormatStringToHandle(900, 80, 0xffffff, FontManager::GetHandle(32), "目標スコア:%0.f\n", QUOTA_SCORE);
 	if (isOver)
 	{

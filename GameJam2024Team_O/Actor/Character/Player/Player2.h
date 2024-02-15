@@ -11,7 +11,7 @@
 #define JUMP_2    "Player/Player2 Jump1.png"    //パス
 #define STUN_2    "Player/Player2 Motion3.png"  //パス
 
-#define MAX_SKILL_1_COOL_TIME   FPS * 1.5f      //スキル1のクールタイム
+#define MAX_SKILL_1_COOL_TIME   FPS * 1.7f      //スキル1のクールタイム
 #define MAX_SKILL_2_COOL_TIME   FPS * 20.f      //スキル2のクールタイム
 
 class GameMainScene;

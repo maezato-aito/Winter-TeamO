@@ -67,13 +67,13 @@ void ResultScene::Draw() const
 	{
 		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 200, 200, 0xffffff, FontManager::GetHandle(32), "獲得したスコア:%0.f", score);
 
-		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 164, 300, 0xffffff, FontManager::GetHandle(32), "ボーナス倍率:%0.f", bonusCount);
+		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 164, 300, 0xffffff, FontManager::GetHandle(32), "ボーナス倍率:%0.1f", bonusCount);
 	}
 	if (num == 3)
 	{
 		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 200, 200, 0xffffff, FontManager::GetHandle(32), "獲得したスコア:%0.f", score);
 
-		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 164, 300, 0xffffff, FontManager::GetHandle(32), "ボーナス倍率:%0.f", bonusCount);
+		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 164, 300, 0xffffff, FontManager::GetHandle(32), "ボーナス倍率:%0.1f", bonusCount);
 
 		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 131, 500, 0xffffff, FontManager::GetHandle(32), "合計スコア:%0.f", score * bonusCount);
 	}
@@ -81,7 +81,7 @@ void ResultScene::Draw() const
 	{
 		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 200, 200, 0xffffff, FontManager::GetHandle(32), "獲得したスコア:%0.f", score);
 
-		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 164, 300, 0xffffff, FontManager::GetHandle(32), "ボーナス倍率:%0.f", bonusCount);
+		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 164, 300, 0xffffff, FontManager::GetHandle(32), "ボーナス倍率:%0.1f", bonusCount);
 
 		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 131, 500, 0xffffff, FontManager::GetHandle(32), "合計スコア:%0.f", score * bonusCount);
 		

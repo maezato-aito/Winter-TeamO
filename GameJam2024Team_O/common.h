@@ -9,7 +9,7 @@
 
 #define STAGE_FLOOR	691
 
-#define BONUS_TIME	10
+#define BONUS_TIME	20
 
 #define QUOTA_SCORE	100000.f
 

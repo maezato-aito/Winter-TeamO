@@ -31,7 +31,7 @@ void Item::Initialize()
 
 	if(type==common)
 	{
-		score = 100;
+		score = 950;
 
 		//お金の当たり判定の確認
 		area.width = 54;
@@ -39,7 +39,7 @@ void Item::Initialize()
 	}
 	else if (type == rare)
 	{
-		score = 500;
+		score = 1350;
 
 		//金塊の当たり判定の確認
 		area.width = 54;

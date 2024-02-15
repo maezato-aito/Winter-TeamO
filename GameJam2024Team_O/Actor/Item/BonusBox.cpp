@@ -42,7 +42,7 @@ BonusBox::BonusBox(int& i, int patern)
 	area.height = 100;
 
 	fpsCnt = 0;
-	Count = 1.0f;
+	Count = 0.55f;
 	CountFrame = 0;
 	effectAngle = 0.f;
 
@@ -109,7 +109,7 @@ void BonusBox::Draw(int& i)
 
 void BonusBox::Count_Box(GameMainScene* Game)
 {
-	if (CountFrame < 30)
+	if (CountFrame < 100)
 	{
 		CountFrame++;
 	}
@@ -118,7 +118,7 @@ void BonusBox::Count_Box(GameMainScene* Game)
 		CountFrame = 0;
 		if (HitBox(Game->GetPlayer1()) && !Game->GetPlayer1()->GetIsStan())
 		{
-			Count++;
+			Count += 0.1f;
 		}
 	}
 }

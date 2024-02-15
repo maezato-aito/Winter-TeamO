@@ -11,7 +11,7 @@
 #define JUMP_1    "Player/Player1 Jump Motion1.png"
 #define STUN_1    "Player/Player1 Motion3.png"
 
-#define MAX_STAN_TIME   FPS * 0.85f   //スタン時間
+#define MAX_STAN_TIME   FPS * 1.f   //スタン時間
 
 class GameMainScene;
 
