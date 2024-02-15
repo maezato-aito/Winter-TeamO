@@ -225,7 +225,7 @@ void Player2::Collision(GameMainScene* game)
 			if (GetMax().y > enemyMinY &&
 				GetMin().y < enemyMinY)
 			{
-				location.y = enemyMinY - enemyHeigh;
+				location.y = enemyMinY - area.height;
 				vec.y = -10.f;
 				isLanding = true;
 				isAir = false;
@@ -246,7 +246,7 @@ void Player2::Collision(GameMainScene* game)
 			if (GetMax().x > enemyMinX &&
 				GetMin().x < enemyMinX)
 			{
-				location.x = enemyMinX - enemyWidth;
+				location.x = enemyMinX - area.width;
 				vec.x = -10.f;
 			}
 		}
