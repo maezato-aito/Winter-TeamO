@@ -40,6 +40,7 @@ void CharaBase::GroundCollision(GameMainScene* game, int arrayNum)
 				GetMax().y>enemyMaxY)
 			{
 				location.y = enemyMaxY;
+				vec.y = 10.f;
 			}
 
 			//‘Šè‚æ‚è‰º‚Ös‚¯‚È‚¢

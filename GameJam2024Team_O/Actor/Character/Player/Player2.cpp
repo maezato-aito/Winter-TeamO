@@ -205,7 +205,7 @@ void Player2::Collision(GameMainScene* game)
 		float enemyHeigh = game->GetPlayer1()->GetArea().height;
 		float enemyWidth = game->GetPlayer1()->GetArea().width;
 
-		if (GetMin().x<enemyMaxX - 5 && GetMax().x>enemyMinX + 5)
+		if (GetMin().x<enemyMaxX - 10 && GetMax().x>enemyMinX + 10)
 		{
 			//‘Šè‚æ‚èã‚Ös‚¯‚È‚¢
 			if (GetMin().y < enemyMaxY &&
@@ -221,6 +221,8 @@ void Player2::Collision(GameMainScene* game)
 			{
 				location.y = enemyMinY - enemyHeigh;
 				vec.y = 0.f;
+				isLanding = true;
+				isAir = false;
 			}
 		}
 

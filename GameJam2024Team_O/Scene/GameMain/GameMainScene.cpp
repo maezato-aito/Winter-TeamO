@@ -59,59 +59,60 @@ SceneBase* GameMainScene::Update()
 {
 	SoundManager::PlaySoundBGM(Gamemain);
 
-	ui->Update();
-
-	player1->Update(this);
-
-	player2->Update(this);
-
-	for (int i = 0; i < 4; i++)
+	if (isOver)
 	{
-		floor[i]->Update(i);
-		player1->GroundCollision(this, i);
-		player2->GroundCollision(this, i);
+		overTime++;
 	}
-
-	for (int i = 0; i < 2; i++)
+	else
 	{
-		if (bonusbox[i] != nullptr)
+		ui->Update();
+
+		player1->Update(this);
+
+		player2->Update(this);
+
+		for (int i = 0; i < 4; i++)
 		{
-			bonusbox[i]->Update(this);
+			floor[i]->Update(i);
+			player1->GroundCollision(this, i);
+			player2->GroundCollision(this, i);
 		}
 
-	}
-	
-	for (int i = 0; i < MAX_ITEM; i++)
-	{
-		if (item[i] != nullptr)
+		for (int i = 0; i < 2; i++)
 		{
-			item[i]->Update(this);
-			if (item[i]->HitBox(player1) && !player1->GetIsStan())
+			if (bonusbox[i] != nullptr)
 			{
-				ui->Count_Score(item[i]->GetScore());
-				delete item[i];
-				item[i] = nullptr;
-				Initialize();
+				bonusbox[i]->Update(this);
 			}
 
-			if (item[i]->GetLocation().y > SCREEN_HEIGHT)
+		}
+
+		for (int i = 0; i < MAX_ITEM; i++)
+		{
+			if (item[i] != nullptr)
 			{
-				delete item[i];
-				item[i] = nullptr;
-				Initialize();
+				item[i]->Update(this);
+				if (item[i]->HitBox(player1) && !player1->GetIsStan())
+				{
+					ui->Count_Score(item[i]->GetScore());
+					delete item[i];
+					item[i] = nullptr;
+					Initialize();
+				}
+
+				if (item[i]->GetLocation().y > SCREEN_HEIGHT)
+				{
+					delete item[i];
+					item[i] = nullptr;
+					Initialize();
+				}
 			}
 		}
-			
 	}
 
 	if (ui->Get_Timer() <= 40)
 	{
 		isOver = true;
-	}
-
-	if (isOver)
-	{
-		overTime++;
 	}
 
 	if (overTime > FPS * 3)

@@ -79,7 +79,7 @@ void BonusBox::Update(GameMainScene* Game)
 	if (isShow)
 	{
 		Count_Box(Game);
-		if (HitBox(Game->GetPlayer1()))
+		if (HitBox(Game->GetPlayer1()) && !Game->GetPlayer1()->GetIsStan())
 		{
 			isOpen = true;
 		}
@@ -116,7 +116,7 @@ void BonusBox::Count_Box(GameMainScene* Game)
 	else
 	{
 		CountFrame = 0;
-		if (HitBox(Game->GetPlayer1()))
+		if (HitBox(Game->GetPlayer1()) && !Game->GetPlayer1()->GetIsStan())
 		{
 			Count++;
 		}

@@ -93,17 +93,11 @@ void Player1::Movement()
 		isLanding = false;
 		jumpCount++;
 		//ジャンプのクールタイム必要なら入れる
-		//if (jumpCount >= 2)
-		//{
-		//	jumpCoolTimeCount = JUMP_COOL_TIME;
-		//}
+		if (jumpCount >= 2)
+		{
+			jumpCoolTimeCount = JUMP_COOL_TIME;
+		}
 	}
-
-	//ジャンプのクールタイム必要なら入れる
-	//if (jumpCoolTimeCount > 0)
-	//{
-	//	jumpCoolTimeCount--;
-	//}
 
 	//重力を加算
 	vec.y += GRAVITY;
@@ -145,6 +139,11 @@ void Player1::Movement()
 	if (isLanding)
 	{
 		jumpCount = 0;
+		//ジャンプのクールタイム必要なら入れる
+		if (jumpCoolTimeCount > 0)
+		{
+			jumpCoolTimeCount--;
+		}
 	}
 }
 
@@ -213,7 +212,7 @@ void Player1::Animation()
 	}
 
 	//ジャンプ
-	if (!isLanding)
+	if (!isLanding && !isStan)
 	{
 		animState = Jump;
 	}
@@ -231,7 +230,7 @@ void Player1::Collision(GameMainScene* game)
 		float enemyHeigh = game->GetPlayer2()->GetArea().height;
 		float enemyWidth = game->GetPlayer2()->GetArea().width;
 
-		if (GetMin().x<enemyMaxX - 5 && GetMax().x>enemyMinX + 5)
+		if (GetMin().x<enemyMaxX - 10 && GetMax().x>enemyMinX + 10)
 		{
 			//相手より上へ行けない
 			if (GetMin().y < enemyMaxY &&
@@ -247,6 +246,8 @@ void Player1::Collision(GameMainScene* game)
 			{
 				location.y = enemyMinY - enemyHeigh;
 				vec.y = 0.f;
+				isLanding = true;
+				isAir = false;
 			}
 		}
 		

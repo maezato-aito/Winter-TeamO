@@ -130,11 +130,11 @@ void TitleScene::Draw() const
 		DrawGraph(0, 0, ImageManager::GetHandle("Stage/Start Stage2.png"), TRUE);
 	}
 	//カーソル
-	DrawRotaGraph(480, 400 + location.y, 0.2, 0.78, ImageManager::GetHandle("UI/Pin.png"), TRUE);
+	DrawRotaGraph(490, 370 + location.y, 0.2, 0.78, ImageManager::GetHandle("UI/Pin.png"), TRUE);
 
-	DrawStringToHandle(SCREEN_WIDTH / 2 - 100, 380, "スタート", 0xffffff, FontManager::GetHandle(32), 0x000000);
+	DrawStringToHandle(SCREEN_WIDTH / 2 - 90, 350, "スタート", 0xffffff, FontManager::GetHandle(32), 0x000000);
 
-	DrawStringToHandle(SCREEN_WIDTH / 2 - 100, 430, "ヘルプ", 0xffffff, FontManager::GetHandle(32), 0x000000);
+	DrawStringToHandle(SCREEN_WIDTH / 2 - 90, 400, "ヘルプ", 0xffffff, FontManager::GetHandle(32), 0x000000);
 
-	DrawStringToHandle(SCREEN_WIDTH / 2 - 100, 480, "エンド", 0xffffff, FontManager::GetHandle(32), 0x000000);
+	DrawStringToHandle(SCREEN_WIDTH / 2 - 90, 450, "エンド", 0xffffff, FontManager::GetHandle(32), 0x000000);
 }
