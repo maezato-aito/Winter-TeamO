@@ -79,6 +79,7 @@ SceneBase* TitleScene::Update()
 		if (PadInput::OnButton1(XINPUT_BUTTON_A) || KeyInput::GetKey(KEY_INPUT_SPACE))
 		{
 			isSelect = true;
+			SoundManager::StopSoundBGMs();
 		}
 		if (imageCnt > 2)
 		{
@@ -103,6 +104,7 @@ SceneBase* TitleScene::Update()
 		if (PadInput::OnButton1(XINPUT_BUTTON_A) || KeyInput::GetKey(KEY_INPUT_SPACE))
 		{
 			isSelect = true;
+			SoundManager::StopSoundBGMs();
 		}
 		if (imageCnt > 2)
 		{
