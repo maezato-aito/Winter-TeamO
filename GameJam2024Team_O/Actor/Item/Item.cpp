@@ -28,22 +28,24 @@ void Item::Initialize()
 	{
 		SetType(rare);
 	}
+
 	if(type==common)
-		{
-			score=500;
+	{
+		score = 100;
 
 		//お金の当たり判定の確認
-			area.width = 54;
-			area.height = 62;
-		}
+		area.width = 54;
+		area.height = 62;
+	}
 	else if (type == rare)
 	{
-		score = 1000;
+		score = 500;
 
 		//金塊の当たり判定の確認
 		area.width = 54;
 		area.height = 60;
 	}
+
 	//出現させるX座標パターンを取得
 	float random_x = (float)(GetRand(10) * 105 + 40);
 	float random_y = (float)(GetRand(20) * 20);

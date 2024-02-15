@@ -85,7 +85,7 @@ void ResultScene::Draw() const
 
 		DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 131, 500, 0xffffff, FontManager::GetHandle(32), "合計スコア:%0.f", score * bonusCount);
 		
-		SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
 		DrawBox(0, SCREEN_HEIGHT / 4, SCREEN_WIDTH, (SCREEN_HEIGHT / 2) + (SCREEN_HEIGHT / 4), 0x000000, TRUE);
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 		if (QUOTA_SCORE < score * bonusCount)
