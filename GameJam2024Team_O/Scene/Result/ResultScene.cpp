@@ -89,5 +89,6 @@ void ResultScene::Draw() const
 		{
 			DrawFormatStringToHandle(SCREEN_WIDTH / 2 - 300, SCREEN_HEIGHT / 2 - 32, 0xffffff, FontManager::GetHandle(64), "プレイヤー2の勝利！\n");
 		}
+		DrawFormatStringToHandle(SCREEN_WIDTH - 470, SCREEN_HEIGHT - 32, 0xffffff, FontManager::GetHandle(32), "Aボタンを押してください\n");
 	}
 }

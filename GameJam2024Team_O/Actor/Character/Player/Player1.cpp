@@ -246,7 +246,7 @@ void Player1::Collision(GameMainScene* game)
 				GetMin().y < enemyMinY)
 			{
 				location.y = enemyMinY - enemyHeigh;
-				vec.y = -10.f;
+				vec.y = 0.f;
 			}
 		}
 		

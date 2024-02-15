@@ -212,7 +212,7 @@ void Player2::Collision(GameMainScene* game)
 				GetMax().y>enemyMaxY)
 			{
 				location.y = enemyMaxY;
-				vec.y = 0.f;
+				vec.y = 10.f;
 			}
 
 			//‘Šè‚æ‚è‰º‚Ös‚¯‚È‚¢
