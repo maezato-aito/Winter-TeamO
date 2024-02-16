@@ -17,6 +17,7 @@
     <ClCompile Include="Actor\Skyfloor\Floor.cpp" />
     <ClCompile Include="Scene\Help\HelpScene.cpp" />
     <ClCompile Include="Actor\Character\CharaBase.cpp" />
+    <ClCompile Include="Utility\FontManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -53,6 +54,7 @@
     <ClInclude Include="Scene\End\EndScene.h" />
     <ClInclude Include="Actor\Skyfloor\Floor.h" />
     <ClInclude Include="Scene\Help\HelpScene.h" />
+    <ClInclude Include="Utility\FontManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\bullet.h" />

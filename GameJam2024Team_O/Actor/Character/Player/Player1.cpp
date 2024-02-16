@@ -73,7 +73,7 @@ void Player1::Movement()
 	{
 		if (vec.x < MAX_SPEED)
 		{
-			vec.x += 2.f;
+			vec.x += 3.f;
 		}
 	}
 	//ç∂Ç÷à⁄ìÆ
@@ -81,7 +81,7 @@ void Player1::Movement()
 	{
 		if (vec.x > -MAX_SPEED)
 		{
-			vec.x -= 2.f;
+			vec.x -= 3.f;
 		}
 	}
 	//í‚é~
