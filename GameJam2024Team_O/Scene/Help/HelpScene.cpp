@@ -6,7 +6,8 @@
 
 HelpScene::HelpScene()
 {
-	ImageManager::SetImage("Scene/helpimg.png");
+	ImageManager::SetImage("Scene/helpimg/スライド1.PNG");
+	ImageManager::SetImage("Scene/helpimg/スライド2.PNG");
 }
 
 HelpScene::~HelpScene()
@@ -25,5 +26,5 @@ SceneBase* HelpScene::Update()
 
 void HelpScene::Draw() const
 {
-	DrawRotaGraph(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 1, 0, ImageManager::GetHandle("Scene/helpimg.png"), TRUE);
+	DrawRotaGraph(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 1, 0, ImageManager::GetHandle("Scene/helpimg/スライド1.PNG"), TRUE);
 }

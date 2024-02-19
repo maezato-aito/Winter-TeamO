@@ -1,5 +1,5 @@
 #include "bullet.h"
-#include"../../common.h"
+#include"../common.h"
 #include "../Scene/GameMain/GameMainScene.h"
 
 bullet::bullet()
