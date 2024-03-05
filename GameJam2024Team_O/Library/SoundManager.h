@@ -8,11 +8,14 @@ class SoundManager
 private:
 	static SoundManager* manager;			//オブジェクト
 
+	std::string directoryPathBGM;			//BGMのディレクトリ
+	std::string directoryPathSE;			//SEのディレクトリ
+
 	std::map<std::string, int>bgm;			//連想配列bgm
 	std::map<std::string, int>se;			//連想配列se
 public:
 	//コンストラクタ
-	SoundManager() {};
+	SoundManager() :directoryPathBGM("Resource/Sounds/BGM/"), directoryPathSE("Resource/Sounds/SE/") {};
 
 	//デストラクタ
 	~SoundManager() {};
@@ -22,6 +25,14 @@ public:
 
 	//SoundManagerの削除
 	static void DeleteSoundManager();
+
+	//BGMのディレクトリを設定する
+	//＊デフォルトは"Resource/Sounds/BGM/"
+	static void SetDirectoryPathBGM(const char fileName);
+
+	//SEのディレクトリを設定する
+	//＊デフォルトは"Resource/Sounds/SE/"
+	static void SetDirectoryPathSE(const char fileName);
 
 	//連想配列に格納されたBGMのサウンドハンドルを取得する
 	static int GetBGMHandle(const char* fileName) { return manager->bgm[fileName]; }
